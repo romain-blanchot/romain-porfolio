@@ -78,10 +78,8 @@ export function CookieConsent() {
     // Ici, vous pourriez implémenter la logique pour activer/désactiver les services
     // en fonction des préférences de l'utilisateur
     if (prefs.analytics) {
-      // Activer Google Analytics et PostHog
       console.log("Analytics activé")
     } else {
-      // Désactiver Google Analytics et PostHog
       console.log("Analytics désactivé")
     }
 
@@ -234,9 +232,6 @@ export function CookieConsent() {
                   <div className="bg-muted p-4 rounded-md">
                     <p className="text-sm mb-2">
                       <strong>Google Analytics 4</strong> - {t("cookie-consent.analytics.ga4")}
-                    </p>
-                    <p className="text-sm mb-2">
-                      <strong>PostHog</strong> - {t("cookie-consent.analytics.posthog")}
                     </p>
                     <p className="text-sm mb-2">
                       <strong>Vercel Analytics</strong> - {t("cookie-consent.analytics.vercel")}

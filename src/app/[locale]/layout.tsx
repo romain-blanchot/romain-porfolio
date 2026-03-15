@@ -14,7 +14,6 @@ import { ReactNode } from 'react'
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { PostHogProvider } from "@/app/providers";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/landingPage/theme-provider";
 import { organizationSchema, personSchema, webSiteSchema } from "@/components/schema-dts";
@@ -116,8 +115,7 @@ export default async function RootLayout({
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
        
     <I18nProviderClient locale={locale}>
-    <PostHogProvider>
-    <MyStatsig>   
+    <MyStatsig>
       <Header />
         <main  className="min-h-screen bg-background overflow-x-hidden mb-10">
           {children}
@@ -127,7 +125,6 @@ export default async function RootLayout({
         </main>
       <Footer params={params} />
       </MyStatsig>
-      </PostHogProvider>
     </I18nProviderClient>
 
 </ThemeProvider>

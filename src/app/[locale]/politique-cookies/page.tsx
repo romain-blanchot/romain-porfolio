@@ -164,14 +164,6 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
                 </tr>
                 <tr>
                   <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
-                    {t("politique-cookies.table.3.3.row2.purpose")}
-                  </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.duration")}</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row3.name")}</td>
                   <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row3.provider")}</td>
                   <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
                     {t("politique-cookies.table.3.3.row3.purpose")}
@@ -257,29 +249,12 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
             <p>
               {t("politique-cookies.section.4.3.p2")}{" "}
               <a
-                href="https://posthog.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                {t("politique-cookies.section.4.3.link")}
-              </a>
-              .
-            </p>
-
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.4.4.title")}</h3>
-            <p>
-              {t("politique-cookies.section.4.4.p1")}
-            </p>
-            <p>
-              {t("politique-cookies.section.4.4.p2")}{" "}
-              <a
                 href="https://resend.com/legal/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                {t("politique-cookies.section.4.4.link")}
+                {t("politique-cookies.section.4.3.link")}
               </a>
               .
             </p>
@@ -324,11 +299,6 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
                 {t("politique-cookies.section.5.2.link")}
               </a>
               .
-            </p>
-            <p>
-              {t("politique-cookies.section.5.2.p2")}{" "}
-              <code>{t("politique-cookies.section.5.2.code")}</code>
-              {" "}{t("politique-cookies.section.5.2.p3")}
             </p>
 
             <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.5.3.title")}</h3>
