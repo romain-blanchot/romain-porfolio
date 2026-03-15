@@ -1,132 +1,78 @@
-# Romain Blanchot Porfolio
+# romainblanchot.com
 
 | | |
 | --- | --- |
-| CI/CD | [![CI](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/ci.yml/badge.svg)](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/ci.yml) [![CD](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/cd.yml/badge.svg)](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/cd.yml) [![Release](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/release.yml/badge.svg)](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/release.yml) |
-| Docs | [![Docs](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/docs.yml/badge.svg)](https://github.com/romain-blanchot/montecarlo-portfolio-risk-gpu/actions/workflows/docs.yml) |
-| Quality | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=coverage)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) |
-| Metrics | [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=bugs)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_montecarlo-portfolio-risk-gpu&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_montecarlo-portfolio-risk-gpu) |
-| Meta | [![Hatch project](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/pypa/hatch/master/docs/assets/badge/v0.json)](https://github.com/pypa/hatch) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![types - Mypy](https://img.shields.io/badge/types-Mypy-blue.svg)](https://github.com/python/mypy) [![Python 3.13+](https://img.shields.io/badge/Python-3.13%2B-blue?logo=python&logoColor=white)](https://www.python.org/) [![CUDA](https://img.shields.io/badge/CUDA-supported-76B900?logo=nvidia&logoColor=white)](#benchmarks) [![License - BSD 3](https://img.shields.io/badge/License-BSD_3-yellow.svg)](./LICENSE) |
+| CI/CD | [![CI](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/ci.yml) [![Release](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/release.yml/badge.svg)](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/release.yml) [![Vercel](https://img.shields.io/badge/Vercel-deployed-000?logo=vercel&logoColor=white)](https://romainblanchot.com) |
+| Quality | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=coverage)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) |
+| Metrics | [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=bugs)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) |
+| Meta | [![Next.js 15](https://img.shields.io/badge/Next.js-15-000?logo=nextdotjs&logoColor=white)](https://nextjs.org/) [![React 19](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/) [![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/) [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/) [![License - MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) |
 
+Portfolio personnel et site vitrine de **Romain Blanchot** -- ingenieur logiciel freelance.
 
-Portolio Romain
+## Stack technique
 
+- **Framework** -- Next.js 15 (App Router, Turbopack)
+- **Langage** -- TypeScript 5
+- **UI** -- React 19, Tailwind CSS 3, Shadcn/ui, Framer Motion
+- **i18n** -- next-international (FR / EN)
+- **Email** -- Resend + React Email
+- **Validation** -- Zod + React Hook Form
+- **Analytics** -- Vercel Analytics & Speed Insights
+- **Tests** -- Vitest, React Testing Library, Playwright, MSW
+- **CI/CD** -- GitHub Actions, Vercel, SonarCloud
+- **Versioning** -- Release Please (Conventional Commits)
 
-- framer motion (animations)
-- hyperui dev (components) (nop)
-- radix ui (colors)
-- shadcn ui (components)
-- realtime colors (fonts)
-- nextinternationnalization (i18n)
+## Structure du projet
 
+```
+src/
+├── app/[locale]/          # Pages (App Router + i18n)
+│   ├── actions/           # Server Actions (newsletter, formulaire projet)
+│   ├── page.tsx           # Homepage
+│   ├── mes-projets/       # Projets
+│   ├── mes-competences/   # Competences
+│   ├── mes-services/      # Services
+│   ├── a-propos/          # A propos
+│   ├── me-contacter/      # Contact
+│   └── demarrer-votre-projet/ # Formulaire devis
+├── components/            # Composants React
+│   ├── ui/                # Shadcn/ui
+│   └── email/             # Templates React Email
+├── lib/                   # Utilitaires, schemas Zod
+└── locales/               # Traductions FR/EN
+tests/
+├── unit/                  # Tests unitaires (Vitest)
+├── integration/           # Tests d'integration (Vitest + MSW)
+├── e2e/                   # Tests E2E (Playwright)
+└── mocks/                 # MSW handlers
+```
 
-reflexion de design
-- animation rapide et fluide
-- darkmode et lightmode
-- ui/ux moderne avec des call to actions
-- mobile first, puis avec md et lg 
+## Demarrage rapide
 
-Devise
+```bash
+# Installation
+pnpm install
 
-icon pour les stack 
-3 projets principaux avec des icons 
+# Developpement
+pnpm dev
 
-Résumé
-- header
-- hero section
-- section skill
-- section project
-- section about
-- section contact
+# Build production
+pnpm build
 
-header : 
-- bar de navigation avec les liens
-- bouton pour le darkmode et le lightmode
-- selection des langues (francais anglais germain spanish)
+# Tests
+pnpm test              # Unit + integration
+pnpm test:coverage     # Avec couverture
+pnpm test:e2e          # E2E (Playwright)
+```
 
-hero section : 
-- ma photo de profil en rond 
-- nom et prénom
-*résoudre vos problèmes et créer de la valeur*
-- liste des liens importants :
-    - github
-    - linkedin
-    - instagram
-    - mail
+## Variables d'environnement
 
+Copier `.env.example` vers `.env` et renseigner :
 
-- fleche qui tourne en rond pour pointer vers le cta
-- call to action : prendre rendez vous 
+```
+RESEND_API_KEY=""
+```
 
+## License
 
-section skill : 
-- categorie de skill :
-    - icone du skill
-    - nom du skill
-
-- nextjs, ts, html/css, 
-
-
-Développement Web : HTML/CSS, Tailwind CSS, JavaScript, React.js , Nextjs
-Langages de Programmation : C/C++ avec Boost, Java 
-Ai : integration et maitrise de l'ia et des agent ia !
-Administration Système & DevOps : Linux, Docker, Nginx, Git & Github
-Base de Données : SQL, SQLPlus, PostgreSQL, Oracle , Redis 
-
-
-
-section project : 
- 
-- big project à mettre en avant => Hotel La Louisiane
-Développement d’un booking engine avec Next.js & Tailwind CSS, interface d’administration complète pour la gestion des
-réservations et tarifs, intégration d’animations Framer Motion et système de génération automatique de devis PDF.
-
-
-- 2 autres projects :
-Outil d’Extraction de Données
-Système d’extraction automatisé avec Python et Selenium, pipeline ETL robuste avec PostgreSQL et déploiement Docker,
-interface utilisateur intuitive pour utilisateurs non-techniques.
-Infrastructure Distribuée 10 Serveurs Dell R620
-Infrastructure réseau hybride haute disponibilité, déploiement automatisé via PXE et iDRAC, architecture sécurisée avec
-VLAN et monitoring centralisé.
-Robot d’Arbitrage Cryptomonnaie
-Système de trading algorithmique utilisant Bellman-Ford pour la détection d’opportunités, intégration WebSocket avec
-Boost.Beast et architecture multi-thread optimisée pour les performances.
-
-
-section about : 
-
-etudiant ingenieur autodidacte je suis tomber amoureux de l'ingenierie informatique et de la programmation ...
-
-
-
-
-pour plus tard:: rss
-import { NextResponse } from 'next/server';
-import { Feed } from 'feed';
-
-export async function GET() {
-  const feed = new Feed({
-    title: 'Talleyrand1000 - Portfolio',
-    description: 'Suivez mes projets et articles',
-    id: 'https://talleyrand1000.com/',
-    link: 'https://talleyrand1000.com/',
-    language: 'fr',
-    image: 'https://talleyrand1000.com/logo.png',
-    favicon: 'https://talleyrand1000.com/favicon.ico',
-    copyright: `© ${new Date().getFullYear()} Talleyrand1000`,
-  });
-
-  // Ajoute des articles au flux (remplace par tes données dynamiques)
-  feed.addItem({
-    title: 'Mon dernier projet',
-    id: 'https://talleyrand1000.com/projet-1',
-    link: 'https://talleyrand1000.com/projet-1',
-    description: 'Découvrez mon nouveau projet incroyable !',
-    date: new Date(),
-  });
-
-  return new NextResponse(feed.rss2(), {
-    headers: { 'Content-Type': 'application/rss+xml' },
-  });
-}
+[MIT](./LICENSE) -- Romain Blanchot
