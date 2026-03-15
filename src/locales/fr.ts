@@ -673,7 +673,7 @@ export default {
 
     "metadata.layout.title": "Romain Blanchot - Ingénieur Full Stack & Automatisation",
     "metadata.layout.description": "Ingénieur Full Stack Freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives !",
-    "metadata.layout.keywords": ["développeur web", "developpeur full stack", "developpeur freelance", "Next.js", "React", "full-stack", "IA", "applications web", "automatisation", "web app", "solution end-to-end", "cloud", "docker", "git", "postgtresql", "typescript"],
+    "metadata.layout.keywords": "développeur web, developpeur full stack, developpeur freelance, Next.js, React, full-stack, IA, applications web, automatisation, web app, solution end-to-end, cloud, docker, git, postgresql, typescript",
     "metadata.layout.category": "technologie, portfolio, programmation, automatisation, entreprise",
     "metadata.layout.openGraph.title": "Romain Blanchot - Ingénieur Full Stack & Automatisation",
     "metadata.layout.openGraph.description": "Ingénieur Full Stack Freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives !",

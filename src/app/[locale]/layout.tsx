@@ -1,5 +1,5 @@
 // app/[locale]/layout.tsx
-import { I18nProviderClient } from '../../locales/client'
+import { I18nProviderClient } from '@/locales/client'
 import Header from '@/components/landingPage/header'
 import Footer from '@/components/landingPage/footer'
 import { CookieConsent } from "@/components/cookie-consent"
@@ -9,7 +9,7 @@ import { Toaster } from "@/components/ui/sonner"
 import type { Metadata } from "next";
 
 import { getI18n, getStaticParams } from "@/locales/server";
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
@@ -27,12 +27,9 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });  
 
 
-
 export function generateStaticParams() {
   return getStaticParams();
 }
-
-
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> },
@@ -49,23 +46,7 @@ export async function generateMetadata(
       template: "%s | " + t("metadata.layout.title"),
     },
     description: t("metadata.layout.description"),
-    keywords: [
-      t("metadata.layout.keywords.0"),
-      t("metadata.layout.keywords.1"),
-      t("metadata.layout.keywords.2"),
-      t("metadata.layout.keywords.3"),
-      t("metadata.layout.keywords.4"),
-      t("metadata.layout.keywords.5"),
-      t("metadata.layout.keywords.6"),
-      t("metadata.layout.keywords.7"),
-      t("metadata.layout.keywords.8"),
-      t("metadata.layout.keywords.9"),
-      t("metadata.layout.keywords.10"),
-      t("metadata.layout.keywords.11"),
-      t("metadata.layout.keywords.12"),
-      t("metadata.layout.keywords.13"),
-      t("metadata.layout.keywords.14")
-    ],
+    keywords: t("metadata.layout.keywords").split(", "),
     authors: [{ name: "Romain Blanchot" }],
     creator: "Romain Blanchot", 
     category: t("metadata.layout.category"),
@@ -122,7 +103,7 @@ export default async function RootLayout({
    params, 
    children }: {
      params: Promise<{ locale: string }>, 
-     children: ReactElement }) {
+     children: ReactNode }) {
 
   const { locale } = await params
   setStaticParamsLocale(locale);

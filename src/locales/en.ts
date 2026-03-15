@@ -665,7 +665,7 @@ export default {
 
   "metadata.layout.title": "Romain Blanchot - Full Stack Engineer & Automation",
   "metadata.layout.description": "Full Stack Freelance Engineer specializing in end-to-end solutions and AI integration. Create performant and scalable web applications!",
-  "metadata.layout.keywords": ["full stack developer", "freelance", "Next.js", "React", "full-stack", "AI", "web applications", "automation", "web app", "end-to-end solutions", "cloud", "docker", "git", "postgresql", "typescript"],
+  "metadata.layout.keywords": "full stack developer, freelance, Next.js, React, full-stack, AI, web applications, automation, web app, end-to-end solutions, cloud, docker, git, postgresql, typescript",
   "metadata.layout.category": "technology, portfolio, programming, automation, business",
   "metadata.layout.openGraph.title": "Romain Blanchot - Full Stack Engineer & Automation",
   "metadata.layout.openGraph.description": "Full Stack Freelance Engineer specializing in end-to-end solutions and AI integration. Create performant and scalable web applications!",
