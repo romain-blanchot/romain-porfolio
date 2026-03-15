@@ -139,8 +139,8 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-16 px-4 sm:px-8 lg:px-12 scroll-mt-8">
-      <div className="container">
+    <section id="projects" className="py-16 scroll-mt-8">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -20,9 +20,9 @@ export default async function Hero({ params }: { params: Promise<{ locale: strin
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-background py-10 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12 mt-10 "
+      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-background py-10 sm:py-16 lg:py-20 mt-10"
     >
-      <div className="container relative z-10">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left space-y-4 sm:space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">

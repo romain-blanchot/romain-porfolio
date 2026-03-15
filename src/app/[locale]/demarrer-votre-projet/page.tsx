@@ -15,7 +15,7 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
   const t = await getI18n()
   
   return (
-    <div className="container mx-auto px-4 py-8 pt-20 md:py-16 md:pt-20 max-w-full overflow-x-hidden">
+    <div className="container mx-auto px-4 py-8 pt-20 md:py-16 md:pt-20">
       <div className="text-center mb-8 md:mb-12">
         <h1 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">{t("start-project.title")}</h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">

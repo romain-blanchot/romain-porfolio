@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 export default function Loading() {
   return (
     <div className="pt-16 lg:pt-32 animate-in fade-in duration-500">
-      <section className="py-16 bg-muted/50 px-4 sm:px-8 lg:px-12 scroll-mt-8">
-        <div className="container">
+      <section className="py-16 bg-muted/50 scroll-mt-8">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12">
           <Skeleton className="h-12 w-64 mx-auto mb-12" />
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

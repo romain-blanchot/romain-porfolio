@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 export default function Loading() {
   return (
-    <div className="container mx-auto px-4 py-8 pt-20 md:py-16 md:pt-20 max-w-full overflow-x-hidden animate-in fade-in duration-500">
+    <div className="container mx-auto px-4 py-8 pt-20 md:py-16 md:pt-20 animate-in fade-in duration-500">
       <div className="text-center mb-8 md:mb-12">
         <Skeleton className="h-10 w-3/4 md:w-1/2 mx-auto mb-3 md:mb-4" />
         <Skeleton className="h-6 w-full max-w-2xl mx-auto" />

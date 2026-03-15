@@ -117,7 +117,7 @@ export default async function RootLayout({
     <I18nProviderClient locale={locale}>
     <MyStatsig>
       <Header />
-        <main  className="min-h-screen bg-background overflow-x-hidden mb-10">
+        <main className="min-h-screen bg-background mb-10">
           {children}
           <CookieConsent />
           <NewsletterPopup />

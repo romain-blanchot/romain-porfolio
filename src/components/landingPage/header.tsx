@@ -7,7 +7,7 @@ import { useI18n } from "@/locales/client"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Moon, Sun, Menu, X, Globe } from "lucide-react"
-import { useChangeLocale, useCurrentLocale } from '../../locales/client'
+import { useChangeLocale, useCurrentLocale } from '@/locales/client'
 
 
 export default function Header() {
@@ -45,8 +45,8 @@ export default function Header() {
   if (!mounted) return null
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 sm:px-8 lg:px-12">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex h-16 items-center justify-between">
         <Link href="/" className="font-bold text-xl">
           Romain
         </Link>
@@ -115,8 +115,8 @@ export default function Header() {
 
         {/* Mobile navigation */}
         {mobileMenuOpen && (
-          <div id="mobile-menu" className="absolute top-16 left-0 right-0 bg-background border-b md:hidden px-5">
-            <div className="container py-4 space-y-4">
+          <div id="mobile-menu" className="absolute top-16 left-0 right-0 bg-background border-b md:hidden">
+            <div className="container mx-auto px-4 py-4 space-y-4">
               <nav className="flex flex-col space-y-6 text-center ">
                 {navItems.map((item) => (
                   <Link

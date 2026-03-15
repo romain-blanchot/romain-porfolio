@@ -3,7 +3,6 @@
 import { projectFormSchema, ProjectFormSchema } from "@/lib/schema/schema.project-form"
 import { getI18n } from "@/locales/server"
 import { Resend } from "resend"
-import prisma from "@/lib/prisma"
 import { ProjectFormEmail } from "@/components/email/projectForm-Email"
 
 
@@ -21,73 +20,40 @@ export async function projectFormRequest(data: ProjectFormSchema) {
 
 
   try {
-    const existingProject = await prisma.projectForm.findFirst({
-      where: {
-        AND: [
-          { email: email },
-          { name: name },
-          { surname: surname },
-          { projectIdea: projectIdea },
-          { company: company },
-          { sector: sector },
-          { budget: budget },
-          { timeline: timeline },
-          { mainObjective: mainObjective },
-          { targetAudience: targetAudience },
-          { expectedResults: expectedResults }
-        ]
-      }
-    });
+    // TODO: Reconnecter la base de données pour vérifier les doublons et persister les demandes de projet
+    // const existingProject = await prisma.projectForm.findFirst({
+    //   where: {
+    //     AND: [
+    //       { email }, { name }, { surname }, { projectIdea },
+    //       { company }, { sector }, { budget }, { timeline },
+    //       { mainObjective }, { targetAudience }, { expectedResults }
+    //     ]
+    //   }
+    // });
+    // if (existingProject) {
+    //   return { success: false, message: "Un projet avec cet email existe déjà." };
+    // }
+    // await prisma.projectForm.create({
+    //   data: { email, name, surname, company, sector, budget, timeline,
+    //           mainObjective, projectIdea, targetAudience, expectedResults,
+    //           technicalPreferences, otherDetails },
+    // });
 
-    if (existingProject) {
-      return { success: false, message: "Un projet avec cet email existe déjà." };
-    }
-
-    // 🔹 Insérer dans la base de données
-    await prisma.projectForm.create({
-      data: { 
-        email: email,
-        name: name,
-        surname: surname,
-        company: company,
-        sector: sector,
-        budget: budget,
-        timeline: timeline,
-        mainObjective: mainObjective,
-        projectIdea: projectIdea,
-        targetAudience: targetAudience,
-        expectedResults: expectedResults,
-        technicalPreferences: technicalPreferences,
-        otherDetails: otherDetails
-      },
-    });
-
-    // 🔹 Envoyer un email de confirmation
     await resend.emails.send({
       from: "Devis Romain Blanchot <devis@romainblanchot.com>",
       to: parsed.data.email,
       subject: t("project-form.email.subject"),
       react: ProjectFormEmail({
-        email: email,
-        name: name,
-        surname: surname,
-        company: company,
-        sector: sector,
-        budget: budget,
-        timeline: timeline,
-        mainObjective: mainObjective,
-        projectIdea: projectIdea,
-        targetAudience: targetAudience,
-        expectedResults: expectedResults,
-        technicalPreferences: technicalPreferences,
-        otherDetails: otherDetails
+        email, name, surname, company, sector, budget, timeline,
+        mainObjective, projectIdea, targetAudience, expectedResults,
+        technicalPreferences, otherDetails
       }),
       replyTo: "romainblanchot0@gmail.com"
     });
 
     return { success: true, message: t("project-form.email.subject") };
   } catch (error) {
-    console.error("Newsletter subscription error:", error);
+    console.error("Project form error:", error);
     return { success: false, message: "Une erreur est survenue. Veuillez réessayer." };
   }
 }

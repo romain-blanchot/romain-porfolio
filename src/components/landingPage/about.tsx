@@ -9,8 +9,8 @@ export default function About() {
   const t = useI18n()
 
   return (
-    <section id="about" className="py-16 bg-muted/50 px-4 sm:px-8 lg:px-12 scroll-mt-8">
-      <div className="container">
+    <section id="about" className="py-16 bg-muted/50 scroll-mt-8">
+      <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

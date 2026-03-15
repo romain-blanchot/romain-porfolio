@@ -4,8 +4,8 @@ export default function Loading() {
   return (
     <div className="space-y-16 animate-in fade-in duration-500">
       {/* Hero Section Skeleton */}
-      <section className="relative py-10 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12 mt-10">
-        <div className="container relative z-10">
+      <section className="relative py-10 sm:py-16 lg:py-20 mt-10">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="text-center lg:text-left space-y-4 sm:space-y-6">
               <Skeleton className="h-14 w-3/4 mx-auto lg:mx-0" />
@@ -33,8 +33,8 @@ export default function Loading() {
       </section>
 
       {/* Services Section Skeleton */}
-      <section className="py-16 px-4 sm:px-8 lg:px-12">
-        <div className="container">
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12">
           <Skeleton className="h-12 w-64 mx-auto mb-10" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[...Array(3)].map((_, index) => (
@@ -45,8 +45,8 @@ export default function Loading() {
       </section>
 
       {/* Skills Section Skeleton */}
-      <section className="py-16 px-4 sm:px-8 lg:px-12 bg-muted/30">
-        <div className="container">
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-8 lg:px-12">
           <Skeleton className="h-12 w-64 mx-auto mb-10" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
             {[...Array(10)].map((_, index) => (
@@ -58,8 +58,8 @@ export default function Loading() {
 
       {/* Minimalistic Projects, About and Contact skeletons */}
       {[...Array(3)].map((_, index) => (
-        <section key={index} className="py-16 px-4 sm:px-8 lg:px-12">
-          <div className="container">
+        <section key={index} className="py-16">
+          <div className="container mx-auto px-4 sm:px-8 lg:px-12">
             <Skeleton className="h-12 w-64 mx-auto mb-10" />
             <div className="max-w-3xl mx-auto">
               <Skeleton className="h-96 rounded-lg" />
