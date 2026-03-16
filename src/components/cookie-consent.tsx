@@ -300,7 +300,7 @@ export function CookieConsent() {
       ) : (
         <div className="bg-background fixed right-0 bottom-0 left-0 z-50 border-t p-4 md:right-4 md:bottom-4 md:left-auto md:max-w-xs md:rounded-lg md:border md:shadow-lg">
           <div className="flex flex-col gap-3">
-            <p className="text-sm">{t("cookie-consent.banner.text")}</p>
+            <p className="pointer-events-none text-sm">{t("cookie-consent.banner.text")}</p>
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
                 <Button

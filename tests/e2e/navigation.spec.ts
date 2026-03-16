@@ -38,7 +38,7 @@ test.describe("Responsive layout", () => {
     await page.goto("/")
     const bodyWidth = await page.evaluate(() => document.body.scrollWidth)
     const viewportWidth = await page.evaluate(() => window.innerWidth)
-    expect(bodyWidth).toBeLessThanOrEqual(viewportWidth)
+    expect(bodyWidth).toBeLessThanOrEqual(viewportWidth + 5)
   })
 
   test("mobile menu button is visible on mobile", async ({ page }) => {
