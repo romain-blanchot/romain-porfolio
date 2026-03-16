@@ -3,12 +3,12 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card"
 
 export default function Loading() {
   return (
-    <div className="pt-10 animate-in fade-in duration-500">
-      <section className="py-16 scroll-mt-8">
+    <div className="animate-in fade-in pt-10 duration-500">
+      <section className="scroll-mt-8 py-16">
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-          <Skeleton className="h-12 w-64 mx-auto mb-12" />
+          <Skeleton className="mx-auto mb-12 h-12 w-64" />
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid gap-8 lg:grid-cols-2">
             {/* Informations de contact */}
             <div className="space-y-6">
               <Skeleton className="h-8 w-48" />
@@ -16,10 +16,10 @@ export default function Loading() {
 
               <div className="space-y-4">
                 {[...Array(2)].map((_, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-lg border">
+                  <div key={index} className="flex items-center gap-4 rounded-lg border p-4">
                     <Skeleton className="h-10 w-10 rounded-full" />
                     <div>
-                      <Skeleton className="h-5 w-24 mb-2" />
+                      <Skeleton className="mb-2 h-5 w-24" />
                       <Skeleton className="h-4 w-36" />
                     </div>
                   </div>
@@ -36,7 +36,7 @@ export default function Loading() {
             {/* Formulaire de projet */}
             <Card>
               <CardHeader>
-                <Skeleton className="h-6 w-48 mb-2" />
+                <Skeleton className="mb-2 h-6 w-48" />
                 <Skeleton className="h-4 w-full" />
               </CardHeader>
               <CardContent className="space-y-4">

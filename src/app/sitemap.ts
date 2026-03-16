@@ -1,7 +1,7 @@
-import type { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next"
 
 // Liste des langues prises en charge
-const LANGUAGES = ["fr", "en"];
+const LANGUAGES = ["fr", "en"]
 
 // Liste des pages statiques de ton site
 const STATIC_PAGES = [
@@ -14,20 +14,20 @@ const STATIC_PAGES = [
   "me-contacter",
   "politique-de-confidentialite",
   "politique-de-cookies",
-];
+]
 
 // Génération des entrées pour la sitemap
 export default function sitemap(): MetadataRoute.Sitemap {
-  const urls: MetadataRoute.Sitemap = [];
+  const urls: MetadataRoute.Sitemap = []
 
   STATIC_PAGES.forEach((page) => {
-    const urlFr = `https://www.romainblanchot.com${page ? `/${page}` : ""}`;
-    const urlEn = `https://www.romainblanchot.com/en${page ? `/${page}` : ""}`;
+    const urlFr = `https://www.romainblanchot.com${page ? `/${page}` : ""}`
+    const urlEn = `https://www.romainblanchot.com/en${page ? `/${page}` : ""}`
 
-    const alternates: Record<string, string> = {};
+    const alternates: Record<string, string> = {}
     LANGUAGES.forEach((lang) => {
-      alternates[lang] = lang === "fr" ? urlFr : urlEn;
-    });
+      alternates[lang] = lang === "fr" ? urlFr : urlEn
+    })
 
     urls.push({
       url: urlFr, // Page FR
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: page === "" ? 1 : 0.8, // Priorité plus haute pour la home
       alternates: { languages: alternates },
-    });
+    })
 
     urls.push({
       url: urlEn, // Page EN
@@ -43,12 +43,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.8,
       alternates: { languages: alternates },
-    });
-  });
+    })
+  })
 
-  return urls;
+  return urls
 }
-
 
 // curl -X POST "https://api.indexnow.org/indexnow" \
 //      -H "Content-Type: application/json" \
@@ -77,4 +76,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 //              "https://www.romainblanchot.com/en/politique-de-cookies"
 //            ]
 //          }'
-

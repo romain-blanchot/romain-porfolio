@@ -10,16 +10,21 @@ import { Loader2 } from "lucide-react"
 import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form"
 import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
 import { useEffect } from "react"
 
-
 export function Newsletter() {
   const t = useI18n()
-  const currentLocale = useCurrentLocale(); 
+  const currentLocale = useCurrentLocale()
 
-  
   const form = useForm<NewsletterSchemaType>({
     resolver: zodResolver(newsletterSchema(t)),
     defaultValues: {
@@ -29,48 +34,37 @@ export function Newsletter() {
     },
   })
 
-  
   useEffect(() => {
-    form.setValue("language", currentLocale);
-  }, [currentLocale, form.setValue, form]);
-
-
+    form.setValue("language", currentLocale)
+  }, [currentLocale, form.setValue, form])
 
   const onSubmit = async (data: NewsletterSchemaType) => {
-    
     try {
-      console.log("data", data);
-      const response = await subscribeToNewsletter(data);
+      console.log("data", data)
+      const response = await subscribeToNewsletter(data)
 
       if (response.success) {
         toast.success(t("newsletter.success.title"), {
           description: t("newsletter.success.description"),
-        });
-        form.reset();
+        })
+        form.reset()
       } else {
         toast.error(t("newsletter.error.title"), {
           description: t("newsletter.error.description"),
-        });
+        })
       }
     } catch (error) {
-      console.error("Erreur lors de l'envoi du formulaire:", error);
+      console.error("Erreur lors de l'envoi du formulaire:", error)
       toast.error(t("newsletter.error.title"), {
         description: t("newsletter.error.description"),
-      });
-    } 
-    
-  };
+      })
+    }
+  }
 
-  
-
-
- 
   return (
     <div className="w-full max-w-md">
-      <h3 className="text-lg font-semibold mb-4">{t("newsletter.title")}</h3>
-      <p className="text-sm text-muted-foreground mb-4">
-        {t("newsletter.description")}
-      </p>
+      <h3 className="mb-4 text-lg font-semibold">{t("newsletter.title")}</h3>
+      <p className="text-muted-foreground mb-4 text-sm">{t("newsletter.description")}</p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
           <div className="flex flex-col space-y-2">
@@ -103,16 +97,15 @@ export function Newsletter() {
               )}
             />
           </div>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-muted-foreground text-xs">
             {t("newsletter.disclaimer")}{" "}
-            <Link href="/politique-de-confidentialite" className="underline hover:text-primary">
+            <Link href="/politique-de-confidentialite" className="hover:text-primary underline">
               {t("newsletter.privacy")}
             </Link>
             .
           </p>
         </form>
       </Form>
-  
     </div>
   )
 }

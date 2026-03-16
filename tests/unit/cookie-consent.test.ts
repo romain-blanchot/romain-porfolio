@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach } from "vitest"
 
 type CookiePreferences = {
   necessary: boolean
@@ -9,11 +9,11 @@ type CookiePreferences = {
 
 /** Simulates the savePreferences / loadPreferences logic from cookie-consent.tsx */
 function savePreferences(prefs: CookiePreferences) {
-  localStorage.setItem('cookieConsent', JSON.stringify(prefs))
+  localStorage.setItem("cookieConsent", JSON.stringify(prefs))
 }
 
 function loadPreferences(): CookiePreferences | null {
-  const raw = localStorage.getItem('cookieConsent')
+  const raw = localStorage.getItem("cookieConsent")
   if (!raw) return null
   try {
     return JSON.parse(raw)
@@ -22,16 +22,16 @@ function loadPreferences(): CookiePreferences | null {
   }
 }
 
-describe('CookieConsent – localStorage logic', () => {
+describe("CookieConsent – localStorage logic", () => {
   beforeEach(() => {
     localStorage.clear()
   })
 
-  it('returns null when no preferences are saved', () => {
+  it("returns null when no preferences are saved", () => {
     expect(loadPreferences()).toBeNull()
   })
 
-  it('saves and loads preferences correctly', () => {
+  it("saves and loads preferences correctly", () => {
     const prefs: CookiePreferences = {
       necessary: true,
       preferences: true,
@@ -53,12 +53,12 @@ describe('CookieConsent – localStorage logic', () => {
     expect(loadPreferences()).toEqual(all)
   })
 
-  it('returns null for corrupted JSON', () => {
-    localStorage.setItem('cookieConsent', '{bad json')
+  it("returns null for corrupted JSON", () => {
+    localStorage.setItem("cookieConsent", "{bad json")
     expect(loadPreferences()).toBeNull()
   })
 
-  it('overwrites previous preferences', () => {
+  it("overwrites previous preferences", () => {
     savePreferences({ necessary: true, preferences: true, analytics: true, marketing: true })
     savePreferences({ necessary: true, preferences: false, analytics: false, marketing: false })
     const loaded = loadPreferences()

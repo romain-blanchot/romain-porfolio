@@ -2,7 +2,14 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
@@ -27,23 +34,22 @@ export function CookieConsent() {
   })
   const t = useI18n()
 
+  /* eslint-disable react-hooks/set-state-in-effect -- localStorage read on mount requires setState for hydration safety */
   useEffect(() => {
-    // Vérifier si l'utilisateur a déjà fait son choix
     const consentGiven = localStorage.getItem("cookieConsent")
     if (!consentGiven) {
       setShowBanner(true)
     } else {
-      // Charger les préférences sauvegardées
       try {
         const savedPreferences = JSON.parse(consentGiven)
         setPreferences(savedPreferences)
       } catch (e) {
-        // En cas d'erreur, réinitialiser
         console.error("Erreur lors du chargement des préférences de cookies:", e)
         setShowBanner(true)
       }
     }
   }, [])
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const handleAcceptAll = () => {
     const allAccepted = {
@@ -111,10 +117,10 @@ export function CookieConsent() {
 
   return (
     <div
-      className={`fixed ${showPreferences ? "inset-0 bg-black/50 flex items-center justify-center z-50" : "bottom-0 left-0 right-0 z-50"}`}
+      className={`fixed ${showPreferences ? "inset-0 z-50 flex items-center justify-center bg-black/50" : "right-0 bottom-0 left-0 z-50"}`}
     >
       {showPreferences ? (
-        <Card className="w-full max-w-2xl max-h-[90vh] overflow-auto mx-4">
+        <Card className="mx-4 max-h-[90vh] w-full max-w-2xl overflow-auto">
           <CardHeader>
             <CardTitle>{t("cookie-consent.preferences-dialog.title")}</CardTitle>
             <CardDescription>{t("cookie-consent.preferences-dialog.description")}</CardDescription>
@@ -124,16 +130,18 @@ export function CookieConsent() {
               <TabsList className="grid w-full grid-cols-3">
                 {/* <TabsTrigger value="all">{t("cookie-consent.tabs.all")}</TabsTrigger> */}
                 <TabsTrigger value="necessary">{t("cookie-consent.tabs.necessary")}</TabsTrigger>
-                <TabsTrigger value="preferences">{t("cookie-consent.tabs.preferences")}</TabsTrigger>
+                <TabsTrigger value="preferences">
+                  {t("cookie-consent.tabs.preferences")}
+                </TabsTrigger>
                 <TabsTrigger value="analytics">{t("cookie-consent.tabs.analytics")}</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="all" className="space-y-4 mt-4">
+              <TabsContent value="all" className="mt-4 space-y-4">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-medium">{t("cookie-consent.necessary.title")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {t("cookie-consent.necessary.description")}
                       </p>
                     </div>
@@ -143,105 +151,118 @@ export function CookieConsent() {
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-medium">{t("cookie-consent.preferences.title")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {t("cookie-consent.preferences.description")}
                       </p>
                     </div>
                     <Switch
                       checked={preferences.preferences}
-                      onCheckedChange={(checked) => setPreferences({ ...preferences, preferences: checked })}
+                      onCheckedChange={(checked) =>
+                        setPreferences({ ...preferences, preferences: checked })
+                      }
                     />
                   </div>
 
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-medium">{t("cookie-consent.analytics.title")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {t("cookie-consent.analytics.description")}
                       </p>
                     </div>
                     <Switch
                       checked={preferences.analytics}
-                      onCheckedChange={(checked) => setPreferences({ ...preferences, analytics: checked })}
+                      onCheckedChange={(checked) =>
+                        setPreferences({ ...preferences, analytics: checked })
+                      }
                     />
                   </div>
 
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-medium">{t("cookie-consent.marketing.title")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground text-sm">
                         {t("cookie-consent.marketing.description")}
                       </p>
                     </div>
                     <Switch
                       checked={preferences.marketing}
-                      onCheckedChange={(checked) => setPreferences({ ...preferences, marketing: checked })}
+                      onCheckedChange={(checked) =>
+                        setPreferences({ ...preferences, marketing: checked })
+                      }
                     />
                   </div>
                 </div>
               </TabsContent>
 
-              <TabsContent value="necessary" className="space-y-4 mt-4">
+              <TabsContent value="necessary" className="mt-4 space-y-4">
                 <div>
                   <h3 className="font-medium">{t("cookie-consent.necessary.title")}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-muted-foreground mb-4 text-sm">
                     {t("cookie-consent.necessary.description")}
                   </p>
-                  <div className="bg-muted p-4 rounded-md">
-                    <p className="text-sm mb-2">
+                  <div className="bg-muted rounded-md p-4">
+                    <p className="mb-2 text-sm">
                       <strong>__vercel</strong> - {t("cookie-consent.necessary.vercel")}
                     </p>
-                    <p className="text-sm mb-2">
-                      <strong>next-auth.session-token</strong> - {t("cookie-consent.necessary.nextauth")}
+                    <p className="mb-2 text-sm">
+                      <strong>next-auth.session-token</strong> -{" "}
+                      {t("cookie-consent.necessary.nextauth")}
                     </p>
                   </div>
                 </div>
               </TabsContent>
 
-              <TabsContent value="preferences" className="space-y-4 mt-4">
+              <TabsContent value="preferences" className="mt-4 space-y-4">
                 <div>
                   <h3 className="font-medium">{t("cookie-consent.preferences.title")}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-muted-foreground mb-4 text-sm">
                     {t("cookie-consent.preferences.description")}
                   </p>
-                  <div className="bg-muted p-4 rounded-md">
-                    <p className="text-sm mb-2">
+                  <div className="bg-muted rounded-md p-4">
+                    <p className="mb-2 text-sm">
                       <strong>theme</strong> - {t("cookie-consent.preferences.theme")}
                     </p>
-                    <p className="text-sm mb-2">
+                    <p className="mb-2 text-sm">
                       <strong>language</strong> - {t("cookie-consent.preferences.language")}
                     </p>
                   </div>
-                  <div className="flex items-center space-x-2 mt-4">
+                  <div className="mt-4 flex items-center space-x-2">
                     <Switch
                       id="preferences-switch"
                       checked={preferences.preferences}
-                      onCheckedChange={(checked) => setPreferences({ ...preferences, preferences: checked })}
+                      onCheckedChange={(checked) =>
+                        setPreferences({ ...preferences, preferences: checked })
+                      }
                     />
-                    <Label htmlFor="preferences-switch">{t("cookie-consent.preferences.enable")}</Label>
+                    <Label htmlFor="preferences-switch">
+                      {t("cookie-consent.preferences.enable")}
+                    </Label>
                   </div>
                 </div>
               </TabsContent>
 
-              <TabsContent value="analytics" className="space-y-4 mt-4">
+              <TabsContent value="analytics" className="mt-4 space-y-4">
                 <div>
                   <h3 className="font-medium">{t("cookie-consent.analytics.title")}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-muted-foreground mb-4 text-sm">
                     {t("cookie-consent.analytics.description")}
                   </p>
-                  <div className="bg-muted p-4 rounded-md">
-                    <p className="text-sm mb-2">
+                  <div className="bg-muted rounded-md p-4">
+                    <p className="mb-2 text-sm">
                       <strong>Google Analytics 4</strong> - {t("cookie-consent.analytics.ga4")}
                     </p>
-                    <p className="text-sm mb-2">
+                    <p className="mb-2 text-sm">
                       <strong>Vercel Analytics</strong> - {t("cookie-consent.analytics.vercel")}
                     </p>
                   </div>
-                  <div className="flex items-center space-x-2 mt-4">
+                  <div className="mt-4 flex items-center space-x-2">
                     <Switch
                       id="analytics-switch"
                       checked={preferences.analytics}
-                      onCheckedChange={(checked) => setPreferences({ ...preferences, analytics: checked })}
+                      onCheckedChange={(checked) =>
+                        setPreferences({ ...preferences, analytics: checked })
+                      }
                     />
                     <Label htmlFor="analytics-switch">{t("cookie-consent.analytics.enable")}</Label>
                   </div>
@@ -260,26 +281,34 @@ export function CookieConsent() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4 md:flex-row md:justify-center">
-            <Button variant="outline" onClick={() => setShowPreferences(false)} className="w-full md:w-auto">
+            <Button
+              variant="outline"
+              onClick={() => setShowPreferences(false)}
+              className="w-full md:w-auto"
+            >
               {t("cookie-consent.buttons.cancel")}
             </Button>
-    
-              <Button variant="outline" onClick={handleAcceptAll} className="w-full md:w-auto">
-                {t("cookie-consent.buttons.accept-all")}
-              </Button>
-              <Button onClick={handleSavePreferences} className="w-full md:w-auto">
-                {t("cookie-consent.buttons.save")}
-              </Button>
-            
+
+            <Button variant="outline" onClick={handleAcceptAll} className="w-full md:w-auto">
+              {t("cookie-consent.buttons.accept-all")}
+            </Button>
+            <Button onClick={handleSavePreferences} className="w-full md:w-auto">
+              {t("cookie-consent.buttons.save")}
+            </Button>
           </CardFooter>
         </Card>
       ) : (
-        <div className="fixed bottom-0 left-0 right-0 p-4 bg-background border-t md:bottom-4 md:right-4 md:left-auto md:rounded-lg md:border md:shadow-lg z-50 md:max-w-xs">
+        <div className="bg-background fixed right-0 bottom-0 left-0 z-50 border-t p-4 md:right-4 md:bottom-4 md:left-auto md:max-w-xs md:rounded-lg md:border md:shadow-lg">
           <div className="flex flex-col gap-3">
             <p className="text-sm">{t("cookie-consent.banner.text")}</p>
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" onClick={togglePreferences} className="w-1/4 text-xs">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={togglePreferences}
+                  className="w-1/4 text-xs"
+                >
                   {t("cookie-consent.banner.more")}
                 </Button>
                 <Button size="sm" onClick={handleAcceptAll} className="w-3/4">
@@ -287,11 +316,9 @@ export function CookieConsent() {
                 </Button>
               </div>
             </div>
-            </div>
           </div>
-        
+        </div>
       )}
     </div>
   )
 }
-

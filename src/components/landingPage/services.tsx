@@ -10,17 +10,17 @@ export default function Services() {
 
   const services = [
     {
-      icon: <Code className="h-8 w-8 text-primary" />,
+      icon: <Code className="text-primary h-8 w-8" />,
       title: t("services.dev.title"),
       description: t("services.dev.description"),
     },
     {
-      icon: <Rocket className="h-8 w-8 text-primary" />,
+      icon: <Rocket className="text-primary h-8 w-8" />,
       title: t("services.solutions.title"),
       description: t("services.solutions.description"),
     },
     {
-      icon: <Bot className="h-8 w-8 text-primary" />,
+      icon: <Bot className="text-primary h-8 w-8" />,
       title: t("services.ai.title"),
       description: t("services.ai.description"),
     },
@@ -30,21 +30,21 @@ export default function Services() {
     //   description: t("services.perf.description"),
     // },
     {
-      icon: <Cloud className="h-8 w-8 text-primary" />,
+      icon: <Cloud className="text-primary h-8 w-8" />,
       title: t("services.deploy.title"),
       description: t("services.deploy.description"),
-    }
+    },
   ]
 
   return (
-    <section id="services" className="py-16 bg-muted/30 scroll-mt-8">
+    <section id="services" className="bg-muted/30 scroll-mt-8 py-16">
       <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12"
+          className="mb-12 text-center text-3xl font-bold"
         >
           {t("services.title")}
         </motion.h2>
@@ -60,7 +60,7 @@ export default function Services() {
             >
               <Card className="h-full">
                 <CardHeader>
-                  <div className="p-2 w-fit rounded-lg bg-primary/10 mb-4">{service.icon}</div>
+                  <div className="bg-primary/10 mb-4 w-fit rounded-lg p-2">{service.icon}</div>
                   <CardTitle>{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -74,4 +74,3 @@ export default function Services() {
     </section>
   )
 }
-

@@ -2,29 +2,29 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export default function Loading() {
   return (
-    <div className="space-y-16 animate-in fade-in duration-500">
+    <div className="animate-in fade-in space-y-16 duration-500">
       {/* Hero Section Skeleton */}
-      <section className="relative py-10 sm:py-16 lg:py-20 mt-10">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="text-center lg:text-left space-y-4 sm:space-y-6">
-              <Skeleton className="h-14 w-3/4 mx-auto lg:mx-0" />
+      <section className="relative mt-10 py-10 sm:py-16 lg:py-20">
+        <div className="relative z-10 container mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:gap-12">
+            <div className="space-y-4 text-center sm:space-y-6 lg:text-left">
+              <Skeleton className="mx-auto h-14 w-3/4 lg:mx-0" />
               <Skeleton className="h-24 w-full" />
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4 lg:justify-start">
                 <Skeleton className="h-10 w-40" />
                 <Skeleton className="h-10 w-40" />
               </div>
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-6 pt-4">
+              <div className="grid grid-cols-2 gap-3 pt-4 sm:flex sm:flex-wrap sm:gap-6">
                 {[...Array(4)].map((_, index) => (
                   <Skeleton key={index} className="h-6 w-32" />
                 ))}
               </div>
             </div>
-            <div className="relative mt-6 sm:mt-8 lg:mt-0 flex justify-center">
-              <Skeleton className="rounded-full w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96" />
+            <div className="relative mt-6 flex justify-center sm:mt-8 lg:mt-0">
+              <Skeleton className="h-56 w-56 rounded-full sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-96 lg:w-96" />
             </div>
           </div>
-          <div className="mt-8 sm:mt-10 lg:mt-12 flex justify-center lg:justify-start gap-4">
+          <div className="mt-8 flex justify-center gap-4 sm:mt-10 lg:mt-12 lg:justify-start">
             {[...Array(3)].map((_, index) => (
               <Skeleton key={index} className="h-10 w-10 rounded-full" />
             ))}
@@ -35,8 +35,8 @@ export default function Loading() {
       {/* Services Section Skeleton */}
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-          <Skeleton className="h-12 w-64 mx-auto mb-10" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <Skeleton className="mx-auto mb-10 h-12 w-64" />
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[...Array(3)].map((_, index) => (
               <Skeleton key={index} className="h-64 rounded-lg" />
             ))}
@@ -45,10 +45,10 @@ export default function Loading() {
       </section>
 
       {/* Skills Section Skeleton */}
-      <section className="py-16 bg-muted/30">
+      <section className="bg-muted/30 py-16">
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-          <Skeleton className="h-12 w-64 mx-auto mb-10" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+          <Skeleton className="mx-auto mb-10 h-12 w-64" />
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5">
             {[...Array(10)].map((_, index) => (
               <Skeleton key={index} className="h-28 rounded-lg" />
             ))}
@@ -60,8 +60,8 @@ export default function Loading() {
       {[...Array(3)].map((_, index) => (
         <section key={index} className="py-16">
           <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-            <Skeleton className="h-12 w-64 mx-auto mb-10" />
-            <div className="max-w-3xl mx-auto">
+            <Skeleton className="mx-auto mb-10 h-12 w-64" />
+            <div className="mx-auto max-w-3xl">
               <Skeleton className="h-96 rounded-lg" />
             </div>
           </div>
@@ -70,4 +70,3 @@ export default function Loading() {
     </div>
   )
 }
-

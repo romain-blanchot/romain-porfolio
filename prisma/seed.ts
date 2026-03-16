@@ -32,12 +32,12 @@
 
 // export async function main() {
 //   console.log(`Début de la création de ${userData.length} utilisateurs test...`)
-  
+
 //   for (const u of userData) {
 //     const user = await prisma.newsletterSubscription.create({ data: u })
 //     console.log(`Utilisateur créé avec l'email: ${user.email}`)
 //   }
-  
+
 //   console.log('Création des utilisateurs test terminée avec succès!')
 // }
 

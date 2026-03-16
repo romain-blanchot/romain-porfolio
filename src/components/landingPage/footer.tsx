@@ -1,4 +1,3 @@
-
 import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -10,28 +9,33 @@ import { LuGithub } from "react-icons/lu"
 import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server"
 
-
 export default async function Footer({ params }: { params: Promise<{ locale: string }> }) {
   const t = await getI18n()
-  const { locale } = await params;
-  setStaticParamsLocale(locale);
+  const { locale } = await params
+  setStaticParamsLocale(locale)
 
   return (
     <footer className="bg-muted/50 border-t">
-      <div className="container mx-auto px-4 sm:px-8 lg:px-12 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 py-12 sm:px-8 md:py-16 lg:px-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">{t("footer.name")}</h2>
-            <p className="text-sm text-muted-foreground">
-              {t("footer.description")}
-            </p>
+            <p className="text-muted-foreground text-sm">{t("footer.description")}</p>
             <div className="flex space-x-2">
-            <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
-              <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
-                <LuGithub className="h-5 w-5" />
-              </Button>
-            </Link>
-              <Link href="https://www.linkedin.com/in/romain-blanchot-449941284/" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://github.com/LeMarechalDeFer"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
+                  <LuGithub className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/romain-blanchot-449941284/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="ghost" size="icon" aria-label="LinkedIn" className="rounded-full">
                   <FiLinkedin className="h-5 w-5" />
                 </Button>
@@ -46,12 +50,20 @@ export default async function Footer({ params }: { params: Promise<{ locale: str
                   <FaXTwitter className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://www.tiktok.com/@romain.blanchot" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://www.tiktok.com/@romain.blanchot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="ghost" size="icon" aria-label="TikTok" className="rounded-full">
                   <RiTiktokLine className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="ghost" size="icon" aria-label="Facebook" className="rounded-full">
                   <FiFacebook className="h-5 w-5" />
                 </Button>
@@ -121,8 +133,10 @@ export default async function Footer({ params }: { params: Promise<{ locale: str
             <Newsletter />
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Romain. {t("footer.copyright")}</p>
+        <div className="text-muted-foreground mt-12 border-t pt-8 text-center text-sm">
+          <p>
+            &copy; {new Date().getFullYear()} Romain. {t("footer.copyright")}
+          </p>
           <div className="mt-2 space-x-4">
             {/* <Link href="/mentions-legales" className="hover:text-foreground">
               {t("footer.legal.terms")}
@@ -145,4 +159,3 @@ export default async function Footer({ params }: { params: Promise<{ locale: str
     </footer>
   )
 }
-

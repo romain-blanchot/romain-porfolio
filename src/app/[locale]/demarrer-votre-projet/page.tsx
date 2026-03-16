@@ -3,22 +3,31 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, ArrowRight, Star } from "lucide-react"
 import Image from "next/image"
 import ProjectForm from "@/components/reservation/project-form"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { getI18n } from "@/locales/server"
-import { setStaticParamsLocale } from "next-international/server";
+import { setStaticParamsLocale } from "next-international/server"
 
-
-export default async function DemarrerVotreProjet({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  setStaticParamsLocale(locale);
+export default async function DemarrerVotreProjet({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setStaticParamsLocale(locale)
 
   const t = await getI18n()
-  
+
   return (
     <div className="container mx-auto px-4 py-8 pt-20 md:py-16 md:pt-20">
-      <div className="text-center mb-8 md:mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">{t("start-project.title")}</h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+      <div className="mb-8 text-center md:mb-12">
+        <h1 className="mb-3 text-3xl font-bold md:mb-4 md:text-4xl">{t("start-project.title")}</h1>
+        <p className="text-muted-foreground mx-auto max-w-2xl text-lg md:text-xl">
           {t("start-project.subtitle")}
         </p>
       </div>
@@ -39,46 +48,50 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
               <CardTitle>{t("start-project.why.title")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
+                  <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-sm">{t("start-project.why.expertise")}</h4>
+                    <h4 className="text-sm font-semibold">{t("start-project.why.expertise")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.expertise.desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
+                  <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-sm">{t("start-project.why.custom")}</h4>
+                    <h4 className="text-sm font-semibold">{t("start-project.why.custom")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.custom.desc")}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">  
-                  <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
+                <div className="flex items-start gap-2">
+                  <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-sm">{t("start-project.why.ai")}</h4>
+                    <h4 className="text-sm font-semibold">{t("start-project.why.ai")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.ai.desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
+                  <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-sm">{t("start-project.why.end2end")}</h4>
+                    <h4 className="text-sm font-semibold">{t("start-project.why.end2end")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.end2end.desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
+                  <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-sm">{t("start-project.why.communication")}</h4>
-                    <p className="text-xs opacity-90">{t("start-project.why.communication.desc")}</p>
+                    <h4 className="text-sm font-semibold">
+                      {t("start-project.why.communication")}
+                    </h4>
+                    <p className="text-xs opacity-90">
+                      {t("start-project.why.communication.desc")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
+                  <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-sm">{t("start-project.why.results")}</h4>
+                    <h4 className="text-sm font-semibold">{t("start-project.why.results")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.results.desc")}</p>
                   </div>
                 </div>
@@ -95,48 +108,58 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
             <CardContent>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  <div className="bg-primary text-primary-foreground flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full font-bold">
                     1
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">{t("start-project.process.step1")}</h3>
-                    <p className="text-sm text-muted-foreground">{t("start-project.process.step1.desc")}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {t("start-project.process.step1.desc")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  <div className="bg-primary text-primary-foreground flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full font-bold">
                     2
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">{t("start-project.process.step2")}</h3>
-                    <p className="text-sm text-muted-foreground">{t("start-project.process.step2.desc")}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {t("start-project.process.step2.desc")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  <div className="bg-primary text-primary-foreground flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full font-bold">
                     3
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">{t("start-project.process.step3")}</h3>
-                    <p className="text-sm text-muted-foreground">{t("start-project.process.step3.desc")}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {t("start-project.process.step3.desc")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  <div className="bg-primary text-primary-foreground flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full font-bold">
                     4
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">{t("start-project.process.step4")}</h3>
-                    <p className="text-sm text-muted-foreground">{t("start-project.process.step4.desc")}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {t("start-project.process.step4.desc")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                  <div className="bg-primary text-primary-foreground flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full font-bold">
                     5
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h3 className="font-semibold">{t("start-project.process.step5")}</h3>
-                    <p className="text-sm text-muted-foreground">{t("start-project.process.step5.desc")}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {t("start-project.process.step5.desc")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -153,15 +176,21 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
                   <CarouselItem>
                     <Card>
                       <CardContent className="pt-6">
-                        <div className="flex justify-center mb-4">
+                        <div className="mb-4 flex justify-center">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
                           ))}
                         </div>
-                        <blockquote className="text-center italic text-xs sm:text-sm mb-4 break-words">&quot;{t("start-project.testimonials.client1.content")}&quot;</blockquote>
+                        <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">
+                          &quot;{t("start-project.testimonials.client1.content")}&quot;
+                        </blockquote>
                         <div className="text-center">
-                          <p className="font-semibold">{t("start-project.testimonials.client1.name")}</p>
-                          <p className="text-xs sm:text-sm text-muted-foreground">{t("start-project.testimonials.client1.role")}</p>
+                          <p className="font-semibold">
+                            {t("start-project.testimonials.client1.name")}
+                          </p>
+                          <p className="text-muted-foreground text-xs sm:text-sm">
+                            {t("start-project.testimonials.client1.role")}
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -169,15 +198,21 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
                   <CarouselItem>
                     <Card>
                       <CardContent className="pt-6">
-                        <div className="flex justify-center mb-4">
+                        <div className="mb-4 flex justify-center">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
                           ))}
                         </div>
-                        <blockquote className="text-center italic text-xs sm:text-sm mb-4 break-words">&quot;{t("start-project.testimonials.client2.content")}&quot;</blockquote>
+                        <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">
+                          &quot;{t("start-project.testimonials.client2.content")}&quot;
+                        </blockquote>
                         <div className="text-center">
-                          <p className="font-semibold">{t("start-project.testimonials.client2.name")}</p>
-                          <p className="text-xs sm:text-sm text-muted-foreground">{t("start-project.testimonials.client2.role")}</p>
+                          <p className="font-semibold">
+                            {t("start-project.testimonials.client2.name")}
+                          </p>
+                          <p className="text-muted-foreground text-xs sm:text-sm">
+                            {t("start-project.testimonials.client2.role")}
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -185,15 +220,21 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
                   <CarouselItem>
                     <Card>
                       <CardContent className="pt-6">
-                        <div className="flex justify-center mb-4">
+                        <div className="mb-4 flex justify-center">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
                           ))}
                         </div>
-                        <blockquote className="text-center italic text-xs sm:text-sm mb-4 break-words">&quot;{t("start-project.testimonials.client3.content")}&quot;</blockquote>
+                        <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">
+                          &quot;{t("start-project.testimonials.client3.content")}&quot;
+                        </blockquote>
                         <div className="text-center">
-                          <p className="font-semibold">{t("start-project.testimonials.client3.name")}</p>
-                          <p className="text-xs sm:text-sm text-muted-foreground">{t("start-project.testimonials.client3.role")}</p>
+                          <p className="font-semibold">
+                            {t("start-project.testimonials.client3.name")}
+                          </p>
+                          <p className="text-muted-foreground text-xs sm:text-sm">
+                            {t("start-project.testimonials.client3.role")}
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -201,15 +242,21 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
                   <CarouselItem>
                     <Card>
                       <CardContent className="pt-6">
-                        <div className="flex justify-center mb-4">
+                        <div className="mb-4 flex justify-center">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
                           ))}
                         </div>
-                        <blockquote className="text-center italic text-xs sm:text-sm mb-4 break-words">&quot;{t("start-project.testimonials.client4.content")}&quot;</blockquote>
+                        <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">
+                          &quot;{t("start-project.testimonials.client4.content")}&quot;
+                        </blockquote>
                         <div className="text-center">
-                          <p className="font-semibold">{t("start-project.testimonials.client4.name")}</p>
-                          <p className="text-xs sm:text-sm text-muted-foreground">{t("start-project.testimonials.client4.role")}</p>
+                          <p className="font-semibold">
+                            {t("start-project.testimonials.client4.name")}
+                          </p>
+                          <p className="text-muted-foreground text-xs sm:text-sm">
+                            {t("start-project.testimonials.client4.role")}
+                          </p>
                         </div>
                       </CardContent>
                     </Card>
@@ -229,16 +276,20 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
               alt="Collaboration en action"
               width={600}
               height={300}
-              className="w-full h-auto object-cover"
+              className="h-auto w-full object-cover"
               priority
               fetchPriority="high"
               loading="eager"
               quality={60}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4 md:p-6">
+            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black to-transparent p-4 md:p-6">
               <div className="text-white">
-                <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">{t("start-project.cta.title")}</h3>
-                <p className="mb-2 md:mb-4 text-sm md:text-base">{t("start-project.cta.subtitle")}</p>
+                <h3 className="mb-1 text-lg font-bold md:mb-2 md:text-xl">
+                  {t("start-project.cta.title")}
+                </h3>
+                <p className="mb-2 text-sm md:mb-4 md:text-base">
+                  {t("start-project.cta.subtitle")}
+                </p>
                 <Button variant="secondary" size="sm" className="md:size-default">
                   {t("start-project.cta.button")}
                   <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
@@ -251,4 +302,3 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
     </div>
   )
 }
-

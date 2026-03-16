@@ -5,10 +5,14 @@ import Link from "next/link"
 import { useTheme } from "next-themes"
 import { useI18n } from "@/locales/client"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { Moon, Sun, Menu, X, Globe } from "lucide-react"
-import { useChangeLocale, useCurrentLocale } from '@/locales/client'
-
+import { useChangeLocale, useCurrentLocale } from "@/locales/client"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -17,13 +21,10 @@ export default function Header() {
   const t = useI18n()
   const changeLocale = useChangeLocale()
   const locale = useCurrentLocale()
- 
-  
 
-  // Avoid hydration mismatch
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  // Avoid hydration mismatch — must set state after mount to prevent SSR/client divergence
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setMounted(true), [])
 
   const navItems = [
     { name: t("nav.home"), href: "/" },
@@ -45,15 +46,15 @@ export default function Header() {
   if (!mounted) return null
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 sm:px-8 lg:px-12 flex h-16 items-center justify-between">
-        <Link href="/" className="font-bold text-xl">
+    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 w-full border-b backdrop-blur">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-8 lg:px-12">
+        <Link href="/" className="text-xl font-bold">
           Romain
         </Link>
 
         {/* Mobile menu button */}
-        <button 
-          className="md:hidden" 
+        <button
+          className="md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={mobileMenuOpen}
@@ -63,16 +64,20 @@ export default function Header() {
         </button>
 
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm font-medium transition-colors hover:text-primary">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="hover:text-primary text-sm font-medium transition-colors"
+            >
               {item.name}
             </Link>
           ))}
         </nav>
 
         {/* Theme and language toggles */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden items-center gap-2 md:flex">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -93,9 +98,13 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-                {theme === "light" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-                <span className="sr-only">{t("header.theme")}</span>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            {theme === "light" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            <span className="sr-only">{t("header.theme")}</span>
           </Button>
 
           {/* <DropdownMenu>
@@ -115,21 +124,24 @@ export default function Header() {
 
         {/* Mobile navigation */}
         {mobileMenuOpen && (
-          <div id="mobile-menu" className="absolute top-16 left-0 right-0 bg-background border-b md:hidden">
-            <div className="container mx-auto px-4 py-4 space-y-4">
-              <nav className="flex flex-col space-y-6 text-center ">
+          <div
+            id="mobile-menu"
+            className="bg-background absolute top-16 right-0 left-0 border-b md:hidden"
+          >
+            <div className="container mx-auto space-y-4 px-4 py-4">
+              <nav className="flex flex-col space-y-6 text-center">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-md font-medium transition-colors hover:text-primary"
+                    className="text-md hover:text-primary font-medium transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
               </nav>
-              <div className="flex items-center justify-between pt-4 border-t">
+              <div className="flex items-center justify-between border-t pt-4">
                 <div className="flex items-center gap-2">
                   {languages.map((lang) => (
                     <Button
@@ -142,7 +154,11 @@ export default function Header() {
                     </Button>
                   ))}
                 </div>
-                <Button variant="outline" size="icon" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                >
                   {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                 </Button>
               </div>
@@ -153,4 +169,3 @@ export default function Header() {
     </header>
   )
 }
-

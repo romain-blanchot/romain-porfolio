@@ -14,15 +14,21 @@ import { useI18n, useCurrentLocale } from "@/locales/client"
 import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form"
 import { useEffect } from "react"
 import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
 
 export default function NewsletterSection() {
   const t = useI18n()
-  const currentLocale = useCurrentLocale(); 
+  const currentLocale = useCurrentLocale()
 
-  
   const form = useForm<NewsletterSchemaType>({
     resolver: zodResolver(newsletterSchema(t)),
     defaultValues: {
@@ -32,38 +38,32 @@ export default function NewsletterSection() {
     },
   })
 
-  
   useEffect(() => {
-    form.setValue("language", currentLocale);
-  }, [currentLocale, form.setValue, form]);
-
+    form.setValue("language", currentLocale)
+  }, [currentLocale, form.setValue, form])
 
   const onSubmit = async (data: NewsletterSchemaType) => {
-    
     try {
-      console.log("data", data);
-      const response = await subscribeToNewsletter(data);
+      console.log("data", data)
+      const response = await subscribeToNewsletter(data)
 
       if (response.success) {
         toast.success(t("newsletter.success.title"), {
           description: t("newsletter.success.description"),
-        });
-        form.reset();
+        })
+        form.reset()
       } else {
         toast.error(t("newsletter.error.title"), {
           description: t("newsletter.error.description"),
-        });
+        })
       }
     } catch (error) {
-      console.error("Erreur lors de l'envoi du formulaire:", error);
+      console.error("Erreur lors de l'envoi du formulaire:", error)
       toast.error(t("newsletter.error.title"), {
         description: t("newsletter.error.description"),
-      });
-    } 
-    
-  };
-
-
+      })
+    }
+  }
 
   const benefits = [
     {
@@ -84,9 +84,9 @@ export default function NewsletterSection() {
   ]
 
   return (
-    <section className="py-8 md:py-12 bg-gradient-to-br from-primary/5 via-background to-background">
-      <div className="container px-4 mx-auto max-w-5xl">
-        <div className="grid gap-6 md:gap-8 lg:grid-cols-2 lg:gap-10 items-center">
+    <section className="from-primary/5 via-background to-background bg-gradient-to-br py-8 md:py-12">
+      <div className="container mx-auto max-w-5xl px-4">
+        <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -94,15 +94,15 @@ export default function NewsletterSection() {
             transition={{ duration: 0.5 }}
             className="space-y-3 md:space-y-4"
           >
-            <Badge className="px-2 py-0.5 text-xs bg-primary/10 text-primary border-primary/20">
+            <Badge className="bg-primary/10 text-primary border-primary/20 px-2 py-0.5 text-xs">
               {t("newsletter-section.badge")}
             </Badge>
 
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               {t("newsletter-section.title")}
             </h2>
 
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-muted-foreground text-sm md:text-base">
               {t("newsletter-section.description")}
             </p>
 
@@ -116,12 +116,12 @@ export default function NewsletterSection() {
                   transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
                   className="flex items-start gap-2"
                 >
-                  <div className="mt-0.5 bg-background rounded-full p-1 shadow-xs border border-muted">
+                  <div className="bg-background border-muted mt-0.5 rounded-full border p-1 shadow-xs">
                     {benefit.icon}
                   </div>
                   <div>
                     <h3 className="text-sm font-medium">{benefit.title}</h3>
-                    <p className="text-xs text-muted-foreground">{benefit.description}</p>
+                    <p className="text-muted-foreground text-xs">{benefit.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -139,65 +139,78 @@ export default function NewsletterSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="overflow-hidden border-primary/10 bg-background/60 backdrop-blur-xs">
+            <Card className="border-primary/10 bg-background/60 overflow-hidden backdrop-blur-xs">
               <CardContent className="p-4 md:p-6">
                 <div className="mb-4 space-y-1 text-center">
-                  <h3 className="text-lg md:text-xl font-bold">{t("newsletter-section.card.title")}</h3>
-                  <p className="text-xs md:text-sm text-muted-foreground">
+                  <h3 className="text-lg font-bold md:text-xl">
+                    {t("newsletter-section.card.title")}
+                  </h3>
+                  <p className="text-muted-foreground text-xs md:text-sm">
                     {t("newsletter-section.card.subtitle")}
                   </p>
                 </div>
 
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
-                        <div className="space-y-1.5">
-                            <FormField
-                                control={form.control}
-                                name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>{t("newsletter-section.form.label")}</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                {...field}
-                                                placeholder={t("newsletter-section.form.placeholder")}
-                                                className="h-10"
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />  
-                        </div>
-                        <Button type="submit" className="w-full h-9 text-sm group" disabled={form.formState.isSubmitting}>
-                            {form.formState.isSubmitting ? (
-                                <Loader2 className="h-4 w-4 animate-spin" />
-                            ) : (
-                                t("newsletter-section.form.button")
-                            )}
-                        </Button>
-                        <div className="flex items-center justify-center gap-1.5 pt-1">
-                            <Lock className="h-3 w-3 text-muted-foreground" />
-                            <p className="text-xs text-muted-foreground">
-                            {t("newsletter-section.form.privacy")}{" "}
-                            <Link href="/politique-de-confidentialite" className="underline hover:text-primary">
-                                {t("newsletter-section.form.privacy.link")}
-                            </Link>
-                            </p>
-                        </div>
-                    </form>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+                    <div className="space-y-1.5">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("newsletter-section.form.label")}</FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                placeholder={t("newsletter-section.form.placeholder")}
+                                className="h-10"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      className="group h-9 w-full text-sm"
+                      disabled={form.formState.isSubmitting}
+                    >
+                      {form.formState.isSubmitting ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        t("newsletter-section.form.button")
+                      )}
+                    </Button>
+                    <div className="flex items-center justify-center gap-1.5 pt-1">
+                      <Lock className="text-muted-foreground h-3 w-3" />
+                      <p className="text-muted-foreground text-xs">
+                        {t("newsletter-section.form.privacy")}{" "}
+                        <Link
+                          href="/politique-de-confidentialite"
+                          className="hover:text-primary underline"
+                        >
+                          {t("newsletter-section.form.privacy.link")}
+                        </Link>
+                      </p>
+                    </div>
+                  </form>
                 </Form>
-                <div className="mt-6 pt-4 border-t">
+                <div className="mt-6 border-t pt-4">
                   <div className="space-y-3">
                     <div className="flex items-start gap-2">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
-                        <span className="text-green-700 dark:text-green-300 text-xs font-medium">RD</span>
+                      <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-green-100 dark:bg-green-900">
+                        <span className="text-xs font-medium text-green-700 dark:text-green-300">
+                          RD
+                        </span>
                       </div>
                       <div>
-                        <p className="text-xs italic leading-relaxed">
+                        <p className="text-xs leading-relaxed italic">
                           {t("newsletter-section.testimonial")}
                         </p>
-                        <p className="text-xs font-medium mt-1">{t("newsletter-section.testimonial.author")}</p>
+                        <p className="mt-1 text-xs font-medium">
+                          {t("newsletter-section.testimonial.author")}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -210,4 +223,3 @@ export default function NewsletterSection() {
     </section>
   )
 }
-

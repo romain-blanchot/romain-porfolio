@@ -5,15 +5,14 @@ import { getI18n } from "@/locales/server"
 import { Resend } from "resend"
 import { WelcomeNewsletter } from "@/components/email/welcomeNewsletter-Email"
 
-
-const resend = new Resend(process.env.RESEND_API_KEY as string);
+const resend = new Resend(process.env.RESEND_API_KEY as string)
 
 export async function subscribeToNewsletter(data: NewsletterSchemaType) {
   const t = await getI18n()
 
   const email = data.email
   const language = data.language
-  const parsed = newsletterSchema(t).safeParse({email, language})
+  const parsed = newsletterSchema(t).safeParse({ email, language })
 
   if (!parsed.success) {
     return { success: false, error: parsed.error.message }
@@ -37,14 +36,14 @@ export async function subscribeToNewsletter(data: NewsletterSchemaType) {
       subject: t("newsletter.email.subject"),
       react: WelcomeNewsletter({
         email: parsed.data.email,
-        language: parsed.data.language
+        language: parsed.data.language,
       }),
-      replyTo: "romainblanchot0@gmail.com"
-    });
+      replyTo: "romainblanchot0@gmail.com",
+    })
 
-    return { success: true, message: t("newsletter.success.description") };
+    return { success: true, message: t("newsletter.success.description") }
   } catch (error) {
-    console.error("Newsletter subscription error:", error);
-    return { success: false, message: "Une erreur est survenue. Veuillez réessayer." };
+    console.error("Newsletter subscription error:", error)
+    return { success: false, message: "Une erreur est survenue. Veuillez réessayer." }
   }
 }

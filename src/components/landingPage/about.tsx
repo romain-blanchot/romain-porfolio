@@ -3,36 +3,36 @@
 import { useI18n } from "@/locales/client"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import photoAlpinismeRomain from "@/public/alpinismeRomain.jpg";
+import photoAlpinismeRomain from "@/public/alpinismeRomain.jpg"
 
 export default function About() {
   const t = useI18n()
 
   return (
-    <section id="about" className="py-16 bg-muted/50 scroll-mt-8">
+    <section id="about" className="bg-muted/50 scroll-mt-8 py-16">
       <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12"
+          className="mb-12 text-center text-3xl font-bold"
         >
           {t("about.title")}
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-12 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative h-[550px] rounded-lg overflow-hidden">
-              <Image 
-                src={photoAlpinismeRomain} 
-                alt="About Romain" 
-                fill 
+            <div className="relative h-[550px] overflow-hidden rounded-lg">
+              <Image
+                src={photoAlpinismeRomain}
+                alt="About Romain"
+                fill
                 className="object-cover"
                 // priority
                 // fetchPriority="high"
@@ -52,16 +52,11 @@ export default function About() {
             className="space-y-4"
           >
             <p className="text-lg leading-relaxed">{t("about.description")}</p>
-            <p className="text-lg leading-relaxed">
-              {t("about.description2")}
-            </p>
-            <p className="text-lg leading-relaxed">
-              {t("about.description3")}
-            </p>
+            <p className="text-lg leading-relaxed">{t("about.description2")}</p>
+            <p className="text-lg leading-relaxed">{t("about.description3")}</p>
           </motion.div>
         </div>
       </div>
     </section>
   )
 }
-

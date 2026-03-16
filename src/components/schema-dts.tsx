@@ -1,4 +1,4 @@
-import type { WithContext, Organization, Person, WebSite } from "schema-dts";
+import type { WithContext, Organization, Person, WebSite } from "schema-dts"
 
 /**
  * 1. Organization Schema
@@ -37,11 +37,10 @@ export const organizationSchema: WithContext<Organization> = {
     "@type": "Person",
     name: "Romain Blanchot",
   },
-  description:
-    "Ingénieux freelance spécialisé en automatisation et en développement fullstack.",
+  description: "Ingénieux freelance spécialisé en automatisation et en développement fullstack.",
   // Les horaires d'ouverture en schéma.org s'expriment souvent sous la forme "Mo-Su 00:00-23:59" pour 24/7
   // openingHours: "Mo-Su 00:00-23:59",
-};
+}
 
 /**
  * 2. Person Schema
@@ -50,8 +49,7 @@ export const personSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Romain Blanchot",
-  jobTitle:
-    "Ingénieux freelance spécialisé en automatisation et en développement fullstack",
+  jobTitle: "Ingénieux freelance spécialisé en automatisation et en développement fullstack",
   url: "https://www.romainblanchot.com",
   sameAs: [
     "https://www.linkedin.com/in/romain-blanchot-449941284/",
@@ -74,7 +72,7 @@ export const personSchema: WithContext<Person> = {
     "@type": "Organization",
     name: "Hotel La Louisiane",
   },
-};
+}
 
 /**
  * 3. WebSite Schema
@@ -104,7 +102,7 @@ export const webSiteSchema: WithContext<WebSite> = {
   datePublished: "2025-03-01",
   // Optionnel : logo distinct
   //  logo: "https://www.romainblanchot.com/photoProfilRomain.jpg",
-};
+}
 
 // liste de mes liens :
 // https://www.romainblanchot.com/ 1
@@ -114,7 +112,6 @@ export const webSiteSchema: WithContext<WebSite> = {
 // https://www.romainblanchot.com/mes-projets 5
 // https://www.romainblanchot.com/mes-services 3
 // https://www.romainblanchot.com/skills 4
-
 
 // export const breadcrumbSchema: WithContext<BreadcrumbList> = {
 //   "@context": "https://schema.org",

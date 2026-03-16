@@ -14,9 +14,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-
-type SkillLevel = "skills.level.beginner" | "skills.level.intermediate" | "skills.level.advanced" | "skills.level.expert"
-type SkillCategory = "skills.category.frontend" | "skills.category.backend" | "skills.category.database" | "skills.category.devops" | "skills.category.ai"
+type SkillLevel =
+  | "skills.level.beginner"
+  | "skills.level.intermediate"
+  | "skills.level.advanced"
+  | "skills.level.expert"
+type SkillCategory =
+  | "skills.category.frontend"
+  | "skills.category.backend"
+  | "skills.category.database"
+  | "skills.category.devops"
+  | "skills.category.ai"
 
 type Skill = {
   name: string
@@ -169,14 +177,14 @@ export default function Skills() {
   const categories = Array.from(new Set(skillsData.map((skill) => skill.category)))
 
   return (
-    <section id="skills" className="py-16 bg-muted/50 scroll-mt-8">
+    <section id="skills" className="bg-muted/50 scroll-mt-8 py-16">
       <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12"
+          className="mb-12 text-center text-3xl font-bold"
         >
           {t("skills.title")}
         </motion.h2>
@@ -207,15 +215,15 @@ export default function Skills() {
                         <DialogContent>
                           <DialogHeader>
                             <DialogTitle>{skill.name}</DialogTitle>
-                            <DialogDescription>
-                              {t("skills.level")} :
-                            </DialogDescription>
+                            <DialogDescription>{t("skills.level")} :</DialogDescription>
                             <Badge className={levelColors[skill.level]}>{t(skill.level)}</Badge>
                           </DialogHeader>
                           <div className="mt-4">
-                            <p className="text-sm text-muted-foreground mb-4">{skill.description}</p>
-                            <h4 className="text-sm font-semibold mb-2">{t("skills.projects")}</h4>
-                            <ul className="list-disc list-inside text-sm text-muted-foreground">
+                            <p className="text-muted-foreground mb-4 text-sm">
+                              {skill.description}
+                            </p>
+                            <h4 className="mb-2 text-sm font-semibold">{t("skills.projects")}</h4>
+                            <ul className="text-muted-foreground list-inside list-disc text-sm">
                               {skill.projects.map((project, idx) => (
                                 <li key={idx}>{project}</li>
                               ))}
@@ -233,4 +241,3 @@ export default function Skills() {
     </section>
   )
 }
-

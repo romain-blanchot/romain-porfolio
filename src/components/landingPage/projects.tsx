@@ -3,10 +3,29 @@
 import { useI18n } from "@/locales/client"
 import { AnimatePresence, motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import { Building2, Database, Server, Lightbulb, Code, Zap, Cog, Shield, Users, ChevronUp, ChevronDown } from "lucide-react"
+import {
+  Building2,
+  Database,
+  Server,
+  Lightbulb,
+  Code,
+  Zap,
+  Cog,
+  Shield,
+  Users,
+  ChevronUp,
+  ChevronDown,
+} from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -18,10 +37,8 @@ import { useState } from "react"
 //   const { locale } = await params;
 //   setStaticParamsLocale(locale);
 
-
 export default function Projects() {
-    const t = useI18n()
-  
+  const t = useI18n()
 
   const projects = [
     {
@@ -51,8 +68,6 @@ export default function Projects() {
         },
       ],
     },
-
-
 
     {
       title: t("projects.extraction.title"),
@@ -104,7 +119,6 @@ export default function Projects() {
         },
       ],
     },
-    
   ]
 
   const container = {
@@ -127,7 +141,7 @@ export default function Projects() {
   const isProjectExpanded = (projectId: string) => expandedProjects.has(projectId)
 
   const toggleProject = (projectId: string) => {
-    setExpandedProjects(prev => {
+    setExpandedProjects((prev) => {
       const newSet = new Set(prev)
       if (newSet.has(projectId)) {
         newSet.delete(projectId)
@@ -139,14 +153,14 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-16 scroll-mt-8">
+    <section id="projects" className="scroll-mt-8 py-16">
       <div className="container mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-center mb-12"
+          className="mb-12 text-center text-3xl font-bold"
         >
           {t("projects.title")}
         </motion.h2>
@@ -164,167 +178,198 @@ export default function Projects() {
             .map((project, index) => {
               const projectId = `featured-${index}`
               return (
-              <motion.div key={index} variants={item}>
-                <Card className="overflow-hidden">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="relative h-64 md:h-auto">
-                      <Image
-                        src={project.image ?? ""}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="p-6 flex flex-col justify-between">
-                      <div>
-                        <div className="mb-4 flex justify-between items-start">
-                          <div>
-                            <Badge className="mb-2">{t("projects.featured")}</Badge>
-                            <h3 className="text-2xl font-bold">{project.title}</h3>
+                <motion.div key={index} variants={item}>
+                  <Card className="overflow-hidden">
+                    <div className="grid gap-6 md:grid-cols-2">
+                      <div className="relative h-64 md:h-auto">
+                        <Image
+                          src={project.image ?? ""}
+                          alt={project.title}
+                          fill
+                          className="object-cover object-top"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-between p-6">
+                        <div>
+                          <div className="mb-4 flex items-start justify-between">
+                            <div>
+                              <Badge className="mb-2">{t("projects.featured")}</Badge>
+                              <h3 className="text-2xl font-bold">{project.title}</h3>
+                            </div>
+                            <div className="bg-primary/10 text-primary rounded-lg p-2">
+                              {project.icon}
+                            </div>
                           </div>
-                          <div className="p-2 bg-primary/10 rounded-lg text-primary">{project.icon}</div>
+                          <p className="text-muted-foreground mb-4">{project.description}</p>
+                          <div className="mb-4 flex flex-wrap gap-2">
+                            {project.tags.map((tag, tagIndex) => (
+                              <Badge key={tagIndex} variant="outline">
+                                {tag}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
-                        <p className="text-muted-foreground mb-4">{project.description}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-col gap-2 lg:flex-row lg:justify-between lg:gap-4">
+                          <Link
+                            href={project.link ?? ""}
+                            target="_blank"
+                            className="w-full lg:w-auto"
+                          >
+                            <Button variant="default" size="sm" className="w-full lg:w-auto">
+                              {t("projects.viewProject")}
+                            </Button>
+                          </Link>
+                          {project.challenged && (
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="w-full gap-2 lg:w-auto"
+                              aria-controls={`challenge-${projectId}`}
+                              aria-expanded={isProjectExpanded(projectId)}
+                              onClick={() => toggleProject(projectId)}
+                            >
+                              {isProjectExpanded(projectId) ? (
+                                <>
+                                  <ChevronUp className="h-4 w-4" />
+                                  {t("projects.masquer")}
+                                </>
+                              ) : (
+                                <>
+                                  <ChevronDown className="h-4 w-4" />
+                                  {t("projects.defiSolution")}
+                                  <Lightbulb className="h-4 w-4 text-yellow-400" />
+                                </>
+                              )}
+                            </Button>
+                          )}
+                          {/* <Button variant="outline" size="sm">
+                          {t("projects.sourceCode")}
+                        </Button> */}
+                        </div>
+                        <AnimatePresence>
+                          {isProjectExpanded(projectId) && (
+                            <motion.div
+                              id={`challenges-${projectId}`}
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="mt-4 space-y-4"
+                            >
+                              {project.challenges.map((challenge, challengeIndex) => (
+                                <div
+                                  key={challengeIndex}
+                                  className="bg-background rounded-lg p-4 shadow-xs"
+                                >
+                                  <div className="mb-2 flex items-center gap-2">
+                                    <div className="bg-primary/10 text-primary rounded-full p-1">
+                                      {challenge.icon}
+                                    </div>
+                                    <h5 className="font-semibold">{challenge.challenge}</h5>
+                                  </div>
+                                  <p className="text-muted-foreground ml-8 text-sm">
+                                    {challenge.solution}
+                                  </p>
+                                </div>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              )
+            })}
+
+          {/* Other Projects */}
+          <div className="grid gap-6 md:grid-cols-2">
+            {projects
+              .filter((project) => !project.featured)
+              .map((project, index) => {
+                const projectId = `regular-${index}`
+                return (
+                  <motion.div key={index} variants={item}>
+                    <Card>
+                      <CardHeader>
+                        <div className="flex items-start justify-between">
+                          <CardTitle>{project.title}</CardTitle>
+                          <div className="bg-primary/10 text-primary rounded-lg p-2">
+                            {project.icon}
+                          </div>
+                        </div>
+                        <CardDescription>{project.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag, tagIndex) => (
                             <Badge key={tagIndex} variant="outline">
                               {tag}
                             </Badge>
                           ))}
                         </div>
-                      </div>
-                      <div className="flex flex-col gap-2 lg:flex-row lg:justify-between lg:gap-4">
-                        <Link href={project.link ?? ""} target="_blank" className="w-full lg:w-auto">
-                          <Button variant="default" size="sm" className="w-full lg:w-auto">
-                            {t("projects.viewProject")}
-                          </Button>
-                        </Link>
+                      </CardContent>
+                      <CardFooter className="flex justify-center md:justify-end">
                         {project.challenged && (
-                          <Button variant="outline" size="sm" className="gap-2 w-full lg:w-auto" 
-                          aria-controls={`challenge-${projectId}`}
-                          aria-expanded={isProjectExpanded(projectId)}
-                          onClick={() => toggleProject(projectId)}>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full gap-2 md:w-auto"
+                            aria-controls={`challenge-${projectId}`}
+                            aria-expanded={isProjectExpanded(projectId)}
+                            onClick={() => toggleProject(projectId)}
+                          >
                             {isProjectExpanded(projectId) ? (
                               <>
-                                <ChevronUp className="w-4 h-4" />
+                                <ChevronUp className="h-4 w-4" />
                                 {t("projects.masquer")}
                               </>
                             ) : (
                               <>
-                                <ChevronDown className="w-4 h-4" />
+                                <ChevronDown className="h-4 w-4" />
                                 {t("projects.defiSolution")}
-                                <Lightbulb className="w-4 h-4 text-yellow-400" />
+                                <Lightbulb className="h-4 w-4 text-yellow-400" />
                               </>
                             )}
                           </Button>
                         )}
-                        {/* <Button variant="outline" size="sm">
-                          {t("projects.sourceCode")}
-                        </Button> */}
-                      </div>
+                      </CardFooter>
                       <AnimatePresence>
-                      {isProjectExpanded(projectId) && (
-                        <motion.div
-                          id={`challenges-${projectId}`}
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-4 space-y-4"
-                        >
-                          {project.challenges.map((challenge, challengeIndex) => (
-                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-xs">
-                              <div className="flex items-center gap-2 mb-2">
-                                <div className="p-1 bg-primary/10 rounded-full text-primary">{challenge.icon}</div>
-                                <h5 className="font-semibold">{challenge.challenge}</h5>
+                        {isProjectExpanded(projectId) && (
+                          <motion.div
+                            id={`challenges-${projectId}`}
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4 space-y-4"
+                          >
+                            {project.challenges.map((challenge, challengeIndex) => (
+                              <div
+                                key={challengeIndex}
+                                className="bg-background rounded-lg p-4 shadow-xs"
+                              >
+                                <div className="mb-2 flex items-center gap-2">
+                                  <div className="bg-primary/10 text-primary rounded-full p-1">
+                                    {challenge.icon}
+                                  </div>
+                                  <h5 className="font-semibold">{challenge.challenge}</h5>
+                                </div>
+                                <p className="text-muted-foreground ml-8 text-sm">
+                                  {challenge.solution}
+                                </p>
                               </div>
-                              <p className="text-sm text-muted-foreground ml-8">{challenge.solution}</p>
-                            </div>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            )})}
-
-          {/* Other Projects */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects
-              .filter((project) => !project.featured)
-              .map((project, index) => {
-                const projectId = `regular-${index}`
-                return (
-                <motion.div key={index} variants={item}>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex justify-between items-start">
-                        <CardTitle>{project.title}</CardTitle>
-                        <div className="p-2 bg-primary/10 rounded-lg text-primary">{project.icon}</div>
-                      </div>
-                      <CardDescription>{project.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, tagIndex) => (
-                          <Badge key={tagIndex} variant="outline">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                    <CardFooter className="flex justify-center md:justify-end">
-                        {project.challenged && (
-                          <Button variant="outline" size="sm" className="gap-2 w-full md:w-auto" 
-                          aria-controls={`challenge-${projectId}`}
-                          aria-expanded={isProjectExpanded(projectId)}
-                          onClick={() => toggleProject(projectId)}>
-                            {isProjectExpanded(projectId) ? (
-                              <>
-                                <ChevronUp className="w-4 h-4" />
-                                {t("projects.masquer")}
-                              </>
-                            ) : (
-                              <>
-                                <ChevronDown className="w-4 h-4" />
-                                {t("projects.defiSolution")} 
-                                <Lightbulb className="w-4 h-4 text-yellow-400" />
-                              </>
-                            )}
-                          </Button>
+                            ))}
+                          </motion.div>
                         )}
-                    </CardFooter>
-                    <AnimatePresence>
-                      {isProjectExpanded(projectId) && (
-                        <motion.div
-                          id={`challenges-${projectId}`}
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="mt-4 space-y-4"
-                        >
-                          {project.challenges.map((challenge, challengeIndex) => (
-                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-xs">
-                              <div className="flex items-center gap-2 mb-2">
-                                <div className="p-1 bg-primary/10 rounded-full text-primary">{challenge.icon}</div>
-                                <h5 className="font-semibold">{challenge.challenge}</h5>
-                              </div>
-                              <p className="text-sm text-muted-foreground ml-8">{challenge.solution}</p>
-                            </div>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </Card>
-                </motion.div>
-              )})}
+                      </AnimatePresence>
+                    </Card>
+                  </motion.div>
+                )
+              })}
           </div>
         </motion.div>
       </div>
     </section>
   )
 }
-

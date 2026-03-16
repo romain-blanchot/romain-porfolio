@@ -1,5 +1,5 @@
-import Projects from "@/components/landingPage/projects";
-import { setStaticParamsLocale } from "next-international/server";
+import Projects from "@/components/landingPage/projects"
+import { setStaticParamsLocale } from "next-international/server"
 // import { Metadata, ResolvingMetadata } from "next";
 // import { getI18n } from "@/locales/server";
 
@@ -14,17 +14,17 @@ import { setStaticParamsLocale } from "next-international/server";
 //   parent: ResolvingMetadata
 // ): Promise<Metadata> {
 //   const { locale } = await params;
-  
+
 //   setStaticParamsLocale(locale);
 //   const t = await getI18n();
 
 //   const isFrench = locale === "fr";
-  
+
 //   // On récupère les données parentes
 //   const parentMetadata = await parent;
-  
+
 //   // On extrait les propriétés sûres qui ne causent pas d'erreur de type
-//   const { 
+//   const {
 //     icons, manifest, applicationName, formatDetection,
 //     metadataBase,  archives, assets, bookmarks,
 //     category, classification, creator, publisher, referrer, colorScheme, generator
@@ -35,7 +35,7 @@ import { setStaticParamsLocale } from "next-international/server";
 //     icons, manifest, applicationName, formatDetection,
 //     metadataBase, archives, assets, bookmarks,
 //     category, classification, creator, publisher, referrer, colorScheme, generator,
-    
+
 //     // Nos propriétés spécifiques
 //     title: {
 //       default: t("metadata.mes-projets.title"),
@@ -44,7 +44,7 @@ import { setStaticParamsLocale } from "next-international/server";
 //     description: t("metadata.mes-projets.description"),
 //     // Données littérales pour éviter les erreurs de traduction
 //     // keywords: [
-//     //   "développement web", "portfolio", "projets", "nextjs", 
+//     //   "développement web", "portfolio", "projets", "nextjs",
 //     //   "react", "javascript", "typescript", "frontend", "backend",
 //     //   "fullstack", "responsive", "mobile", "design", "UX/UI", "applications"
 //     // ],
@@ -62,11 +62,11 @@ import { setStaticParamsLocale } from "next-international/server";
 //       t("metadata.mes-projets.keywords.12"),
 //       t("metadata.mes-projets.keywords.13"),
 //       t("metadata.mes-projets.keywords.14"),
-      
+
 //     ],
 //     alternates: {
-//       canonical: isFrench 
-//       ? "https://www.romainblanchot.com/mes-projets" 
+//       canonical: isFrench
+//       ? "https://www.romainblanchot.com/mes-projets"
 //       : `https://www.romainblanchot.com/${locale}/mes-projets`,
 //       languages: {
 //         "fr": "https://www.romainblanchot.com/mes-projets",
@@ -79,8 +79,8 @@ import { setStaticParamsLocale } from "next-international/server";
 //       description: t("metadata.mes-projets.openGraph.description") || "Découvrez mes projets",
 //       type: "website",
 //       locale: locale,
-//       url: isFrench 
-//         ? "https://www.romainblanchot.com/mes-projets" 
+//       url: isFrench
+//         ? "https://www.romainblanchot.com/mes-projets"
 //         : `https://www.romainblanchot.com/${locale}/mes-projets`,
 //       siteName: t("metadata.mes-projets.openGraph.siteName") || "Portfolio Romain Blanchot",
 //     },
@@ -101,12 +101,12 @@ import { setStaticParamsLocale } from "next-international/server";
 // }
 
 export default async function MesProjets({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  setStaticParamsLocale(locale);
+  const { locale } = await params
+  setStaticParamsLocale(locale)
 
   return (
     <div className="pt-10">
-        <Projects />
+      <Projects />
     </div>
-  );
+  )
 }

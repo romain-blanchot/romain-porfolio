@@ -5,13 +5,11 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { getI18n } from "@/locales/server"
-import { setStaticParamsLocale } from "next-international/server";
-
+import { setStaticParamsLocale } from "next-international/server"
 
 // export function generateStaticParams() {
 //   return getStaticParams();
 // }
-
 
 export const metadata: Metadata = {
   title: "Politique de Cookies | Romain - Développeur Web Freelance",
@@ -19,16 +17,19 @@ export const metadata: Metadata = {
     "Politique de cookies détaillant l'utilisation des cookies et technologies similaires sur notre site web.",
 }
 
+export default async function PolitiqueCookies({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setStaticParamsLocale(locale)
 
-export default async function PolitiqueCookies({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  setStaticParamsLocale(locale);
-
-  const t = await getI18n();
+  const t = await getI18n()
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="max-w-3xl mx-auto">
+      <div className="mx-auto max-w-3xl">
         <Button variant="ghost" size="sm" className="mb-6" asChild>
           <Link href="/">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -36,179 +37,237 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
           </Link>
         </Button>
 
-        <h1 className="text-3xl font-bold mb-8">{t("politique-cookies.title")}</h1>
-        <p className="text-sm text-muted-foreground mb-6">
+        <h1 className="mb-8 text-3xl font-bold">{t("politique-cookies.title")}</h1>
+        <p className="text-muted-foreground mb-6 text-sm">
           {t("politique-cookies.last-update")} {new Date().toLocaleDateString("fr-FR")}
         </p>
 
         <div className="prose prose-sm dark:prose-invert max-w-none">
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.1.title")}</h2>
-            <p>
-              {t("politique-cookies.section.1.p1")}
-            </p>
-            <p>
-              {t("politique-cookies.section.1.p2")}
-            </p>
-            <p>
-              {t("politique-cookies.section.1.p3")}
-            </p>
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.1.title")}</h2>
+            <p>{t("politique-cookies.section.1.p1")}</p>
+            <p>{t("politique-cookies.section.1.p2")}</p>
+            <p>{t("politique-cookies.section.1.p3")}</p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.2.title")}</h2>
-            <p>
-              {t("politique-cookies.section.2.p1")}
-            </p>
-            <p>
-              {t("politique-cookies.section.2.p2")}
-            </p>
-            <p>
-              {t("politique-cookies.section.2.p3")}
-            </p>
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.2.title")}</h2>
+            <p>{t("politique-cookies.section.2.p1")}</p>
+            <p>{t("politique-cookies.section.2.p2")}</p>
+            <p>{t("politique-cookies.section.2.p3")}</p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.3.title")}</h2>
-            <p>
-              {t("politique-cookies.section.3.p1")}
-            </p>
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.3.title")}</h2>
+            <p>{t("politique-cookies.section.3.p1")}</p>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.3.1.title")}</h3>
-            <p>
-              {t("politique-cookies.section.3.1.p1")}
-            </p>
-            <table className="min-w-full border border-gray-300 dark:border-gray-700 mb-4">
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.3.1.title")}
+            </h3>
+            <p>{t("politique-cookies.section.3.1.p1")}</p>
+            <table className="mb-4 min-w-full border border-gray-300 dark:border-gray-700">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-800">
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.name")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.provider")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.purpose")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.duration")}</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.name")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.provider")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.purpose")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.duration")}
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.1.row1.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.1.row1.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.1.row1.name")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.1.row1.provider")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
                     {t("politique-cookies.table.3.1.row1.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.1.row1.duration")}</td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.1.row1.duration")}
+                  </td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.1.row2.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.1.row2.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.1.row2.name")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.1.row2.provider")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
                     {t("politique-cookies.table.3.1.row2.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.1.row2.duration")}</td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.1.row2.duration")}
+                  </td>
                 </tr>
               </tbody>
             </table>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.3.2.title")}</h3>
-            <p>
-              {t("politique-cookies.section.3.2.p1")}
-            </p>
-            <table className="min-w-full border border-gray-300 dark:border-gray-700 mb-4">
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.3.2.title")}
+            </h3>
+            <p>{t("politique-cookies.section.3.2.p1")}</p>
+            <table className="mb-4 min-w-full border border-gray-300 dark:border-gray-700">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-800">
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.name")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.provider")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.purpose")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.duration")}</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.name")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.provider")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.purpose")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.duration")}
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.2.row1.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.2.row1.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.2.row1.name")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.2.row1.provider")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
                     {t("politique-cookies.table.3.2.row1.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.2.row1.duration")}</td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.2.row1.duration")}
+                  </td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.2.row2.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.2.row2.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.2.row2.name")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.2.row2.provider")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
                     {t("politique-cookies.table.3.2.row2.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.2.row2.duration")}</td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.2.row2.duration")}
+                  </td>
                 </tr>
               </tbody>
             </table>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.3.3.title")}</h3>
-            <p>
-              {t("politique-cookies.section.3.3.p1")}
-            </p>
-            <table className="min-w-full border border-gray-300 dark:border-gray-700 mb-4">
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.3.3.title")}
+            </h3>
+            <p>{t("politique-cookies.section.3.3.p1")}</p>
+            <table className="mb-4 min-w-full border border-gray-300 dark:border-gray-700">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-800">
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.name")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.provider")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.purpose")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.duration")}</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.name")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.provider")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.purpose")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.duration")}
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row1.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row1.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.3.row1.name")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.3.row1.provider")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
                     {t("politique-cookies.table.3.3.row1.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row1.duration")}</td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.3.row1.duration")}
+                  </td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.3.row2.name")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.3.row2.provider")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
                     {t("politique-cookies.table.3.3.row2.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.duration")}</td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.3.row2.duration")}
+                  </td>
                 </tr>
               </tbody>
             </table>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.3.4.title")}</h3>
-            <p>
-              {t("politique-cookies.section.3.4.p1")}
-            </p>
-            <table className="min-w-full border border-gray-300 dark:border-gray-700 mb-4">
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.3.4.title")}
+            </h3>
+            <p>{t("politique-cookies.section.3.4.p1")}</p>
+            <table className="mb-4 min-w-full border border-gray-300 dark:border-gray-700">
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-800">
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.name")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.provider")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.purpose")}</th>
-                  <th className="border border-gray-300 dark:border-gray-700 px-4 py-2 text-left">{t("politique-cookies.table.header.duration")}</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.name")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.provider")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.purpose")}
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left dark:border-gray-700">
+                    {t("politique-cookies.table.header.duration")}
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.4.row1.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.4.row1.provider")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.4.row1.name")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.4.row1.provider")}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
                     {t("politique-cookies.table.3.4.row1.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.4.row1.duration")}</td>
+                  <td className="border border-gray-300 px-4 py-2 dark:border-gray-700">
+                    {t("politique-cookies.table.3.4.row1.duration")}
+                  </td>
                 </tr>
               </tbody>
             </table>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.4.title")}</h2>
-            <p>
-              {t("politique-cookies.section.4.p1")}
-            </p>
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.4.title")}</h2>
+            <p>{t("politique-cookies.section.4.p1")}</p>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.4.1.title")}</h3>
-            <p>
-              {t("politique-cookies.section.4.1.p1")}
-            </p>
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.4.1.title")}
+            </h3>
+            <p>{t("politique-cookies.section.4.1.p1")}</p>
             <p>
               {t("politique-cookies.section.4.1.p2")}{" "}
               <a
@@ -222,13 +281,11 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
               .
             </p>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.4.2.title")}</h3>
-            <p>
-              {t("politique-cookies.section.4.2.p1")}
-            </p>
-            <p>
-              {t("politique-cookies.section.4.2.p2")}
-            </p>
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.4.2.title")}
+            </h3>
+            <p>{t("politique-cookies.section.4.2.p1")}</p>
+            <p>{t("politique-cookies.section.4.2.p2")}</p>
             <p>
               {t("politique-cookies.section.4.2.p3")}{" "}
               <a
@@ -242,10 +299,10 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
               .
             </p>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.4.3.title")}</h3>
-            <p>
-              {t("politique-cookies.section.4.3.p1")}
-            </p>
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.4.3.title")}
+            </h3>
+            <p>{t("politique-cookies.section.4.3.p1")}</p>
             <p>
               {t("politique-cookies.section.4.3.p2")}{" "}
               <a
@@ -261,17 +318,15 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.5.title")}</h2>
-            <p>
-              {t("politique-cookies.section.5.p1")}
-            </p>
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.5.title")}</h2>
+            <p>{t("politique-cookies.section.5.p1")}</p>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.5.1.title")}</h3>
-            <p>
-              {t("politique-cookies.section.5.1.p1")}
-            </p>
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.5.1.title")}
+            </h3>
+            <p>{t("politique-cookies.section.5.1.p1")}</p>
             <p>{t("politique-cookies.section.5.1.p2")}</p>
-            <ul className="list-disc pl-6 mb-4">
+            <ul className="mb-4 list-disc pl-6">
               <li>
                 <strong>Chrome</strong> : {t("politique-cookies.section.5.1.li1")}
               </li>
@@ -286,7 +341,9 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
               </li>
             </ul>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.5.2.title")}</h3>
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.5.2.title")}
+            </h3>
             <p>
               {t("politique-cookies.section.5.2.p1")}
               <a
@@ -301,45 +358,42 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
               .
             </p>
 
-            <h3 className="text-lg font-medium mt-6 mb-3">{t("politique-cookies.section.5.3.title")}</h3>
-            <p>
-              {t("politique-cookies.section.5.3.p1")}
-            </p>
-            <p>
-              {t("politique-cookies.section.5.3.p2")}
-            </p>
+            <h3 className="mt-6 mb-3 text-lg font-medium">
+              {t("politique-cookies.section.5.3.title")}
+            </h3>
+            <p>{t("politique-cookies.section.5.3.p1")}</p>
+            <p>{t("politique-cookies.section.5.3.p2")}</p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.6.title")}</h2>
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.6.title")}</h2>
             <p>{t("politique-cookies.section.6.p1")}</p>
-            <ul className="list-disc pl-6 mb-4">
+            <ul className="mb-4 list-disc pl-6">
               <li>
-                <strong>{t("politique-cookies.section.6.title.li1")}</strong> : {t("politique-cookies.section.6.li1")}
+                <strong>{t("politique-cookies.section.6.title.li1")}</strong> :{" "}
+                {t("politique-cookies.section.6.li1")}
               </li>
               <li>
-                <strong>{t("politique-cookies.section.6.title.li2")}</strong> : {t("politique-cookies.section.6.li2")}
+                <strong>{t("politique-cookies.section.6.title.li2")}</strong> :{" "}
+                {t("politique-cookies.section.6.li2")}
               </li>
               <li>
-                <strong>{t("politique-cookies.section.6.title.li3")}</strong> : {t("politique-cookies.section.6.li3")}
+                <strong>{t("politique-cookies.section.6.title.li3")}</strong> :{" "}
+                {t("politique-cookies.section.6.li3")}
               </li>
             </ul>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.7.title")}</h2>
-            <p>
-              {t("politique-cookies.section.7.p1")}
-            </p>
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.7.title")}</h2>
+            <p>{t("politique-cookies.section.7.p1")}</p>
             <p>{t("politique-cookies.section.7.p2")}</p>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">{t("politique-cookies.section.8.title")}</h2>
-            <p>
-              {t("politique-cookies.section.8.p1")}
-            </p>
-            <ul className="list-disc pl-6 mb-4">
+            <h2 className="mb-4 text-xl font-semibold">{t("politique-cookies.section.8.title")}</h2>
+            <p>{t("politique-cookies.section.8.p1")}</p>
+            <ul className="mb-4 list-disc pl-6">
               <li>{t("politique-cookies.section.8.li1")}</li>
               <li>{t("politique-cookies.section.8.li2")}</li>
             </ul>
@@ -349,4 +403,3 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
     </div>
   )
 }
-

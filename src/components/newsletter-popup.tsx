@@ -17,20 +17,27 @@ import RomainBlanchot from "@/public/photoProfilRomain.jpg"
 import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form"
 import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
 
 // 🕐 Délais en millisecondes - déplacés à l'extérieur du composant
-const TIME_ON_SITE = 60 * 1000; // 60 secondes
-const POPUP_INTERVAL = 24 * 60 * 60 * 1000; // 24 heures
-const INACTIVITY_TIME = 60 * 1000; // 60 secondes
-const PAGE_VIEW_THRESHOLD = 5; // 5 pages visitées
+const TIME_ON_SITE = 60 * 1000 // 60 secondes
+const POPUP_INTERVAL = 24 * 60 * 60 * 1000 // 24 heures
+const INACTIVITY_TIME = 60 * 1000 // 60 secondes
+const PAGE_VIEW_THRESHOLD = 5 // 5 pages visitées
 
 export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [hasCheckedStorage, setHasCheckedStorage] = useState(false)
   const t = useI18n()
-  const currentLocale = useCurrentLocale(); 
+  const currentLocale = useCurrentLocale()
 
   const form = useForm<NewsletterSchemaType>({
     resolver: zodResolver(newsletterSchema(t)),
@@ -41,114 +48,104 @@ export default function NewsletterPopup() {
     },
   })
 
-  
   useEffect(() => {
-    form.setValue("language", currentLocale);
-  }, [currentLocale, form.setValue, form]);
-
+    form.setValue("language", currentLocale)
+  }, [currentLocale, form.setValue, form])
 
   const onSubmit = async (data: NewsletterSchemaType) => {
-    
     try {
-      console.log("data", data);
-      const response = await subscribeToNewsletter(data);
+      console.log("data", data)
+      const response = await subscribeToNewsletter(data)
 
       if (response.success) {
         toast.success(t("newsletter.success.title"), {
           description: t("newsletter.success.description"),
-        });
-        form.reset();
+        })
+        form.reset()
       } else {
         toast.error(t("newsletter.error.title"), {
           description: t("newsletter.error.description"),
-        });
+        })
       }
     } catch (error) {
-      console.error("Erreur lors de l'envoi du formulaire:", error);
+      console.error("Erreur lors de l'envoi du formulaire:", error)
       toast.error(t("newsletter.error.title"), {
         description: t("newsletter.error.description"),
-      });
-    } 
-    
-  };
+      })
+    }
+  }
 
-    useEffect(() => {
-    const hasSubscribed = localStorage.getItem("newsletterSubscribed");
+  /* eslint-disable react-hooks/set-state-in-effect -- localStorage reads on mount require setState for hydration safety */
+  useEffect(() => {
+    const hasSubscribed = localStorage.getItem("newsletterSubscribed")
     if (hasSubscribed) {
-        setHasCheckedStorage(true);
-        return; // ⛔ Ne rien exécuter si l'utilisateur est déjà abonné
+      setHasCheckedStorage(true)
+      return
     }
 
-    const lastPopupShown = localStorage.getItem("lastNewsletterPopupShown");
-    let pageViews = parseInt(localStorage.getItem("pageViews") || "0", 10);
-    const now = Date.now();
+    const lastPopupShown = localStorage.getItem("lastNewsletterPopupShown")
+    let pageViews = parseInt(localStorage.getItem("pageViews") || "0", 10)
+    const now = Date.now()
 
-    // ⏳ Vérifier si l'intervalle s'est écoulé depuis la dernière popup
-    const canShowPopup = !lastPopupShown || now - parseInt(lastPopupShown) > POPUP_INTERVAL;
-    
+    const canShowPopup = !lastPopupShown || now - parseInt(lastPopupShown) > POPUP_INTERVAL
+
     if (!canShowPopup) {
-        setHasCheckedStorage(true);
-        return; // Ne pas continuer si on ne peut pas encore afficher la popup
+      setHasCheckedStorage(true)
+      return
     }
 
-    // Variable pour éviter les déclenchements multiples
-    let popupTriggered = false;
-    
-    // Fonction de déclenchement avec protection contre les multiples appels
+    let popupTriggered = false
+
     const triggerPopupOnce = () => {
-        if (popupTriggered || localStorage.getItem("newsletterSubscribed")) return;
-        popupTriggered = true;
-        setIsOpen(true);
-        localStorage.setItem("lastNewsletterPopupShown", Date.now().toString());
-    };
-
-    // ⏱️ Affichage après TIME_ON_SITE
-    const siteTimer = setTimeout(() => {
-        if (canShowPopup) triggerPopupOnce();
-    }, TIME_ON_SITE);
-
-    // 📄 Incrémenter le nombre de pages vues
-    pageViews += 1;
-    localStorage.setItem("pageViews", pageViews.toString());
-
-    // 📌 Affichage après PAGE_VIEW_THRESHOLD pages vues
-    if (pageViews >= PAGE_VIEW_THRESHOLD && canShowPopup) {
-        triggerPopupOnce();
-        localStorage.setItem("pageViews", "0"); // Réinitialisation après affichage
+      if (popupTriggered || localStorage.getItem("newsletterSubscribed")) return
+      popupTriggered = true
+      setIsOpen(true)
+      localStorage.setItem("lastNewsletterPopupShown", Date.now().toString())
     }
 
-    // 🔴 Gestion de l'inactivité (Seulement si pas encore abonné)
-    let inactivityTimer: NodeJS.Timeout;
+    const siteTimer = setTimeout(() => {
+      if (canShowPopup) triggerPopupOnce()
+    }, TIME_ON_SITE)
+
+    pageViews += 1
+    localStorage.setItem("pageViews", pageViews.toString())
+
+    if (pageViews >= PAGE_VIEW_THRESHOLD && canShowPopup) {
+      triggerPopupOnce()
+      localStorage.setItem("pageViews", "0")
+    }
+
+    let inactivityTimer: NodeJS.Timeout
     const resetTimer = () => {
-        if (localStorage.getItem("newsletterSubscribed") || popupTriggered) return;
+      if (localStorage.getItem("newsletterSubscribed") || popupTriggered) return
 
-        clearTimeout(inactivityTimer);
-        inactivityTimer = setTimeout(() => {
-            if (canShowPopup) triggerPopupOnce();
-        }, INACTIVITY_TIME);
-    };
+      clearTimeout(inactivityTimer)
+      inactivityTimer = setTimeout(() => {
+        if (canShowPopup) triggerPopupOnce()
+      }, INACTIVITY_TIME)
+    }
 
-    document.addEventListener("mousemove", resetTimer);
-    document.addEventListener("keydown", resetTimer);
-    resetTimer();
+    document.addEventListener("mousemove", resetTimer)
+    document.addEventListener("keydown", resetTimer)
+    resetTimer()
 
-    setHasCheckedStorage(true);
+    setHasCheckedStorage(true)
 
     return () => {
-        clearTimeout(siteTimer);
-        document.removeEventListener("mousemove", resetTimer);
-        document.removeEventListener("keydown", resetTimer);
-        clearTimeout(inactivityTimer);
-    };
-    }, []); // Suppression des dépendances car les constantes sont maintenant à l'extérieur
+      clearTimeout(siteTimer)
+      document.removeEventListener("mousemove", resetTimer)
+      document.removeEventListener("keydown", resetTimer)
+      clearTimeout(inactivityTimer)
+    }
+  }, [])
+  /* eslint-enable react-hooks/set-state-in-effect */
 
-    // ❌ Fermeture manuelle de la popup
-    const handleClose = () => {
-    setIsOpen(false);
-    };
+  // ❌ Fermeture manuelle de la popup
+  const handleClose = () => {
+    setIsOpen(false)
+  }
 
-  if (!hasCheckedStorage) return null;
-
+  if (!hasCheckedStorage) return null
 
   return (
     <AnimatePresence>
@@ -157,7 +154,7 @@ export default function NewsletterPopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-xs"
           onClick={handleClose}
         >
           <motion.div
@@ -165,19 +162,19 @@ export default function NewsletterPopup() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="max-w-md w-full"
+            className="w-full max-w-md"
             onClick={(e) => e.stopPropagation()}
           >
-            <Card className="overflow-hidden border-primary/10 shadow-xl">
+            <Card className="border-primary/10 overflow-hidden shadow-xl">
               <CardContent className="p-0">
-                <div className="relative h-32 bg-gradient-to-r from-primary/80 to-primary overflow-hidden">
+                <div className="from-primary/80 to-primary relative h-32 overflow-hidden bg-gradient-to-r">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Sparkles className="h-20 w-20 text-white/20" />
                   </div>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute top-2 right-2 text-white hover:bg-white/20 z-10"
+                    className="absolute top-2 right-2 z-10 text-white hover:bg-white/20"
                     onClick={handleClose}
                   >
                     <X className="h-5 w-5" />
@@ -186,9 +183,9 @@ export default function NewsletterPopup() {
                 </div>
 
                 <div className="relative p-6">
-                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
-                    <div className="w-24 h-24 rounded-full bg-background p-1 shadow-lg">
-                      <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 transform">
+                    <div className="bg-background h-24 w-24 rounded-full p-1 shadow-lg">
+                      <div className="from-primary to-primary/60 flex h-full w-full items-center justify-center rounded-full bg-gradient-to-br">
                         <Image
                           src={RomainBlanchot}
                           alt={t("newsletter-popup.image.alt")}
@@ -200,42 +197,54 @@ export default function NewsletterPopup() {
                     </div>
                   </div>
 
-                  <div className="mt-14 text-center space-y-3">
+                  <div className="mt-14 space-y-3 text-center">
                     <h3 className="text-xl font-bold">{t("newsletter-popup.title")}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {t("newsletter-popup.description")}
                     </p>
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-4">
-                            <FormField
-                                control={form.control}
-                                name="email"
-                                render={({field}) => (
-                                    <FormItem>
-                                        <FormLabel>{t("newsletter-popup.email.label")}</FormLabel>
-                                        <FormControl>
-                                            <Input type="email" placeholder={t("newsletter-popup.email.placeholder")} {...field} className="h-10" />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <Button type="submit" className="w-full group" disabled={form.formState.isSubmitting}>
-                                {form.formState.isSubmitting ? (
-                                    <Loader2 className="h-4 w-4 animate-spin" />
-                                ) : (
-                                    <>
-                                        {t("newsletter-popup.button")}
-                                        <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                    </>
-                                )}
-                            </Button>
-                        </form>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-4">
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>{t("newsletter-popup.email.label")}</FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="email"
+                                  placeholder={t("newsletter-popup.email.placeholder")}
+                                  {...field}
+                                  className="h-10"
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <Button
+                          type="submit"
+                          className="group w-full"
+                          disabled={form.formState.isSubmitting}
+                        >
+                          {form.formState.isSubmitting ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            <>
+                              {t("newsletter-popup.button")}
+                              <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </>
+                          )}
+                        </Button>
+                      </form>
                     </Form>
 
-                    <p className="text-xs text-muted-foreground pt-2">
+                    <p className="text-muted-foreground pt-2 text-xs">
                       {t("newsletter-popup.disclaimer")}{" "}
-                      <Link href="/politique-de-confidentialite" className="underline hover:text-primary">
+                      <Link
+                        href="/politique-de-confidentialite"
+                        className="hover:text-primary underline"
+                      >
                         {t("newsletter-popup.disclaimer.link")}
                       </Link>
                     </p>
@@ -245,9 +254,7 @@ export default function NewsletterPopup() {
             </Card>
           </motion.div>
         </motion.div>
-      )
-    }
+      )}
     </AnimatePresence>
   )
 }
-

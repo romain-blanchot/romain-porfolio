@@ -2,71 +2,88 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Code, Server, Database, Brain, Cloud, Zap, Shield, Cog, Users } from "lucide-react"
+import {
+  ArrowRight,
+  Code,
+  Server,
+  Database,
+  Brain,
+  Cloud,
+  Zap,
+  Shield,
+  Cog,
+  Users,
+} from "lucide-react"
 import Link from "next/link"
 import { useI18n } from "@/locales/client"
-
 
 // Définir toutes les traductions possibles pour satisfaire TypeScript
 const serviceKeys = {
   categories: {
     dev: "mes-services.category.dev",
     sys: "mes-services.category.sys",
-    ai: "mes-services.category.ai"
+    ai: "mes-services.category.ai",
   },
   items: {
     web: {
       title: "mes-services.item.web.title",
-      description: "mes-services.item.web.description"
+      description: "mes-services.item.web.description",
     },
     api: {
       title: "mes-services.item.api.title",
-      description: "mes-services.item.api.description"
+      description: "mes-services.item.api.description",
     },
     integration: {
       title: "mes-services.item.integration.title",
-      description: "mes-services.item.integration.description"
+      description: "mes-services.item.integration.description",
     },
     cloud: {
       title: "mes-services.item.cloud.title",
-      description: "mes-services.item.cloud.description"
+      description: "mes-services.item.cloud.description",
     },
     devops: {
       title: "mes-services.item.devops.title",
-      description: "mes-services.item.devops.description"
+      description: "mes-services.item.devops.description",
     },
     security: {
       title: "mes-services.item.security.title",
-      description: "mes-services.item.security.description"
+      description: "mes-services.item.security.description",
     },
     aiIntegration: {
       title: "mes-services.item.ai-integration.title",
-      description: "mes-services.item.ai-integration.description"
+      description: "mes-services.item.ai-integration.description",
     },
     mlPipelines: {
       title: "mes-services.item.ml-pipelines.title",
-      description: "mes-services.item.ml-pipelines.description"
+      description: "mes-services.item.ml-pipelines.description",
     },
     dataAnalysis: {
       title: "mes-services.item.data-analysis.title",
-      description: "mes-services.item.data-analysis.description"
-    }
+      description: "mes-services.item.data-analysis.description",
+    },
   },
   cta: {
     learnMore: "mes-services.learn-more",
     title: "mes-services.call-to-action.title",
     description: "mes-services.call-to-action.description",
     start: "mes-services.call-to-action.start",
-    meeting: "mes-services.call-to-action.meeting"
+    meeting: "mes-services.call-to-action.meeting",
   },
   page: {
     title: "mes-services.title",
-    subtitle: "mes-services.subtitle"
-  }
-} as const;
+    subtitle: "mes-services.subtitle",
+  },
+} as const
 
 // Utiliser ces clés constantes dans la structure de données
 const services = [
@@ -139,37 +156,40 @@ const services = [
       },
     ],
   },
-];
+]
 
 export default function MesServicesClient() {
-  
   const t = useI18n()
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20 mt-16">
+    <div className="container mx-auto mt-16 px-4 py-12 md:py-16 lg:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-8 md:mb-12"
+        className="mb-8 text-center md:mb-12"
       >
-        <h1 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">{t(serviceKeys.page.title)}</h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+        <h1 className="mb-3 text-3xl font-bold md:mb-4 md:text-4xl">{t(serviceKeys.page.title)}</h1>
+        <p className="text-muted-foreground mx-auto max-w-2xl text-lg md:text-xl">
           {t(serviceKeys.page.subtitle)}
         </p>
       </motion.div>
 
       <Tabs defaultValue={services[0].category} className="w-full">
-        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-4 md:mb-8 pt-4 md:pt-1 lg:pt-1 pb-28 lg:pb-10">
+        <TabsList className="mb-4 grid w-full grid-cols-1 pt-4 pb-28 md:mb-8 md:grid-cols-3 md:pt-1 lg:pt-1 lg:pb-10">
           {services.map((service) => (
-            <TabsTrigger key={service.category} value={service.category} className="text-base md:text-lg">
+            <TabsTrigger
+              key={service.category}
+              value={service.category}
+              className="text-base md:text-lg"
+            >
               {t(service.category)}
             </TabsTrigger>
           ))}
         </TabsList>
         {services.map((service) => (
           <TabsContent key={service.category} value={service.category}>
-            <div className="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
               {service.items.map((item, index) => (
                 <motion.div
                   key={item.title}
@@ -177,13 +197,15 @@ export default function MesServicesClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card className="h-full flex flex-col">
+                  <Card className="flex h-full flex-col">
                     <CardHeader>
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 md:mb-4">
+                      <div className="bg-primary/10 mb-3 flex h-10 w-10 items-center justify-center rounded-full md:mb-4 md:h-12 md:w-12">
                         {item.icon}
                       </div>
                       <CardTitle className="text-lg md:text-xl">{t(item.title)}</CardTitle>
-                      <CardDescription className="text-sm md:text-base">{t(item.description)}</CardDescription>
+                      <CardDescription className="text-sm md:text-base">
+                        {t(item.description)}
+                      </CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow">
                       <div className="flex flex-wrap gap-2">
@@ -212,13 +234,13 @@ export default function MesServicesClient() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
-        className="mt-10 md:mt-16 text-center"
+        className="mt-10 text-center md:mt-16"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">{t(serviceKeys.cta.title)}</h2>
-        <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
+        <h2 className="mb-4 text-2xl font-bold md:mb-6 md:text-3xl">{t(serviceKeys.cta.title)}</h2>
+        <p className="text-muted-foreground mx-auto mb-6 max-w-2xl text-base md:mb-8 md:text-xl">
           {t(serviceKeys.cta.description)}
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+        <div className="flex flex-col justify-center gap-3 sm:flex-row md:gap-4">
           <Button size="default" className="md:size-lg" asChild>
             <Link href="/demarrer-votre-projet">
               {t(serviceKeys.cta.start)}
@@ -233,4 +255,3 @@ export default function MesServicesClient() {
     </div>
   )
 }
-

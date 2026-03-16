@@ -1,19 +1,19 @@
 // proxy.ts
-import { createI18nMiddleware } from 'next-international/middleware'
-import { NextRequest } from 'next/server'
+import { createI18nMiddleware } from "next-international/middleware"
+import { NextRequest } from "next/server"
 
 const I18nMiddleware = createI18nMiddleware({
-  locales: ['en', 'fr'],
-  defaultLocale: 'fr',
-  urlMappingStrategy: 'rewriteDefault'
+  locales: ["en", "fr"],
+  defaultLocale: "fr",
+  urlMappingStrategy: "rewriteDefault",
 })
 
 export function proxy(request: NextRequest) {
   return I18nMiddleware(request)
 }
- 
+
 export const config = {
-  matcher: ['/((?!api|ingest|static|.*\\..*|_next|favicon.ico|robots.txt).*)']
+  matcher: ["/((?!api|ingest|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
 }
 
 // {

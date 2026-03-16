@@ -1,5 +1,3 @@
-
-
 import Hero from "@/components/landingPage/hero"
 import Services from "@/components/landingPage/services"
 import Skills from "@/components/landingPage/skills"
@@ -9,10 +7,9 @@ import Contact from "@/components/landingPage/contact"
 import NewsletterSection from "@/components/landingPage/newsletter-section"
 import { setStaticParamsLocale } from "next-international/server"
 
-
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  setStaticParamsLocale(locale);
+  const { locale } = await params
+  setStaticParamsLocale(locale)
 
   return (
     <>
