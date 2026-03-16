@@ -1,122 +1,78 @@
-# porfolio
-Portolio Romain
+# romainblanchot.com
 
+|         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CI/CD   | [![CI](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/ci.yml) [![Release](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/release.yml/badge.svg)](https://github.com/romain-blanchot/romain-porfolio/actions/workflows/release.yml) [![Vercel](https://img.shields.io/badge/Vercel-deployed-000?logo=vercel&logoColor=white)](https://romainblanchot.com)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Quality | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=coverage)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) |
+| Metrics | [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=bugs)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=romain-blanchot_romain-porfolio&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=romain-blanchot_romain-porfolio)                   |
+| Meta    | [![Next.js 16](https://img.shields.io/badge/Next.js-16-000?logo=nextdotjs&logoColor=white)](https://nextjs.org/) [![React 19.2](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white)](https://react.dev/) [![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/) [![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/) [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/) [![License - MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)                                                                                                                                                  |
 
-- framer motion (animations)
-- hyperui dev (components) (nop)
-- radix ui (colors)
-- shadcn ui (components)
-- realtime colors (fonts)
-- nextinternationnalization (i18n)
+Portfolio personnel et site vitrine de **Romain Blanchot** -- ingenieur logiciel freelance.
 
+## Stack technique
 
-reflexion de design
-- animation rapide et fluide
-- darkmode et lightmode
-- ui/ux moderne avec des call to actions
-- mobile first, puis avec md et lg 
+- **Framework** -- Next.js 16 (App Router, Turbopack)
+- **Langage** -- TypeScript 5.9
+- **UI** -- React 19.2, Tailwind CSS 4, Shadcn/ui, Framer Motion
+- **i18n** -- next-international (FR / EN)
+- **Email** -- Resend + React Email
+- **Validation** -- Zod + React Hook Form
+- **Analytics** -- Vercel Analytics & Speed Insights
+- **Tests** -- Vitest, React Testing Library, Playwright, MSW
+- **CI/CD** -- GitHub Actions, Vercel, SonarCloud
+- **Versioning** -- Release Please (Conventional Commits)
 
-Devise
+## Structure du projet
 
-icon pour les stack 
-3 projets principaux avec des icons 
+```
+src/
+├── app/[locale]/          # Pages (App Router + i18n)
+│   ├── actions/           # Server Actions (newsletter, formulaire projet)
+│   ├── page.tsx           # Homepage
+│   ├── mes-projets/       # Projets
+│   ├── mes-competences/   # Competences
+│   ├── mes-services/      # Services
+│   ├── a-propos/          # A propos
+│   ├── me-contacter/      # Contact
+│   └── demarrer-votre-projet/ # Formulaire devis
+├── components/            # Composants React
+│   ├── ui/                # Shadcn/ui
+│   └── email/             # Templates React Email
+├── lib/                   # Utilitaires, schemas Zod
+└── locales/               # Traductions FR/EN
+tests/
+├── unit/                  # Tests unitaires (Vitest)
+├── integration/           # Tests d'integration (Vitest + MSW)
+├── e2e/                   # Tests E2E (Playwright)
+└── mocks/                 # MSW handlers
+```
 
-Résumé
-- header
-- hero section
-- section skill
-- section project
-- section about
-- section contact
+## Demarrage rapide
 
-header : 
-- bar de navigation avec les liens
-- bouton pour le darkmode et le lightmode
-- selection des langues (francais anglais germain spanish)
+```bash
+# Installation
+pnpm install
 
-hero section : 
-- ma photo de profil en rond 
-- nom et prénom
-*résoudre vos problèmes et créer de la valeur*
-- liste des liens importants :
-    - github
-    - linkedin
-    - instagram
-    - mail
+# Developpement
+pnpm dev
 
+# Build production
+pnpm build
 
-- fleche qui tourne en rond pour pointer vers le cta
-- call to action : prendre rendez vous 
+# Tests
+pnpm test              # Unit + integration
+pnpm test:coverage     # Avec couverture
+pnpm test:e2e          # E2E (Playwright)
+```
 
+## Variables d'environnement
 
-section skill : 
-- categorie de skill :
-    - icone du skill
-    - nom du skill
+Copier `.env.example` vers `.env` et renseigner :
 
-- nextjs, ts, html/css, 
+```
+RESEND_API_KEY=""
+```
 
+## License
 
-Développement Web : HTML/CSS, Tailwind CSS, JavaScript, React.js , Nextjs
-Langages de Programmation : C/C++ avec Boost, Java 
-Ai : integration et maitrise de l'ia et des agent ia !
-Administration Système & DevOps : Linux, Docker, Nginx, Git & Github
-Base de Données : SQL, SQLPlus, PostgreSQL, Oracle , Redis 
-
-
-
-section project : 
- 
-- big project à mettre en avant => Hotel La Louisiane
-Développement d’un booking engine avec Next.js & Tailwind CSS, interface d’administration complète pour la gestion des
-réservations et tarifs, intégration d’animations Framer Motion et système de génération automatique de devis PDF.
-
-
-- 2 autres projects :
-Outil d’Extraction de Données
-Système d’extraction automatisé avec Python et Selenium, pipeline ETL robuste avec PostgreSQL et déploiement Docker,
-interface utilisateur intuitive pour utilisateurs non-techniques.
-Infrastructure Distribuée 10 Serveurs Dell R620
-Infrastructure réseau hybride haute disponibilité, déploiement automatisé via PXE et iDRAC, architecture sécurisée avec
-VLAN et monitoring centralisé.
-Robot d’Arbitrage Cryptomonnaie
-Système de trading algorithmique utilisant Bellman-Ford pour la détection d’opportunités, intégration WebSocket avec
-Boost.Beast et architecture multi-thread optimisée pour les performances.
-
-
-section about : 
-
-etudiant ingenieur autodidacte je suis tomber amoureux de l'ingenierie informatique et de la programmation ...
-
-
-
-
-pour plus tard:: rss
-import { NextResponse } from 'next/server';
-import { Feed } from 'feed';
-
-export async function GET() {
-  const feed = new Feed({
-    title: 'Talleyrand1000 - Portfolio',
-    description: 'Suivez mes projets et articles',
-    id: 'https://talleyrand1000.com/',
-    link: 'https://talleyrand1000.com/',
-    language: 'fr',
-    image: 'https://talleyrand1000.com/logo.png',
-    favicon: 'https://talleyrand1000.com/favicon.ico',
-    copyright: `© ${new Date().getFullYear()} Talleyrand1000`,
-  });
-
-  // Ajoute des articles au flux (remplace par tes données dynamiques)
-  feed.addItem({
-    title: 'Mon dernier projet',
-    id: 'https://talleyrand1000.com/projet-1',
-    link: 'https://talleyrand1000.com/projet-1',
-    description: 'Découvrez mon nouveau projet incroyable !',
-    date: new Date(),
-  });
-
-  return new NextResponse(feed.rss2(), {
-    headers: { 'Content-Type': 'application/rss+xml' },
-  });
-}
+[MIT](./LICENSE) -- Romain Blanchot

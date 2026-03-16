@@ -1,0 +1,858 @@
+// locales/en.ts
+export default {
+  "about.title": "About",
+  "about.description":
+    "I am a web developer passionate about creating performant and scalable websites.",
+
+  "about.description2":
+    "Passionate about solving complex problems and creating innovative solutions, I combine my technical skills with a creative approach to develop high-performance web applications and robust systems.",
+  "about.description3":
+    "My self-taught journey has allowed me to acquire great adaptability and quick learning abilities, essential qualities in a constantly evolving field.",
+
+  "contact.title": "Contact",
+  "contact.restons": "Let's stay in touch",
+  "contact.description": "Feel free to contact me for any questions or collaboration requests.",
+  "contact.form.title": "Send me a message",
+  "contact.form.description": "Fill out the form below and I will respond as soon as possible.",
+  "contact.form.firstname": "First name",
+  "contact.form.lastname": "Last name",
+  "contact.form.email": "Email",
+  "contact.form.subject": "Subject",
+  "contact.form.message": "Message",
+  "contact.form.send": "Send",
+
+  "contact.info.email": "Email",
+  "contact.info.phone": "Phone",
+  "contact.info.location": "Location",
+  "contact.info.github": "GitHub",
+  "contact.info.linkedin": "LinkedIn",
+  "contact.info.twitter": "Twitter",
+  "contact.info.tiktok": "TikTok",
+  "contact.info.facebook": "Facebook",
+  "contact.info.youtube": "Youtube",
+
+  "header.title": "Romain Blanchot",
+  "header.language": "Language",
+  "header.theme": "Theme",
+  "header.light": "Light",
+  "header.dark": "Dark",
+  "header.system": "System",
+
+  "nav.home": "Home",
+  "nav.skills": "Skills",
+  "nav.projects": "Projects",
+  "nav.about": "About",
+  "nav.contact": "Contact",
+  "nav.services": "My Services",
+  "nav.demarer-votre-projet": "Start your project",
+  "hero.title": "Freelance Web Developer Expert in Next.js",
+  "hero.description":
+    "I create performant and scalable web applications to propel your business toward digital success. By using AI agents, my productivity is optimized for fast and quality results.",
+  "hero.cta.primary": "Start your project",
+  "hero.cta.secondary": "View my work",
+  "hero.feature.1": "End-to-end solutions",
+  "hero.feature.2": "AI-enhanced productivity",
+  "hero.feature.3": "100% client satisfaction",
+  "hero.feature.4": "From cloud to custom",
+  "hero.availability": "Available for new projects",
+
+  "projects.title": "My Projects",
+  "projects.featured": "Featured Project",
+  "projects.viewProject": "View project",
+  "projects.sourceCode": "Source code",
+  "projects.defiSolution": "Challenges & Solutions Provided",
+  "projects.masquer": "Hide",
+  "projects.hotel.title": "Hotel La Louisiane",
+  "projects.hotel.description":
+    "Development of a booking engine with Next.js & Tailwind CSS, complete administration interface for reservation and rate management, integration of Framer Motion animations and automatic PDF quote generation system.",
+
+  "projects.extraction.title": "Data Extraction Tool",
+  "projects.extraction.description":
+    "Automated extraction system with Python and Selenium, robust ETL pipeline with PostgreSQL and Docker deployment, intuitive user interface for non-technical users.",
+
+  "projects.infrastructure.title": "Distributed Infrastructure 10 Dell R620 Servers",
+  "projects.infrastructure.description":
+    "High-availability hybrid network infrastructure, automated deployment via PXE and iDRAC, secure architecture with VLAN and centralized monitoring.",
+
+  "services.title": "My Services",
+
+  "services.dev.title": "Full-Stack Web Development",
+  "services.dev.description":
+    "Creation of complete web applications, from backend to frontend, using the latest technologies.",
+
+  "services.solutions.title": "End-to-End Solutions",
+  "services.solutions.description":
+    "Managing projects from A to Z, from design to production, for turnkey solutions.",
+
+  "services.ai.title": "AI Integration",
+  "services.ai.description":
+    "Implementation of AI agents and artificial intelligence features for smarter applications.",
+
+  "services.perf.title": "Performance Optimization",
+  "services.perf.description":
+    "Improving the speed and efficiency of existing applications for a better user experience.",
+
+  "services.deploy.title": "Flexible Deployment",
+  "services.deploy.description":
+    "From PaaS cloud computing for quick solutions to self-hosted servers for full control, I adapt to your specific needs.",
+
+  "skills.title": "My Skills",
+  "skills.level": "Level",
+  "skills.projects": "Associated projects:",
+
+  "skills.level.beginner": "Beginner",
+  "skills.level.intermediate": "Intermediate",
+  "skills.level.advanced": "Advanced",
+  "skills.level.expert": "Expert",
+
+  "skills.category.frontend": "Frontend",
+  "skills.category.backend": "Backend",
+  "skills.category.database": "Database",
+  "skills.category.devops": "DevOps",
+  "skills.category.ai": "AI",
+
+  "skills.react.description": "Development of modern and performant web applications",
+  "skills.nextjs.description": "Creation of static websites and full-stack applications",
+  "skills.typescript.description": "Robust development with static typing",
+  "skills.html.description": "Structure and style of web pages",
+  "skills.tailwind.description": "Rapid creation of custom user interfaces",
+  "skills.nodejs.description": "Creation of performant servers and APIs",
+  "skills.express.description": "Fast and minimalist web framework for Node.js",
+  "skills.cpp.description": "Development of high-performance systems and applications",
+  "skills.java.description": "Creation of robust enterprise applications",
+  "skills.postgresql.description": "Design and optimization of relational databases",
+  "skills.mongodb.description": "Storage and querying of unstructured data",
+  "skills.redis.description": "In-memory cache for high performance",
+  "skills.docker.description": "Containerization of applications for simplified deployment",
+  "skills.git.description": "Version control and code collaboration",
+  "skills.cicd.description": "Automation of deployment and testing",
+  "skills.ml.description": "Integration of machine learning models in applications",
+  "skills.nlp.description": "Natural language processing for text analysis",
+
+  // Footer translations
+  "footer.name": "Romain",
+  "footer.description":
+    "Freelance web developer expert in Next.js, specialized in end-to-end solutions and AI integration.",
+  "footer.services.title": "Services",
+  "footer.services.development": "Full-Stack Web Development",
+  "footer.services.solutions": "End-to-End Solutions",
+  "footer.services.ai": "AI Integration",
+  "footer.services.performance": "Performance Optimization",
+  "footer.resources.title": "Resources",
+  "footer.resources.blog": "Blog",
+  "footer.resources.projects": "Projects",
+  "footer.resources.testimonials": "Testimonials",
+  "footer.resources.faq": "FAQ",
+  "footer.copyright": "All rights reserved.",
+  "footer.legal.terms": "Legal Notice",
+  "footer.legal.privacy": "Privacy Policy",
+  "footer.legal.conditions": "Terms of Use",
+  "footer.legal.cookies": "Cookie Policy",
+
+  // Newsletter translations
+  "newsletter.title": "Stay Informed",
+  "newsletter.description":
+    "Subscribe to our newsletter to receive the latest news and tips on web development and AI.",
+  "newsletter.placeholder": "Your email address",
+  "newsletter.button": "Subscribe",
+  "newsletter.disclaimer": "By subscribing, you accept our",
+  "newsletter.privacy": "privacy policy",
+  "newsletter.success.title": "Subscription successful!",
+  "newsletter.success.description": "Thank you for subscribing to our newsletter.",
+
+  // Newsletter email translations
+  "newsletter.email.subject": "Welcome to Romain Blanchot's Newsletter! 🚀",
+  "newsletter.email.previewText": "Welcome to the algorithm explorers community!",
+  "newsletter.email.header": "Romain Blanchot's Newsletter",
+  "newsletter.email.tagline": "Algorithms & Data Structures in Action",
+  "newsletter.email.greeting": "Hello",
+  "newsletter.email.welcomeMessage":
+    "You've just joined the newsletter and I'm thrilled to have you on board!",
+  "newsletter.email.description":
+    "Each week, I'll send you analyses and explanations of algorithms and data structures, with a focus on their practical application in business.",
+  "newsletter.email.whatToExpect": "✅ What will you receive?",
+  "newsletter.email.content.1.title": "Case studies on key algorithms",
+  "newsletter.email.content.1.description":
+    "Analyze essential algorithms and discover their concrete business impact.",
+  "newsletter.email.content.2.title": "Concrete optimization examples",
+  "newsletter.email.content.2.description":
+    "How to improve the performance of your applications and information systems.",
+  "newsletter.email.content.3.title": "Practical advice",
+  "newsletter.email.content.3.description":
+    "Tips to better understand and apply these concepts in your projects.",
+  "newsletter.email.content.4.title": "Behind the scenes of my projects",
+  "newsletter.email.content.4.description":
+    "A look at my daily work as a full stack developer & consultant.",
+  "newsletter.email.services.title": "🎯 Have a project in mind?",
+  "newsletter.email.services.description":
+    "Need a website, SaaS, or automation solution? Discover my services.",
+  "newsletter.email.services.cta": "View my services",
+  "newsletter.email.signoff": "Thank you for your trust, and see you soon in your inbox!",
+  "newsletter.email.jobTitle": "Full Stack Developer & Automation",
+  "newsletter.email.tip":
+    "Consider adding this address to your contacts so you don't miss anything!",
+  "newsletter.email.unsubscribe": "Unsubscribe",
+  "newsletter.email.contactUs": "Contact us",
+  "newsletter.email.copyright": "© 2023 Romain Blanchot. All rights reserved.",
+
+  // Adding translations for challenges and solutions
+  "projects.hotel.challenges.1.challenge": "Complex integration with existing reservation system",
+  "projects.hotel.challenges.1.solution":
+    "Development of a custom API to synchronize data in real-time",
+  "projects.hotel.challenges.2.challenge": "Performance of the availability search engine",
+  "projects.hotel.challenges.2.solution":
+    "Implementation of an advanced caching system and query optimization",
+  "projects.hotel.challenges.3.challenge": "Dynamic pricing management",
+  "projects.hotel.challenges.3.solution":
+    "Creation of a flexible pricing algorithm based on demand and seasonality",
+
+  "projects.extraction.challenges.1.challenge":
+    "Managing frequent changes in target website structures",
+  "projects.extraction.challenges.1.solution":
+    "Implementation of a flexible configuration system and automatic change detection",
+  "projects.extraction.challenges.2.challenge":
+    "Processing large volumes of data without performance impact",
+  "projects.extraction.challenges.2.solution":
+    "Use of streaming techniques and batch processing for optimal scalability",
+  "projects.extraction.challenges.3.challenge": "Simplifying the interface for non-technical users",
+  "projects.extraction.challenges.3.solution":
+    "Design of a drag-and-drop interface and guided wizards for complex tasks",
+
+  "projects.infrastructure.challenges.1.challenge":
+    "Setting up automated deployment on heterogeneous hardware",
+  "projects.infrastructure.challenges.1.solution":
+    "Development of custom PXE scripts and advanced use of iDRAC for hands-off configuration",
+  "projects.infrastructure.challenges.2.challenge":
+    "Securing infrastructure against internal and external threats",
+  "projects.infrastructure.challenges.2.solution":
+    "Implementation of fine-grained network segmentation with VLANs and a distributed intrusion detection system",
+  "projects.infrastructure.challenges.3.challenge":
+    "Effective monitoring of a complex infrastructure",
+  "projects.infrastructure.challenges.3.solution":
+    "Implementation of a centralized monitoring stack with intelligent alerting and custom dashboards",
+
+  // Translations for mes-services.tsx
+  "mes-services.title": "My Services",
+  "mes-services.subtitle":
+    "From design to production, I accompany you through all stages of your digital project.",
+
+  "mes-services.category.dev": "Full Stack Development",
+  "mes-services.category.sys": "System Administration",
+  "mes-services.category.ai": "AI & MLOps",
+
+  "mes-services.item.web.title": "Modern Web Applications",
+  "mes-services.item.web.description":
+    "Creation of performant and scalable web applications with the latest technologies (React, Next.js, Node.js).",
+
+  "mes-services.item.api.title": "RESTful & GraphQL APIs",
+  "mes-services.item.api.description":
+    "Design and development of robust APIs to connect your systems and applications.",
+
+  "mes-services.item.integration.title": "System Integration",
+  "mes-services.item.integration.description":
+    "Connection and optimization of your existing systems for maximum efficiency.",
+
+  "mes-services.item.cloud.title": "Cloud Infrastructure",
+  "mes-services.item.cloud.description":
+    "Implementation and management of scalable and secure cloud infrastructures.",
+
+  "mes-services.item.devops.title": "DevOps & CI/CD",
+  "mes-services.item.devops.description":
+    "Automation of development and deployment processes for continuous delivery.",
+
+  "mes-services.item.security.title": "Security & Compliance",
+  "mes-services.item.security.description":
+    "Implementation of security best practices and compliance with industry standards.",
+
+  "mes-services.item.ai-integration.title": "AI Integration",
+  "mes-services.item.ai-integration.description":
+    "Incorporation of AI solutions to automate processes and improve decision-making.",
+
+  "mes-services.item.ml-pipelines.title": "ML Pipelines",
+  "mes-services.item.ml-pipelines.description":
+    "Creation and optimization of machine learning pipelines for efficient deployment and updating of models.",
+
+  "mes-services.item.data-analysis.title": "Data Analysis",
+  "mes-services.item.data-analysis.description":
+    "Exploitation of your data for valuable insights and informed decision-making.",
+
+  "mes-services.learn-more": "Learn more",
+  "mes-services.call-to-action.title": "Ready to propel your project?",
+  "mes-services.call-to-action.description":
+    "Whether you need a high-performance web application, a robust infrastructure, or AI integration into your processes, I am here to help you bring your vision to life.",
+  "mes-services.call-to-action.start": "Start your project",
+  "mes-services.call-to-action.meeting": "Schedule a meeting",
+
+  // Project form translations
+  "project-form.surname": "Your last name",
+  "project-form.name": "Your first name",
+  "project-form.email": "Your email",
+  "project-form.company": "Company or project name",
+  "project-form.sector": "Industry sector",
+  "project-form.sector.tech": "Technology",
+  "project-form.sector.health": "Health",
+  "project-form.sector.finance": "Finance",
+  "project-form.sector.education": "Education",
+  "project-form.sector.ecommerce": "E-commerce",
+  "project-form.sector.other": "Other",
+  "project-form.budget": "Estimated budget",
+  "project-form.budget.less1000": "Less than €1000",
+  "project-form.budget.1000-5000": "€1000 - €5000",
+  "project-form.budget.5000-10000": "€5000 - €10000",
+  "project-form.budget.more10000": "More than €10000",
+  "project-form.timeline": "Desired timeline",
+  "project-form.timeline.urgent": "Urgent (less than a month)",
+  "project-form.timeline.1-3months": "1 - 3 months",
+  "project-form.timeline.3+months": "More than 3 months",
+  "project-form.timeline.flexible": "Flexible",
+  "project-form.mainObjective": "Main objective",
+  "project-form.mainObjective.present": "Present an activity",
+  "project-form.mainObjective.sell": "Sell products",
+  "project-form.mainObjective.automate": "Automate a task",
+  "project-form.mainObjective.community": "Create a community",
+  "project-form.mainObjective.other": "Other",
+  "project-form.projectIdea": "Describe your idea or need in a few sentences",
+  "project-form.targetAudience": "Target audience (e.g., professionals, general public, youth...)",
+  "project-form.expectedResults":
+    "What are the expected results? (e.g., generate leads, online sales, automation...)",
+  "project-form.technicalPreferences":
+    "Do you have a preference for a specific technology? (optional)",
+  "project-form.otherDetails": "Other details or specific needs?",
+  "project-form.submit": "Submit my request",
+  "project-form.success.title": "Form submitted!",
+  "project-form.success.description":
+    "I will contact you as soon as possible to discuss your project.",
+  "project-form.required.name": "The name is required",
+  "project-form.required.surname": "The last name is required",
+  "project-form.required.email": "The email is required",
+  "project-form.required.company": "The company or project name is required",
+  "project-form.required.sector": "The industry sector is required",
+  "project-form.required.budget": "The budget is required",
+  "project-form.required.timeline": "The timeline is required",
+  "project-form.required.mainObjective": "The main objective is required",
+  "project-form.required.projectIdea": "The project idea is required",
+  "project-form.required.targetAudience": "The target audience is required",
+  "project-form.required.expectedResults": "The expected results are required",
+  "project-form.email.subject": "Your request for a quote has been received!",
+  "project-form.error.title": "An error occurred while sending the form",
+  "project-form.error.description":
+    "Please try again later or contact me directly via my email: blanchot@et.esiea.fr",
+  // New translations for project form email
+  "project-form.email.header": "🎉 Request Confirmation",
+  "project-form.email.greeting": "Hello",
+  "project-form.email.intro":
+    "Your quote request has been successfully received, and I will carefully review it to provide you with the best solution tailored to your needs.",
+
+  "project-form.email.next.title": "✅ What happens next?",
+  "project-form.email.next.step1.title": "Project Analysis",
+  "project-form.email.next.step1.desc":
+    "I will examine your requirements and contact you promptly if I need any clarification.",
+  "project-form.email.next.step2.title": "Personalized Proposal",
+  "project-form.email.next.step2.desc":
+    "You will receive a detailed quote with cost and time estimates.",
+  "project-form.email.next.step3.title": "Discussion and Adjustments",
+  "project-form.email.next.step3.desc":
+    "We can discuss and refine the proposal to meet your expectations.",
+
+  "project-form.email.summary.title": "📋 Summary of your request",
+
+  "project-form.email.website.intro":
+    "💡 In the meantime, feel free to visit my website to learn more about my work and portfolio:",
+  "project-form.email.website.button": "Visit Website",
+
+  "project-form.email.footer.replyText":
+    "If you have any questions or would like to provide additional information about your request, you can reply directly to this email or contact me through the website.",
+  "project-form.email.footer.salutation": "Talk to you soon! 🚀",
+  "project-form.email.footer.title": "Full Stack Developer & Automation",
+
+  // Start your project page translations
+  "start-project.title": "Transform your vision into digital reality",
+  "start-project.subtitle":
+    "You're ready to propel your business to new heights. Fill out the form below to start your custom web project.",
+
+  "start-project.form.title": "Let's talk about your project",
+
+  "start-project.why.title": "Why choose my services?",
+  "start-project.why.expertise": "Next.js Expertise",
+  "start-project.why.expertise.desc": "Ultra-performant and scalable web applications",
+  "start-project.why.custom": "Custom Solutions",
+  "start-project.why.custom.desc": "Tailored to your unique needs and business goals",
+  "start-project.why.ai": "AI Integration",
+  "start-project.why.ai.desc": "Productivity boost and innovative features",
+  "start-project.why.end2end": "End-to-end Approach",
+  "start-project.why.end2end.desc": "From concept to deployment, and beyond",
+  "start-project.why.communication": "Transparent Communication",
+  "start-project.why.communication.desc": "Regular updates and close collaboration",
+  "start-project.why.results": "Guaranteed Results",
+  "start-project.why.results.desc": "Commitment to quality and customer satisfaction",
+
+  "start-project.process.title": "A proven process for your success",
+  "start-project.process.step1": "Free Initial Consultation",
+  "start-project.process.step1.desc": "Let's discuss your vision, goals, and specific needs.",
+  "start-project.process.step2": "Custom Proposal",
+  "start-project.process.step2.desc":
+    "I provide you with a detailed action plan and a quote tailored to your project.",
+  "start-project.process.step3": "Agile Development",
+  "start-project.process.step3.desc":
+    "Creating your solution with regular updates and real-time adjustments.",
+  "start-project.process.step4": "Testing and Optimization",
+  "start-project.process.step4.desc":
+    "Rigorous quality assurance for a flawless and high-performing final product.",
+  "start-project.process.step5": "Launch and Support",
+  "start-project.process.step5.desc":
+    "Smooth deployment and continuous support to ensure the success of your project.",
+
+  "start-project.testimonials.title": "What my clients say",
+  "start-project.testimonials.client1.name": "Marie D.",
+  "start-project.testimonials.client1.role": "CEO of TechStart",
+  "start-project.testimonials.client1.content":
+    "Romain transformed our idea into an exceptional web application. His expertise in Next.js and his professional approach exceeded all our expectations. Our platform is now faster, more intuitive, and our users love it!",
+  "start-project.testimonials.client2.name": "Thomas L.",
+  "start-project.testimonials.client2.role": "Founder of EcoSolutions",
+  "start-project.testimonials.client2.content":
+    "Working with Romain was an incredible experience. His deep understanding of our needs and his ability to propose innovative solutions made all the difference. Our e-commerce site is not only beautiful but also extremely performant.",
+  "start-project.testimonials.client3.name": "Sophie M.",
+  "start-project.testimonials.client3.role": "Marketing Director at InnoHealth",
+  "start-project.testimonials.client3.content":
+    "Romain's expertise in integrating AI into web applications has revolutionized our approach to customer service. Thanks to him, we now have an intelligent chatbot that efficiently handles 70% of our customer inquiries.",
+  "start-project.testimonials.client4.name": "Alexandre P.",
+  "start-project.testimonials.client4.role": "CTO of FinTech Solutions",
+  "start-project.testimonials.client4.content":
+    "Romain's technical rigor and mastery of security best practices were crucial for our project. He was able to create a robust and secure platform, essential in our financial sector.",
+
+  "start-project.cta.title": "Ready to bring your project to life?",
+  "start-project.cta.subtitle":
+    "Together, let's create a web solution that will propel your business.",
+  "start-project.cta.button": "Start now",
+
+  "politique-de-confidentialite.title": "Privacy Policy",
+  "politique-de-confidentialite.last-update": "Last updated: ",
+  "politique-de-confidentialite.back-home": "Back to home",
+  "politique-de-confidentialite.section.1.title": "1. Introduction",
+  "politique-de-confidentialite.section.1.p1":
+    'This privacy policy is designed to inform you about how Romain (hereinafter "we") collects, uses and protects the information you provide when using our website and subscribing to our newsletter.',
+  "politique-de-confidentialite.section.1.p2":
+    "We place particular importance on the protection of your personal data and respect for your privacy. We are committed to processing your data in accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act.",
+  "politique-de-confidentialite.section.2.title": "2. Data Controller",
+  "politique-de-confidentialite.section.2.p1":
+    "The data controller for personal data collected on this site is:",
+  "politique-de-confidentialite.section.2.li1": "Romain Blanchot",
+  "politique-de-confidentialite.section.2.li2": "Address: 60 rue de Seine, 75006 Paris",
+  "politique-de-confidentialite.section.2.li3": "Email: blanchot@et.esiea.fr",
+  "politique-de-confidentialite.section.2.li4": "Phone: +33 7 88 28 47 15",
+  "politique-de-confidentialite.section.3.title": "3. Data Collected",
+  "politique-de-confidentialite.section.3.p1":
+    "As part of our newsletter, we collect the following data:",
+  "politique-de-confidentialite.section.3.li1":
+    "Identification data: First and last name (optional)",
+  "politique-de-confidentialite.section.3.li2": "Contact details: Your email address",
+  "politique-de-confidentialite.section.3.li3":
+    "Date and time: The date and time of your registration",
+  "politique-de-confidentialite.section.3.li4": "IP: Your IP address at the time of registration",
+  "politique-de-confidentialite.section.3.li5":
+    "Browsing and interaction data: Open statistics, clicks on links included in the newsletter",
+  "politique-de-confidentialite.section.3.li6":
+    "Preferences and interests: Preferred content or topics if the user chooses to specify them",
+  "politique-de-confidentialite.section.3.p2":
+    "This information is necessary to provide our newsletter service and is collected with your explicit consent.",
+  "politique-de-confidentialite.section.3.p3":
+    "We do not collect any sensitive data within the meaning of Article 9 of the GDPR (racial or ethnic origin, political opinions, religious beliefs, health data, etc.).",
+  "politique-de-confidentialite.section.4.title": "4. Purposes of Processing",
+  "politique-de-confidentialite.section.4.p1":
+    "The personal data we collect is used for the following purposes, in accordance with the applicable legal bases:",
+  "politique-de-confidentialite.section.4.li1":
+    "Sending our newsletter containing information about our services, news and advice on web development and AI, based on your explicit consent in accordance with Article 6(1)(a) of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR).",
+  "politique-de-confidentialite.section.4.li2":
+    "Personalization of the content of our communications according to your interests, based on your explicit consent in accordance with Article 6(1)(a) of the GDPR.",
+  "politique-de-confidentialite.section.4.li3":
+    "Improving the quality of our newsletter through the analysis of open and click rates, based on our legitimate interest as data controller in accordance with Article 6(1)(f) of the GDPR.",
+  "politique-de-confidentialite.section.4.li4":
+    "Management of your requests to exercise your rights (unsubscribe, access, rectification, etc.), based on our legal obligations in accordance with Article 6(1)(c) of the GDPR.",
+  "politique-de-confidentialite.section.4.p2":
+    "We undertake to process your personal data only within the strict framework of the aforementioned purposes and in compliance with the legal and regulatory provisions applicable to the protection of personal data.",
+  "politique-de-confidentialite.section.5.title": "5. Legal Basis for Processing",
+  "politique-de-confidentialite.section.5.p1":
+    "The processing of your personal data as part of our newsletter is based on:",
+  "politique-de-confidentialite.section.5.li1":
+    "Your explicit consent, given when you subscribe to the newsletter",
+  "politique-de-confidentialite.section.5.li2":
+    "Our legitimate interest in developing our business and offering you relevant content",
+  "politique-de-confidentialite.section.5.p2":
+    "You can withdraw your consent at any time by unsubscribing via the link in each newsletter or by contacting us directly.",
+  "politique-de-confidentialite.section.6.title": "6. Data Retention Period",
+  "politique-de-confidentialite.section.6.p1":
+    "We keep your personal data for as long as you remain subscribed to our newsletter.",
+  "politique-de-confidentialite.section.6.p2":
+    "In case of unsubscription, your data will be kept for a period of 3 years from your last interaction with our services, in accordance with the recommendations of the CNIL.",
+  "politique-de-confidentialite.section.6.p3":
+    "At the end of this period, your data will either be deleted or anonymized for statistical purposes.",
+  "politique-de-confidentialite.section.7.title": "7. Recipients of Data",
+  "politique-de-confidentialite.section.7.p1": "The recipients of your personal data are:",
+  "politique-de-confidentialite.section.7.li1":
+    "Our internal team in charge of newsletter management",
+  "politique-de-confidentialite.section.7.li2":
+    "Our technical subcontractors, in particular our newsletter sending provider Resend, and Posthug our data analytics provider.",
+  "politique-de-confidentialite.section.7.p2":
+    "We ensure that all our subcontractors comply with the GDPR and provide sufficient guarantees regarding data protection.",
+  "politique-de-confidentialite.section.7.p3":
+    "Under no circumstances is data sold, exchanged or transferred to third parties for commercial purposes.",
+  "politique-de-confidentialite.section.8.title": "8. Transfer of Data Outside the EU",
+  "politique-de-confidentialite.section.8.p1":
+    "As part of the use of certain tools, your data may be transferred to servers located outside the European Union.",
+  "politique-de-confidentialite.section.8.p2":
+    "In this case, we ensure that these transfers are governed by appropriate safeguards in accordance with the GDPR, such as standard contractual clauses adopted by the European Commission or binding corporate rules.",
+  "politique-de-confidentialite.section.9.title": "9. Your Rights",
+  "politique-de-confidentialite.section.9.p1":
+    "In accordance with current regulations, you have the following rights regarding your personal data:",
+  "politique-de-confidentialite.section.9.li1":
+    "Right of access (Article 15 GDPR): you can obtain information about the processing of your data as well as a copy of it",
+  "politique-de-confidentialite.section.9.li2":
+    "Right to rectification (Article 16 GDPR): you can request the modification of your data if it is inaccurate or incomplete",
+  "politique-de-confidentialite.section.9.li3":
+    "Right to erasure (Article 17 GDPR): you can request the deletion of your data in certain cases",
+  "politique-de-confidentialite.section.9.li4":
+    "Right to restriction of processing (Article 18 GDPR): you can request that the use of your data be temporarily restricted",
+  "politique-de-confidentialite.section.9.li5":
+    "Right to object (Article 21 GDPR): you can object to the processing of your data for reasons relating to your particular situation",
+  "politique-de-confidentialite.section.9.li6":
+    "Right to data portability (Article 20 GDPR): you can retrieve your data in a structured format to transmit it to a third party",
+  "politique-de-confidentialite.section.9.li7":
+    "Right to withdraw your consent at any time (Article 7 GDPR)",
+  "politique-de-confidentialite.section.9.li8":
+    "Right to define guidelines relating to the fate of your data after your death (Article 19 GDPR)",
+  "politique-de-confidentialite.section.9.p2":
+    "To exercise these rights, you can contact us by email at blanchot@et.esiea.fr or by postal mail at the address mentioned above.",
+  "politique-de-confidentialite.section.9.p3":
+    "We undertake to respond to your requests within one month, except in cases of particular complexity justifying an extension.",
+  "politique-de-confidentialite.section.9.p4":
+    "You also have the right to lodge a complaint with the Commission Nationale de l'Informatique et des Libertés (CNIL) if you believe that the processing of your data does not comply with the regulations.",
+  "politique-de-confidentialite.section.10.title": "10. Data Security",
+  "politique-de-confidentialite.section.10.p1":
+    "We implement appropriate technical and organizational measures to protect your personal data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or access.",
+  "politique-de-confidentialite.section.10.p2": "These measures include:",
+  "politique-de-confidentialite.section.10.li1": "Encryption of sensitive data",
+  "politique-de-confidentialite.section.10.li2": "Regular backup procedures",
+  "politique-de-confidentialite.section.10.li3":
+    "Limited access to those who need to know your data",
+  "politique-de-confidentialite.section.10.li4": "Periodic security audits",
+  "politique-de-confidentialite.section.10.p3":
+    "Any personal data breach likely to create a risk for users will be notified to the CNIL and, if necessary, to the persons concerned, within the legal deadlines.",
+  "politique-de-confidentialite.section.11.title": "11. Cookies and Similar Technologies",
+  "politique-de-confidentialite.section.11.p1":
+    "Our website and newsletters may use cookies and similar technologies to improve your experience and allow us to measure the effectiveness of our communications.",
+  "politique-de-confidentialite.section.11.p2":
+    "For more information on our use of cookies, please consult our",
+  "politique-de-confidentialite.section.11.cookie-policy": "cookie policy",
+  "politique-de-confidentialite.section.12.title": "12. Changes to the Privacy Policy",
+  "politique-de-confidentialite.section.12.p1":
+    "We reserve the right to modify this privacy policy at any time, in particular to adapt it to legislative and regulatory developments.",
+  "politique-de-confidentialite.section.12.p2":
+    "In the event of a substantial modification, we will inform you by email or via our website before the changes come into effect.",
+  "politique-de-confidentialite.section.13.title": "13. Contact",
+  "politique-de-confidentialite.section.13.p1":
+    "For any questions regarding this privacy policy or to exercise your rights, you can contact us:",
+  "politique-de-confidentialite.section.13.li1": "By email: blanchot@et.esiea.fr",
+  "politique-de-confidentialite.section.13.li2": "By phone: +33 7 88 28 47 15",
+  "politique-de-confidentialite.section.13.li3": "By mail: 60 rue de Seine, 75006 Paris",
+
+  "politique-cookies.title": "Cookie Policy",
+  "politique-cookies.last-update": "Last updated: ",
+  "politique-cookies.back-home": "Back to home",
+  "politique-cookies.section.1.title": "1. Introduction",
+  "politique-cookies.section.1.p1":
+    'This cookie policy is designed to inform you about the use of cookies and similar technologies on Romain\'s website (hereinafter "we", "our" or "us").',
+  "politique-cookies.section.1.p2":
+    "This policy explains what cookies are, how we use them, the types of cookies we deploy, the information we collect, and how you can manage your cookie preferences.",
+  "politique-cookies.section.1.p3":
+    "By using our website, you consent to the use of cookies in accordance with this policy. If you do not accept the use of these cookies, please disable them by following the instructions provided in this policy, or by changing your browser settings.",
+
+  "politique-cookies.section.2.title": "2. What is a cookie?",
+  "politique-cookies.section.2.p1":
+    "A cookie is a small text file placed on your device (computer, tablet, smartphone) when you visit a website. Cookies allow the site to recognize you, remember your preferences, and offer you a personalized experience.",
+  "politique-cookies.section.2.p2":
+    'Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your device until they expire or until you delete them. Session cookies are deleted as soon as you close your browser.',
+  "politique-cookies.section.2.p3":
+    "In addition to cookies, we may use other similar technologies, such as tracking pixels, web beacons, or local storage, which function similarly to cookies.",
+
+  "politique-cookies.section.3.title": "3. Cookies we use",
+  "politique-cookies.section.3.p1":
+    "Our site uses different types of cookies for various purposes. Here are the categories of cookies we use:",
+
+  "politique-cookies.section.3.1.title": "3.1 Strictly necessary cookies",
+  "politique-cookies.section.3.1.p1":
+    "These cookies are essential for the operation of our site and allow you to navigate and use its features. Without these cookies, some services you have requested cannot be provided.",
+  "politique-cookies.table.header.name": "Name",
+  "politique-cookies.table.header.provider": "Provider",
+  "politique-cookies.table.header.purpose": "Purpose",
+  "politique-cookies.table.header.duration": "Duration",
+  "politique-cookies.table.3.1.row1.name": "__vercel",
+  "politique-cookies.table.3.1.row1.provider": "Vercel",
+  "politique-cookies.table.3.1.row1.purpose": "Used for routing and session management",
+  "politique-cookies.table.3.1.row1.duration": "Session",
+  "politique-cookies.table.3.1.row2.name": "next-auth.session-token",
+  "politique-cookies.table.3.1.row2.provider": "Our site",
+  "politique-cookies.table.3.1.row2.purpose": "Authentication management (if applicable)",
+  "politique-cookies.table.3.1.row2.duration": "30 days",
+
+  "politique-cookies.section.3.2.title": "3.2 Preference cookies",
+  "politique-cookies.section.3.2.p1":
+    "These cookies allow our site to remember choices you have made and provide enhanced, personalized features.",
+  "politique-cookies.table.3.2.row1.name": "theme",
+  "politique-cookies.table.3.2.row1.provider": "Our site",
+  "politique-cookies.table.3.2.row1.purpose": "Stores your theme preferences (light/dark)",
+  "politique-cookies.table.3.2.row1.duration": "1 year",
+  "politique-cookies.table.3.2.row2.name": "language",
+  "politique-cookies.table.3.2.row2.provider": "Our site",
+  "politique-cookies.table.3.2.row2.purpose": "Stores your language preferences",
+  "politique-cookies.table.3.2.row2.duration": "1 year",
+
+  "politique-cookies.section.3.3.title": "3.3 Analytics and performance cookies",
+  "politique-cookies.section.3.3.p1":
+    "These cookies allow us to recognize and count the number of visitors to our site and see how visitors move around our site when they use it. This helps us improve how our site works.",
+  "politique-cookies.table.3.3.row1.name": "_ga, _ga_*",
+  "politique-cookies.table.3.3.row1.provider": "Google Analytics 4",
+  "politique-cookies.table.3.3.row1.purpose": "Audience measurement and user behavior analysis",
+  "politique-cookies.table.3.3.row1.duration": "2 years",
+  "politique-cookies.table.3.3.row2.name": "va",
+  "politique-cookies.table.3.3.row2.provider": "Vercel Analytics",
+  "politique-cookies.table.3.3.row2.purpose": "Site performance and usage analysis",
+  "politique-cookies.table.3.3.row2.duration": "1 year",
+
+  "politique-cookies.section.3.4.title": "3.4 Marketing and targeting cookies",
+  "politique-cookies.section.3.4.p1":
+    "These cookies record your visit to our site, the pages you have visited, and the links you have followed. We use this information to make our site and the advertising displayed on it more relevant to your interests.",
+  "politique-cookies.table.3.4.row1.name": "_fbp",
+  "politique-cookies.table.3.4.row1.provider": "Facebook",
+  "politique-cookies.table.3.4.row1.purpose": "Used to track advertising conversions",
+  "politique-cookies.table.3.4.row1.duration": "3 months",
+
+  "politique-cookies.section.4.title": "4. Third-party services using cookies",
+  "politique-cookies.section.4.p1":
+    "We use several third-party services that may also place cookies on your device when you visit our site. Here is detailed information about these services:",
+
+  "politique-cookies.section.4.1.title": "4.1 Vercel",
+  "politique-cookies.section.4.1.p1":
+    "We use Vercel for hosting and analyzing the performance of our website. Vercel may use cookies to measure performance, detect and prevent abuse, and improve the user experience.",
+  "politique-cookies.section.4.1.p2": "For more information, please consult the",
+  "politique-cookies.section.4.1.link": "Vercel privacy policy",
+
+  "politique-cookies.section.4.2.title": "4.2 Google Analytics 4 (G4A)",
+  "politique-cookies.section.4.2.p1":
+    "We use Google Analytics 4 to analyze the use of our website. Google Analytics uses cookies to collect information about how you use our site. This information is used to compile reports and help us improve our site.",
+  "politique-cookies.section.4.2.p2":
+    "The information generated by the cookies about your use of our site (including your IP address) will be transmitted to and stored by Google on servers in the United States. Google will use this information for the purpose of evaluating your use of the site, compiling reports on site activity, and providing other services relating to site activity and internet usage.",
+  "politique-cookies.section.4.2.p3": "For more information, please consult the",
+  "politique-cookies.section.4.2.link": "Google privacy policy",
+
+  "politique-cookies.section.4.3.title": "4.3 Resend",
+  "politique-cookies.section.4.3.p1":
+    "We use Resend for sending emails, particularly for our newsletter. Resend may use tracking pixels in emails to collect information about email opens and clicks on links they contain.",
+  "politique-cookies.section.4.3.p2": "For more information, please consult the",
+  "politique-cookies.section.4.3.link": "Resend privacy policy",
+
+  "politique-cookies.section.5.title": "5. How to manage your cookies",
+  "politique-cookies.section.5.p1":
+    "You can control and manage cookies in different ways. Please be aware that removing or blocking cookies may affect your user experience and parts of our site may no longer be fully accessible.",
+
+  "politique-cookies.section.5.1.title": "5.1 Browser settings",
+  "politique-cookies.section.5.1.p1":
+    "Most browsers allow you to see what cookies you have and delete them individually or block cookies from certain or all sites. Note that if you delete all cookies, your preferences will be reset, including the ability to refuse cookies, as this function itself requires the placement of a refusal cookie.",
+  "politique-cookies.section.5.1.p2":
+    "Here's how to access cookie settings in the most common browsers:",
+  "politique-cookies.section.5.1.li1":
+    "Chrome: Menu → Settings → Show advanced settings → Privacy → Content settings → Cookies",
+  "politique-cookies.section.5.1.li2":
+    "Firefox: Menu → Options → Privacy → History → Custom settings → Cookies",
+  "politique-cookies.section.5.1.li3": "Safari: Preferences → Privacy → Cookies",
+  "politique-cookies.section.5.1.li4": "Edge: Menu → Settings → View advanced settings → Cookies",
+
+  "politique-cookies.section.5.2.title": "5.2 Disabling analytics cookies",
+  "politique-cookies.section.5.2.p1":
+    "You can specifically disable Google Analytics cookies by installing the",
+  "politique-cookies.section.5.2.link": "Google Analytics opt-out browser add-on",
+
+  "politique-cookies.section.5.3.title": "5.3 Cookie consent banner",
+  "politique-cookies.section.5.3.p1":
+    "When you first visit our site, a cookie banner informs you about the use of cookies and asks for your consent. You can choose to accept or refuse non-essential cookies.",
+  "politique-cookies.section.5.3.p2":
+    'You can change your preferences at any time by clicking on the "Manage cookies" link at the bottom of our site.',
+
+  "politique-cookies.section.6.title.li1": "Consent",
+  "politique-cookies.section.6.title.li2": "Legitimate interest",
+  "politique-cookies.section.6.title.li3": "Performance of a contract",
+  "politique-cookies.section.6.title": "6. Legal basis for using cookies",
+  "politique-cookies.section.6.p1": "We use cookies on our site on the following legal bases:",
+  "politique-cookies.section.6.li1":
+    "Consent: We use analytics, preference, and marketing cookies only with your prior consent, which you can withdraw at any time.",
+  "politique-cookies.section.6.li2":
+    "Legitimate interest: We may use certain strictly necessary cookies on the basis of our legitimate interest in ensuring the proper functioning and security of our site.",
+  "politique-cookies.section.6.li3":
+    "Performance of a contract: Some cookies are necessary to provide the service you have requested or to take steps at your request before entering into a contract.",
+
+  "politique-cookies.section.7.title": "7. Changes to our cookie policy",
+  "politique-cookies.section.7.p1":
+    "We may update this cookie policy from time to time to reflect, for example, changes to the cookies we use or for other operational, legal, or regulatory reasons. Please therefore check this policy regularly to stay informed about our use of cookies and related technologies.",
+  "politique-cookies.section.7.p2":
+    "The date at the top of this policy indicates when it was last updated.",
+
+  "politique-cookies.section.8.title": "8. Contact",
+  "politique-cookies.section.8.p1":
+    "If you have any questions about our use of cookies or other technologies, please contact us at:",
+  "politique-cookies.section.8.li1": "Email: blanchot@et.esiea.fr",
+  "politique-cookies.section.8.li2": "Address: 60 rue de Seine, 75006 Paris",
+
+  // Newsletter-section translations
+  "newsletter-section.badge": "Exclusive Newsletter",
+  "newsletter-section.title": "Decode the algorithms that shape our world",
+  "newsletter-section.description":
+    "Join a passionate community and receive exclusive weekly insights on AI, web development, and technologies that transform our daily lives.",
+
+  "newsletter-section.benefit.1.title": "AI Decryption",
+  "newsletter-section.benefit.1.description": "Understand the models shaping our digital future",
+  "newsletter-section.benefit.2.title": "Technology Watch",
+  "newsletter-section.benefit.2.description":
+    "The latest advances in web development and AI explained simply",
+  "newsletter-section.benefit.3.title": "Practical Advice",
+  "newsletter-section.benefit.3.description": "Concrete tips to optimize your digital projects",
+
+  "newsletter-section.info": "Free • Biweekly • Easy unsubscribe",
+
+  "newsletter-section.card.title": "Join the algorithm explorers",
+  "newsletter-section.card.subtitle":
+    "Over 2,500 professionals and enthusiasts already receive our exclusive insights.",
+
+  "newsletter-section.form.label": "Your email address",
+  "newsletter-section.form.placeholder": "you@example.com",
+  "newsletter-section.form.button": "Subscribe to the newsletter",
+  "newsletter-section.form.button.loading": "Signing up...",
+  "newsletter-section.form.privacy": "We respect your privacy. Consult our",
+  "newsletter-section.form.privacy.link": "privacy policy",
+
+  "newsletter-section.testimonial":
+    '"Romain\'s newsletter has become my main source for understanding advances in AI. Each issue brings me insights that I can apply directly to my projects."',
+  "newsletter-section.testimonial.author": "Renaud Dubois, CTO @ TechInnovate",
+
+  "newsletter-section.toast.success.title": "Subscription successful!",
+  "newsletter-section.toast.success.description":
+    "Welcome to the algorithm explorers community. Your first issue will arrive soon.",
+
+  // Newsletter popup translations
+
+  "newsletter-popup.close": "Close",
+  "newsletter-popup.title": "Stay at the cutting edge of innovation",
+  "newsletter-popup.description":
+    "Join our newsletter to discover the secrets of the algorithms that shape our digital world.",
+  "newsletter-popup.email.placeholder": "your@email.com",
+  "newsletter-popup.button.loading": "Signing up...",
+  "newsletter-popup.button": "Subscribe",
+  "newsletter-popup.disclaimer": "By subscribing, you accept our",
+  "newsletter-popup.disclaimer.link": "privacy policy",
+  "newsletter-popup.toast.success.title": "Thank you for subscribing!",
+  "newsletter-popup.toast.success.description": "You will soon receive our next issue.",
+  "newsletter-popup.image.alt": "Newsletter",
+  "newsletter.email.invalid": "Please enter a valid email address",
+  "newsletter-popup.email.label": "Your email address",
+  "newsletter.label": "Your email address",
+  "newsletter.error.title": "Subscription error",
+  "newsletter.error.description": "Please check your email address and try again.",
+
+  // Cookie consent translations
+  "cookie-consent.manage": "Manage cookies",
+  "cookie-consent.preferences-dialog.title": "Cookie Preferences",
+  "cookie-consent.preferences-dialog.description":
+    "Configure your cookie preferences for our website.",
+
+  "cookie-consent.tabs.all": "All",
+  "cookie-consent.tabs.necessary": "Necessary",
+  "cookie-consent.tabs.preferences": "Preferences",
+  "cookie-consent.tabs.analytics": "Analytics",
+
+  "cookie-consent.necessary.title": "Strictly Necessary Cookies",
+  "cookie-consent.necessary.description":
+    "These cookies are essential for the site to function and cannot be disabled.",
+  "cookie-consent.necessary.vercel": "__vercel - Used for routing and session management",
+  "cookie-consent.necessary.nextauth":
+    "next-auth.session-token - Authentication management (if applicable)",
+
+  "cookie-consent.preferences.title": "Preference Cookies",
+  "cookie-consent.preferences.description":
+    "These cookies allow us to remember your preferences, such as theme or language.",
+  "cookie-consent.preferences.theme": "theme - Stores your theme preferences (light/dark)",
+  "cookie-consent.preferences.language": "language - Stores your language preferences",
+  "cookie-consent.preferences.enable": "Enable preference cookies",
+
+  "cookie-consent.analytics.title": "Analytics Cookies",
+  "cookie-consent.analytics.description":
+    "These cookies help us understand how visitors interact with our site.",
+  "cookie-consent.analytics.ga4":
+    "Google Analytics 4 - Audience measurement and user behavior analysis",
+  "cookie-consent.analytics.vercel": "Vercel Analytics - Site performance and usage analysis",
+  "cookie-consent.analytics.enable": "Enable analytics cookies",
+
+  "cookie-consent.marketing.title": "Marketing Cookies",
+  "cookie-consent.marketing.description":
+    "These cookies are used to track visitors across websites and display relevant advertisements.",
+
+  "cookie-consent.more-info": "For more information about the cookies we use, please consult our",
+  "cookie-consent.cookie-policy": "cookie policy",
+
+  "cookie-consent.buttons.cancel": "Cancel",
+  "cookie-consent.buttons.reject-all": "Reject All",
+  "cookie-consent.buttons.accept-all": "Accept All",
+  "cookie-consent.buttons.save": "Save Preferences",
+
+  "cookie-consent.banner.text": "This site uses cookies to improve your experience.",
+  "cookie-consent.banner.more": "Learn More",
+  "cookie-consent.banner.reject": "Reject",
+  "cookie-consent.banner.accept": "Accept",
+
+  "metadata.layout.title": "Romain Blanchot - Full Stack Engineer & Automation",
+  "metadata.layout.description":
+    "Full Stack Freelance Engineer specializing in end-to-end solutions and AI integration. Create performant and scalable web applications!",
+  "metadata.layout.keywords":
+    "full stack developer, freelance, Next.js, React, full-stack, AI, web applications, automation, web app, end-to-end solutions, cloud, docker, git, postgresql, typescript",
+  "metadata.layout.category": "technology, portfolio, programming, automation, business",
+  "metadata.layout.openGraph.title": "Romain Blanchot - Full Stack Engineer & Automation",
+  "metadata.layout.openGraph.description":
+    "Full Stack Freelance Engineer specializing in end-to-end solutions and AI integration. Create performant and scalable web applications!",
+  "metadata.layout.openGraph.siteName": "Romain Blanchot - Full Stack Engineer & Automation",
+  "metadata.layout.openGraph.alt": "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
+
+  "metadata.layout.twitter.title": "Romain Blanchot - Full Stack Engineer & Automation",
+  "metadata.layout.twitter.description":
+    "Full Stack Freelance Engineer specializing in end-to-end solutions and AI integration. Create performant and scalable web applications!",
+  "metadata.layout.twitter.alt": "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
+
+  "metadata.mes-projets.title": "My projects",
+  "metadata.mes-projets.description": "Projects I've worked on as a freelance developer",
+  "metadata.mes-projets.keywords": [
+    "web development",
+    "portfolio",
+    "projects",
+    "nextjs",
+    "react",
+    "javascript",
+    "typescript",
+    "frontend",
+    "backend",
+    "fullstack",
+    "responsive",
+    "mobile",
+    "design",
+    "UX/UI",
+    "applications",
+  ],
+  "metadata.mes-projets.twitter.title": "My projects",
+  "metadata.mes-projets.twitter.description": "Projects I've worked on as a freelance developer",
+  "metadata.mes-projets.twitter.alt":
+    "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
+  "metadata.mes-projets.openGraph.title": "My projects",
+  "metadata.mes-projets.openGraph.description": "Projects I've worked on as a freelance developer",
+  "metadata.mes-projets.openGraph.siteName": "My projects",
+  "metadata.mes-projets.openGraph.alt":
+    "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
+
+  "metadata.politique-de-confidentialite.title": "Privacy Policy",
+  "metadata.politique-de-confidentialite.description":
+    "Privacy policy concerning the collection and processing of personal data in the context of our newsletter and our services.",
+} as const
