@@ -1,5 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { SkeletonRepeat } from "@/components/skeletons"
 
 export default function Loading() {
   return (
@@ -15,22 +16,21 @@ export default function Loading() {
               <Skeleton className="h-20 w-full" />
 
               <div className="space-y-4">
-                {[...new Array(2)].map((_, index) => (
-                  <div
-                    key={`skeleton-contact-${index}`}
-                    className="flex items-center gap-4 rounded-lg border p-4"
-                  >
-                    <Skeleton className="h-10 w-10 rounded-full" />
-                    <div>
-                      <Skeleton className="mb-2 h-5 w-24" />
-                      <Skeleton className="h-4 w-36" />
+                <SkeletonRepeat count={2} prefix="skeleton-contact">
+                  {() => (
+                    <div className="flex items-center gap-4 rounded-lg border p-4">
+                      <Skeleton className="h-10 w-10 rounded-full" />
+                      <div>
+                        <Skeleton className="mb-2 h-5 w-24" />
+                        <Skeleton className="h-4 w-36" />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )}
+                </SkeletonRepeat>
               </div>
 
               <div className="flex gap-4 pt-4">
-                {[...new Array(3)].map((_, index) => (
+                {Array.from({ length: 3 }, (_, index) => (
                   <Skeleton key={`skeleton-social-${index}`} className="h-10 w-10 rounded-full" />
                 ))}
               </div>

@@ -9,7 +9,7 @@ import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server"
 import HeroAnimated from "./heroAnimated"
 
-export default async function Hero({ params }: { params: Promise<{ locale: string }> }) {
+export default async function Hero({ params }: Readonly<{ params: Promise<{ locale: string }> }>) {
   const { locale } = await params
   setStaticParamsLocale(locale)
   const t = await getI18n()
@@ -64,7 +64,7 @@ export default async function Hero({ params }: { params: Promise<{ locale: strin
                   text: t("hero.feature.4"),
                 },
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-2">
+                <div key={`hero-feature-${index}`} className="flex items-center gap-2">
                   {item.icon}
                   <span className="text-xs font-medium sm:text-sm">{item.text}</span>
                 </div>

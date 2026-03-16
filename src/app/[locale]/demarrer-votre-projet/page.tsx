@@ -177,9 +177,9 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...new Array(5)].map((_, i) => (
+                          {Array.from({ length: 5 }, (_, i) => (
                             <Star
-                              key={`star-${i}`}
+                              key={`star-client1-${i}`}
                               className="h-5 w-5 fill-current text-yellow-400"
                             />
                           ))}
@@ -202,9 +202,9 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...new Array(5)].map((_, i) => (
+                          {Array.from({ length: 5 }, (_, i) => (
                             <Star
-                              key={`star-${i}`}
+                              key={`star-client2-${i}`}
                               className="h-5 w-5 fill-current text-yellow-400"
                             />
                           ))}
@@ -227,9 +227,9 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...new Array(5)].map((_, i) => (
+                          {Array.from({ length: 5 }, (_, i) => (
                             <Star
-                              key={`star-${i}`}
+                              key={`star-client3-${i}`}
                               className="h-5 w-5 fill-current text-yellow-400"
                             />
                           ))}
@@ -252,9 +252,9 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...new Array(5)].map((_, i) => (
+                          {Array.from({ length: 5 }, (_, i) => (
                             <Star
-                              key={`star-${i}`}
+                              key={`star-client4-${i}`}
                               className="h-5 w-5 fill-current text-yellow-400"
                             />
                           ))}

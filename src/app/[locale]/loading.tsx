@@ -1,4 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton"
+import { SkeletonSection, SkeletonGrid, SkeletonRepeat } from "@/components/skeletons"
 
 export default function Loading() {
   return (
@@ -14,59 +15,59 @@ export default function Loading() {
                 <Skeleton className="h-10 w-40" />
                 <Skeleton className="h-10 w-40" />
               </div>
-              <div className="grid grid-cols-2 gap-3 pt-4 sm:flex sm:flex-wrap sm:gap-6">
-                {[...new Array(4)].map((_, index) => (
-                  <Skeleton key={`skeleton-feature-${index}`} className="h-6 w-32" />
-                ))}
-              </div>
+              <SkeletonGrid
+                count={4}
+                prefix="skeleton-feature"
+                className="grid grid-cols-2 gap-3 pt-4 sm:flex sm:flex-wrap sm:gap-6"
+                itemClassName="h-6 w-32"
+              />
             </div>
             <div className="relative mt-6 flex justify-center sm:mt-8 lg:mt-0">
               <Skeleton className="h-56 w-56 rounded-full sm:h-64 sm:w-64 md:h-80 md:w-80 lg:h-96 lg:w-96" />
             </div>
           </div>
-          <div className="mt-8 flex justify-center gap-4 sm:mt-10 lg:mt-12 lg:justify-start">
-            {[...new Array(3)].map((_, index) => (
-              <Skeleton key={`skeleton-social-${index}`} className="h-10 w-10 rounded-full" />
-            ))}
-          </div>
+          <SkeletonGrid
+            count={3}
+            prefix="skeleton-social"
+            className="mt-8 flex justify-center gap-4 sm:mt-10 lg:mt-12 lg:justify-start"
+            itemClassName="h-10 w-10 rounded-full"
+          />
         </div>
       </section>
 
       {/* Services Section Skeleton */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-          <Skeleton className="mx-auto mb-10 h-12 w-64" />
-          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[...new Array(3)].map((_, index) => (
-              <Skeleton key={`skeleton-service-${index}`} className="h-64 rounded-lg" />
-            ))}
-          </div>
-        </div>
-      </section>
+      <SkeletonSection className="py-16">
+        <SkeletonGrid
+          count={3}
+          prefix="skeleton-service"
+          className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+          itemClassName="h-64 rounded-lg"
+        />
+      </SkeletonSection>
 
       {/* Skills Section Skeleton */}
-      <section className="bg-muted/30 py-16">
-        <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-          <Skeleton className="mx-auto mb-10 h-12 w-64" />
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5">
-            {[...new Array(10)].map((_, index) => (
-              <Skeleton key={`skeleton-skill-${index}`} className="h-28 rounded-lg" />
-            ))}
-          </div>
-        </div>
-      </section>
+      <SkeletonSection className="bg-muted/30 py-16">
+        <SkeletonGrid
+          count={10}
+          prefix="skeleton-skill"
+          className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5"
+          itemClassName="h-28 rounded-lg"
+        />
+      </SkeletonSection>
 
       {/* Minimalistic Projects, About and Contact skeletons */}
-      {[...new Array(3)].map((_, index) => (
-        <section key={`skeleton-section-${index}`} className="py-16">
-          <div className="container mx-auto px-4 sm:px-8 lg:px-12">
-            <Skeleton className="mx-auto mb-10 h-12 w-64" />
-            <div className="mx-auto max-w-3xl">
-              <Skeleton className="h-96 rounded-lg" />
+      <SkeletonRepeat count={3} prefix="skeleton-section">
+        {() => (
+          <section className="py-16">
+            <div className="container mx-auto px-4 sm:px-8 lg:px-12">
+              <Skeleton className="mx-auto mb-10 h-12 w-64" />
+              <div className="mx-auto max-w-3xl">
+                <Skeleton className="h-96 rounded-lg" />
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        )}
+      </SkeletonRepeat>
     </div>
   )
 }

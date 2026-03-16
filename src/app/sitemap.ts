@@ -21,8 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = []
 
   STATIC_PAGES.forEach((page) => {
-    const urlFr = `https://www.romainblanchot.com${page ? `/${page}` : ""}`
-    const urlEn = `https://www.romainblanchot.com/en${page ? `/${page}` : ""}`
+    const pagePath = page ? `/${page}` : ""
+    const urlFr = `https://www.romainblanchot.com${pagePath}`
+    const urlEn = `https://www.romainblanchot.com/en${pagePath}`
 
     const alternates: Record<string, string> = {}
     LANGUAGES.forEach((lang) => {

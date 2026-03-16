@@ -24,9 +24,9 @@ export async function generateMetadata({
 
 export default async function PolitiqueDeConfidentialite({
   params,
-}: {
+}: Readonly<{
   params: Promise<{ locale: string }>
-}) {
+}>) {
   const { locale } = await params
   setStaticParamsLocale(locale)
   const t = await getI18n()

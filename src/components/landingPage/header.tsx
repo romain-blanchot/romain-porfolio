@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
-import { useI18n } from "@/locales/client"
+import { useI18n, useChangeLocale, useCurrentLocale } from "@/locales/client"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -12,7 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Moon, Sun, Menu, X, Globe } from "lucide-react"
-import { useChangeLocale, useCurrentLocale } from "@/locales/client"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)

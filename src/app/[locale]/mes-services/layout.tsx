@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function MesServicesLayout({ children }: { children: React.ReactNode }) {
+export default function MesServicesLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <section className="bg-background min-h-screen">
       <div className="mx-auto">{children}</div>

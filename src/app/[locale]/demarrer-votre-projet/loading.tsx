@@ -1,5 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { SkeletonRepeat } from "@/components/skeletons"
 
 export default function Loading() {
   return (
@@ -47,7 +48,7 @@ export default function Loading() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {[...new Array(6)].map((_, index) => (
+                {Array.from({ length: 6 }, (_, index) => (
                   <div key={`skeleton-why-${index}`} className="flex items-start gap-2">
                     <Skeleton className="bg-primary-foreground/20 mt-1 h-5 w-5 rounded-full" />
                     <div>
@@ -68,15 +69,17 @@ export default function Loading() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {[...new Array(5)].map((_, index) => (
-                  <div key={`skeleton-step-${index}`} className="flex items-start gap-4">
-                    <Skeleton className="h-8 w-8 flex-shrink-0 rounded-full" />
-                    <div className="min-w-0 flex-1 space-y-1">
-                      <Skeleton className="h-5 w-32" />
-                      <Skeleton className="h-4 w-full" />
+                <SkeletonRepeat count={5} prefix="skeleton-step">
+                  {() => (
+                    <div className="flex items-start gap-4">
+                      <Skeleton className="h-8 w-8 flex-shrink-0 rounded-full" />
+                      <div className="min-w-0 flex-1 space-y-1">
+                        <Skeleton className="h-5 w-32" />
+                        <Skeleton className="h-4 w-full" />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )}
+                </SkeletonRepeat>
               </div>
             </CardContent>
           </Card>

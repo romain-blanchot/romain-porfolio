@@ -25,7 +25,8 @@ export function generateMetadata({
   const slug = params.slug ? `/${params.slug.join("/")}` : "" // Page actuelle
 
   const baseUrl = "https://www.romainblanchot.com"
-  const pageUrl = `${baseUrl}${currentLang === "fr" ? "" : `/${currentLang}`}${slug}`
+  const langPrefix = currentLang === "fr" ? "" : `/${currentLang}`
+  const pageUrl = `${baseUrl}${langPrefix}${slug}`
 
   // Générer les alternates pour chaque langue
   const alternates: Record<string, string> = {}

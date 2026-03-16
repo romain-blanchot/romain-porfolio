@@ -61,16 +61,6 @@ export function CookieConsent() {
     savePreferences(allAccepted)
   }
 
-  // const handleRejectAll = () => {
-  //   const allRejected = {
-  //     necessary: true, // Toujours activé
-  //     preferences: false,
-  //     analytics: false,
-  //     marketing: false,
-  //   }
-  //   savePreferences(allRejected)
-  // }
-
   const handleSavePreferences = () => {
     savePreferences(preferences)
   }

@@ -112,28 +112,3 @@ export const webSiteSchema: WithContext<WebSite> = {
 // https://www.romainblanchot.com/mes-projets 5
 // https://www.romainblanchot.com/mes-services 3
 // https://www.romainblanchot.com/skills 4
-
-// export const breadcrumbSchema: WithContext<BreadcrumbList> = {
-//   "@context": "https://schema.org",
-//   "@type": "BreadcrumbList",
-//   itemListElement: [
-//     {
-//       "@type": "ListItem",
-//       position: 1,
-//       name: "Accueil",
-//       item: "https://www.romainblanchot.com",
-//     },
-//     {
-//       "@type": "ListItem",
-//       position: 2,
-//       name: "Portfolio",
-//       item: "https://www.romainblanchot.com/portfolio",
-//     },
-//     {
-//       "@type": "ListItem",
-//       position: 3,
-//       name: "Contact",
-//       item: "https://www.romainblanchot.com/contact",
-//     },
-//   ],
-// };

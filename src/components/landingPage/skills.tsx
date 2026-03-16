@@ -225,7 +225,7 @@ export default function Skills() {
                             <h4 className="mb-2 text-sm font-semibold">{t("skills.projects")}</h4>
                             <ul className="text-muted-foreground list-inside list-disc text-sm">
                               {skill.projects.map((project, idx) => (
-                                <li key={idx}>{project}</li>
+                                <li key={`project-${idx}`}>{project}</li>
                               ))}
                             </ul>
                           </div>

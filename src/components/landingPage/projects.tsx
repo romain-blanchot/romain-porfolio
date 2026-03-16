@@ -247,7 +247,7 @@ export default function Projects() {
                             >
                               {project.challenges.map((challenge, challengeIndex) => (
                                 <div
-                                  key={`challenge-${challengeIndex}`}
+                                  key={`featured-challenge-${challengeIndex}`}
                                   className="bg-background rounded-lg p-4 shadow-xs"
                                 >
                                   <div className="mb-2 flex items-center gap-2">
@@ -335,7 +335,7 @@ export default function Projects() {
                           >
                             {project.challenges.map((challenge, challengeIndex) => (
                               <div
-                                key={challengeIndex}
+                                key={`regular-challenge-${challengeIndex}`}
                                 className="bg-background rounded-lg p-4 shadow-xs"
                               >
                                 <div className="mb-2 flex items-center gap-2">
