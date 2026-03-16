@@ -14,12 +14,9 @@ import {
 } from "@react-email/components"
 import * as React from "react"
 import { getI18n } from "@/locales/server"
-// import photoProfilRomain from "@/public/photoProfilRomain.jpg";
-// import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter";
 
 type WelcomeNewsletterProps = {
   email: string
-  language?: string
 }
 
 export async function WelcomeNewsletter(props: WelcomeNewsletterProps) {

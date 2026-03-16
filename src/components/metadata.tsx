@@ -30,7 +30,8 @@ export function generateMetadata({
   // Générer les alternates pour chaque langue
   const alternates: Record<string, string> = {}
   LANGUAGES.forEach((lang) => {
-    alternates[lang] = `${baseUrl}${lang === "fr" ? "" : `/${lang}`}${slug}`
+    const langPrefix = lang === "fr" ? "" : `/${lang}`
+    alternates[lang] = `${baseUrl}${langPrefix}${slug}`
   })
 
   return {
@@ -94,17 +95,3 @@ export function generateMetadata({
     },
   }
 }
-
-// export function generateMetadata({ params }) {
-//     const currentLang = params.lang || "fr"; // Récupérer la langue actuelle
-
-//     return {
-//       alternates: {
-//         canonical: `https://www.romainblanchot.com${currentLang === "en" ? "/en" : ""}`,
-//         languages: {
-//           "fr": "https://www.romainblanchot.com",
-//           "en": "https://www.romainblanchot.com/en",
-//         },
-//       },
-//     };
-//   }

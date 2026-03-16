@@ -13,16 +13,16 @@ export default function Loading() {
       {/* Onglets de catégories */}
       <div className="mb-8 w-full">
         <div className="mb-4 grid w-full grid-cols-1 gap-4 pt-4 pb-10 md:mb-8 md:grid-cols-3 md:pt-1 lg:pt-1">
-          {[...Array(3)].map((_, index) => (
-            <Skeleton key={index} className="h-12 rounded-md" />
+          {[...new Array(3)].map((_, index) => (
+            <Skeleton key={`skeleton-tab-${index}`} className="h-12 rounded-md" />
           ))}
         </div>
       </div>
 
       {/* Grille de services */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-        {[...Array(6)].map((_, index) => (
-          <Card key={index} className="h-full">
+        {[...new Array(6)].map((_, index) => (
+          <Card key={`skeleton-service-${index}`} className="h-full">
             <CardHeader>
               <div className="bg-muted mb-3 h-10 w-10 rounded-full md:mb-4 md:h-12 md:w-12" />
               <Skeleton className="mb-2 h-6 w-3/4" />
@@ -31,8 +31,8 @@ export default function Loading() {
             <CardContent className="space-y-4">
               <Skeleton className="h-24 w-full" />
               <div className="flex flex-wrap gap-2">
-                {[...Array(4)].map((_, tagIndex) => (
-                  <Skeleton key={tagIndex} className="h-5 w-16 rounded-full" />
+                {[...new Array(4)].map((_, tagIndex) => (
+                  <Skeleton key={`skeleton-tag-${tagIndex}`} className="h-5 w-16 rounded-full" />
                 ))}
               </div>
               <div className="pt-2">

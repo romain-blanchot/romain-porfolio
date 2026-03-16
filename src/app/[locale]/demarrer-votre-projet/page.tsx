@@ -15,9 +15,9 @@ import { setStaticParamsLocale } from "next-international/server"
 
 export default async function DemarrerVotreProjet({
   params,
-}: {
+}: Readonly<{
   params: Promise<{ locale: string }>
-}) {
+}>) {
   const { locale } = await params
   setStaticParamsLocale(locale)
 
@@ -177,8 +177,11 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
+                          {[...new Array(5)].map((_, i) => (
+                            <Star
+                              key={`star-${i}`}
+                              className="h-5 w-5 fill-current text-yellow-400"
+                            />
                           ))}
                         </div>
                         <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">
@@ -199,8 +202,11 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
+                          {[...new Array(5)].map((_, i) => (
+                            <Star
+                              key={`star-${i}`}
+                              className="h-5 w-5 fill-current text-yellow-400"
+                            />
                           ))}
                         </div>
                         <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">
@@ -221,8 +227,11 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
+                          {[...new Array(5)].map((_, i) => (
+                            <Star
+                              key={`star-${i}`}
+                              className="h-5 w-5 fill-current text-yellow-400"
+                            />
                           ))}
                         </div>
                         <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">
@@ -243,8 +252,11 @@ export default async function DemarrerVotreProjet({
                     <Card>
                       <CardContent className="pt-6">
                         <div className="mb-4 flex justify-center">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
+                          {[...new Array(5)].map((_, i) => (
+                            <Star
+                              key={`star-${i}`}
+                              className="h-5 w-5 fill-current text-yellow-400"
+                            />
                           ))}
                         </div>
                         <blockquote className="mb-4 text-center text-xs break-words italic sm:text-sm">

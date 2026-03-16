@@ -47,8 +47,8 @@ export default function Loading() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {[...Array(6)].map((_, index) => (
-                  <div key={index} className="flex items-start gap-2">
+                {[...new Array(6)].map((_, index) => (
+                  <div key={`skeleton-why-${index}`} className="flex items-start gap-2">
                     <Skeleton className="bg-primary-foreground/20 mt-1 h-5 w-5 rounded-full" />
                     <div>
                       <Skeleton className="bg-primary-foreground/20 mb-1 h-4 w-32" />
@@ -68,8 +68,8 @@ export default function Loading() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {[...Array(5)].map((_, index) => (
-                  <div key={index} className="flex items-start gap-4">
+                {[...new Array(5)].map((_, index) => (
+                  <div key={`skeleton-step-${index}`} className="flex items-start gap-4">
                     <Skeleton className="h-8 w-8 flex-shrink-0 rounded-full" />
                     <div className="min-w-0 flex-1 space-y-1">
                       <Skeleton className="h-5 w-32" />

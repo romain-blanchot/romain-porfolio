@@ -7,12 +7,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
 import ProjectForm from "../reservation/project-form"
-import { FiLinkedin } from "react-icons/fi"
-import { LuGithub } from "react-icons/lu"
+import { FiLinkedin, FiFacebook } from "react-icons/fi"
+import { LuGithub, LuYoutube } from "react-icons/lu"
 import { FaXTwitter } from "react-icons/fa6"
 import { RiTiktokLine } from "react-icons/ri"
-import { FiFacebook } from "react-icons/fi"
-import { LuYoutube } from "react-icons/lu"
 import { FaInstagram } from "react-icons/fa"
 
 export default function Contact() {
@@ -66,7 +64,7 @@ export default function Contact() {
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <Link
-                  key={index}
+                  key={`contact-${index}`}
                   href={info.href}
                   target={info.href.startsWith("http") ? "_blank" : undefined}
                   rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -114,7 +112,7 @@ export default function Contact() {
                   variant="outline"
                   size="icon"
                   aria-label="Email"
-                  onClick={() => (window.location.href = "mailto:blanchot@et.esiea.fr")}
+                  onClick={() => (globalThis.location.href = "mailto:blanchot@et.esiea.fr")}
                 >
                   <Mail className="h-5 w-5" />
                 </Button>

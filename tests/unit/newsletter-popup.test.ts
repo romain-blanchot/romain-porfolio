@@ -9,16 +9,16 @@ function shouldShowPopup(): boolean {
 
   const lastShown = localStorage.getItem("lastNewsletterPopupShown")
   if (lastShown) {
-    const elapsed = Date.now() - parseInt(lastShown, 10)
+    const elapsed = Date.now() - Number.parseInt(lastShown, 10)
     if (elapsed < POPUP_INTERVAL) return false
   }
 
-  const pageViews = parseInt(localStorage.getItem("pageViews") || "0", 10)
+  const pageViews = Number.parseInt(localStorage.getItem("pageViews") || "0", 10)
   return pageViews >= PAGE_VIEW_THRESHOLD
 }
 
 function incrementPageViews() {
-  const current = parseInt(localStorage.getItem("pageViews") || "0", 10)
+  const current = Number.parseInt(localStorage.getItem("pageViews") || "0", 10)
   localStorage.setItem("pageViews", String(current + 1))
 }
 

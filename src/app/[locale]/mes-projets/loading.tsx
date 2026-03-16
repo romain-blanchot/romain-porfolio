@@ -14,8 +14,8 @@ export default function Loading() {
 
           {/* Other Projects Skeleton */}
           <div className="grid gap-6 md:grid-cols-2">
-            {[...Array(4)].map((_, index) => (
-              <Skeleton key={index} className="h-80 rounded-lg" />
+            {[...new Array(4)].map((_, index) => (
+              <Skeleton key={`skeleton-project-${index}`} className="h-80 rounded-lg" />
             ))}
           </div>
         </div>

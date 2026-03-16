@@ -9,7 +9,9 @@ import { LuGithub } from "react-icons/lu"
 import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server"
 
-export default async function Footer({ params }: { params: Promise<{ locale: string }> }) {
+export default async function Footer({
+  params,
+}: Readonly<{ params: Promise<{ locale: string }> }>) {
   const t = await getI18n()
   const { locale } = await params
   setStaticParamsLocale(locale)

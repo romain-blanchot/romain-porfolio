@@ -29,14 +29,6 @@ import {
 import Link from "next/link"
 import { useState } from "react"
 
-// import { getI18n } from "@/locales/server"
-// import { setStaticParamsLocale } from "next-international/server"
-
-// export default async function Projects({ params }: { params: Promise<{ locale: string }> }) {
-//   const t = await getI18n()
-//   const { locale } = await params;
-//   setStaticParamsLocale(locale);
-
 export default function Projects() {
   const t = useI18n()
 
@@ -178,7 +170,7 @@ export default function Projects() {
             .map((project, index) => {
               const projectId = `featured-${index}`
               return (
-                <motion.div key={index} variants={item}>
+                <motion.div key={`featured-${index}`} variants={item}>
                   <Card className="overflow-hidden">
                     <div className="grid gap-6 md:grid-cols-2">
                       <div className="relative h-64 md:h-auto">
@@ -203,7 +195,7 @@ export default function Projects() {
                           <p className="text-muted-foreground mb-4">{project.description}</p>
                           <div className="mb-4 flex flex-wrap gap-2">
                             {project.tags.map((tag, tagIndex) => (
-                              <Badge key={tagIndex} variant="outline">
+                              <Badge key={`tag-${tagIndex}`} variant="outline">
                                 {tag}
                               </Badge>
                             ))}
@@ -242,9 +234,6 @@ export default function Projects() {
                               )}
                             </Button>
                           )}
-                          {/* <Button variant="outline" size="sm">
-                          {t("projects.sourceCode")}
-                        </Button> */}
                         </div>
                         <AnimatePresence>
                           {isProjectExpanded(projectId) && (
@@ -258,7 +247,7 @@ export default function Projects() {
                             >
                               {project.challenges.map((challenge, challengeIndex) => (
                                 <div
-                                  key={challengeIndex}
+                                  key={`challenge-${challengeIndex}`}
                                   className="bg-background rounded-lg p-4 shadow-xs"
                                 >
                                   <div className="mb-2 flex items-center gap-2">
@@ -289,7 +278,7 @@ export default function Projects() {
               .map((project, index) => {
                 const projectId = `regular-${index}`
                 return (
-                  <motion.div key={index} variants={item}>
+                  <motion.div key={`regular-project-${index}`} variants={item}>
                     <Card>
                       <CardHeader>
                         <div className="flex items-start justify-between">

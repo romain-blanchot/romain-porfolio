@@ -84,10 +84,10 @@ export default function NewsletterPopup() {
     }
 
     const lastPopupShown = localStorage.getItem("lastNewsletterPopupShown")
-    let pageViews = parseInt(localStorage.getItem("pageViews") || "0", 10)
+    let pageViews = Number.parseInt(localStorage.getItem("pageViews") || "0", 10)
     const now = Date.now()
 
-    const canShowPopup = !lastPopupShown || now - parseInt(lastPopupShown) > POPUP_INTERVAL
+    const canShowPopup = !lastPopupShown || now - Number.parseInt(lastPopupShown) > POPUP_INTERVAL
 
     if (!canShowPopup) {
       setHasCheckedStorage(true)

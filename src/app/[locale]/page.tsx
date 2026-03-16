@@ -7,7 +7,7 @@ import Contact from "@/components/landingPage/contact"
 import NewsletterSection from "@/components/landingPage/newsletter-section"
 import { setStaticParamsLocale } from "next-international/server"
 
-export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+export default async function Home({ params }: Readonly<{ params: Promise<{ locale: string }> }>) {
   const { locale } = await params
   setStaticParamsLocale(locale)
 

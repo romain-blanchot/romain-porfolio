@@ -15,8 +15,8 @@ export default function Loading() {
                 <Skeleton className="h-10 w-40" />
               </div>
               <div className="grid grid-cols-2 gap-3 pt-4 sm:flex sm:flex-wrap sm:gap-6">
-                {[...Array(4)].map((_, index) => (
-                  <Skeleton key={index} className="h-6 w-32" />
+                {[...new Array(4)].map((_, index) => (
+                  <Skeleton key={`skeleton-feature-${index}`} className="h-6 w-32" />
                 ))}
               </div>
             </div>
@@ -25,8 +25,8 @@ export default function Loading() {
             </div>
           </div>
           <div className="mt-8 flex justify-center gap-4 sm:mt-10 lg:mt-12 lg:justify-start">
-            {[...Array(3)].map((_, index) => (
-              <Skeleton key={index} className="h-10 w-10 rounded-full" />
+            {[...new Array(3)].map((_, index) => (
+              <Skeleton key={`skeleton-social-${index}`} className="h-10 w-10 rounded-full" />
             ))}
           </div>
         </div>
@@ -37,8 +37,8 @@ export default function Loading() {
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
           <Skeleton className="mx-auto mb-10 h-12 w-64" />
           <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[...Array(3)].map((_, index) => (
-              <Skeleton key={index} className="h-64 rounded-lg" />
+            {[...new Array(3)].map((_, index) => (
+              <Skeleton key={`skeleton-service-${index}`} className="h-64 rounded-lg" />
             ))}
           </div>
         </div>
@@ -49,16 +49,16 @@ export default function Loading() {
         <div className="container mx-auto px-4 sm:px-8 lg:px-12">
           <Skeleton className="mx-auto mb-10 h-12 w-64" />
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5">
-            {[...Array(10)].map((_, index) => (
-              <Skeleton key={index} className="h-28 rounded-lg" />
+            {[...new Array(10)].map((_, index) => (
+              <Skeleton key={`skeleton-skill-${index}`} className="h-28 rounded-lg" />
             ))}
           </div>
         </div>
       </section>
 
       {/* Minimalistic Projects, About and Contact skeletons */}
-      {[...Array(3)].map((_, index) => (
-        <section key={index} className="py-16">
+      {[...new Array(3)].map((_, index) => (
+        <section key={`skeleton-section-${index}`} className="py-16">
           <div className="container mx-auto px-4 sm:px-8 lg:px-12">
             <Skeleton className="mx-auto mb-10 h-12 w-64" />
             <div className="mx-auto max-w-3xl">

@@ -15,8 +15,11 @@ export default function Loading() {
               <Skeleton className="h-20 w-full" />
 
               <div className="space-y-4">
-                {[...Array(2)].map((_, index) => (
-                  <div key={index} className="flex items-center gap-4 rounded-lg border p-4">
+                {[...new Array(2)].map((_, index) => (
+                  <div
+                    key={`skeleton-contact-${index}`}
+                    className="flex items-center gap-4 rounded-lg border p-4"
+                  >
                     <Skeleton className="h-10 w-10 rounded-full" />
                     <div>
                       <Skeleton className="mb-2 h-5 w-24" />
@@ -27,8 +30,8 @@ export default function Loading() {
               </div>
 
               <div className="flex gap-4 pt-4">
-                {[...Array(3)].map((_, index) => (
-                  <Skeleton key={index} className="h-10 w-10 rounded-full" />
+                {[...new Array(3)].map((_, index) => (
+                  <Skeleton key={`skeleton-social-${index}`} className="h-10 w-10 rounded-full" />
                 ))}
               </div>
             </div>

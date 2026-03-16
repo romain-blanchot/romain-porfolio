@@ -7,10 +7,6 @@ import { ArrowLeft } from "lucide-react"
 import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server"
 
-// export function generateStaticParams() {
-//   return getStaticParams();
-// }
-
 export async function generateMetadata({
   params,
 }: {
