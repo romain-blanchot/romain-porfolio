@@ -36,7 +36,6 @@ export async function subscribeToNewsletter(data: NewsletterSchemaType) {
       subject: t("newsletter.email.subject"),
       react: WelcomeNewsletter({
         email: parsed.data.email,
-        language: parsed.data.language,
       }),
       replyTo: "romainblanchot0@gmail.com",
     })
