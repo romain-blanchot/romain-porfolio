@@ -116,7 +116,7 @@ export default function NewsletterSection() {
                   transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
                   className="flex items-start gap-2"
                 >
-                  <div className="mt-0.5 bg-background rounded-full p-1 shadow-sm border border-muted">
+                  <div className="mt-0.5 bg-background rounded-full p-1 shadow-xs border border-muted">
                     {benefit.icon}
                   </div>
                   <div>
@@ -139,7 +139,7 @@ export default function NewsletterSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="overflow-hidden border-primary/10 bg-background/60 backdrop-blur-sm">
+            <Card className="overflow-hidden border-primary/10 bg-background/60 backdrop-blur-xs">
               <CardContent className="p-4 md:p-6">
                 <div className="mb-4 space-y-1 text-center">
                   <h3 className="text-lg md:text-xl font-bold">{t("newsletter-section.card.title")}</h3>

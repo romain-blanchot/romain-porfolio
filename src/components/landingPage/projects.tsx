@@ -233,7 +233,7 @@ export default function Projects() {
                           className="mt-4 space-y-4"
                         >
                           {project.challenges.map((challenge, challengeIndex) => (
-                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-sm">
+                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-xs">
                               <div className="flex items-center gap-2 mb-2">
                                 <div className="p-1 bg-primary/10 rounded-full text-primary">{challenge.icon}</div>
                                 <h5 className="font-semibold">{challenge.challenge}</h5>
@@ -307,7 +307,7 @@ export default function Projects() {
                           className="mt-4 space-y-4"
                         >
                           {project.challenges.map((challenge, challengeIndex) => (
-                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-sm">
+                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-xs">
                               <div className="flex items-center gap-2 mb-2">
                                 <div className="p-1 bg-primary/10 rounded-full text-primary">{challenge.icon}</div>
                                 <h5 className="font-semibold">{challenge.challenge}</h5>

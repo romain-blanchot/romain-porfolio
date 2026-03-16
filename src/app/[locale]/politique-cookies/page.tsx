@@ -164,11 +164,11 @@ export default async function PolitiqueCookies({ params }: { params: Promise<{ l
                 </tr>
                 <tr>
                   <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.name")}</td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row3.provider")}</td>
+                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.provider")}</td>
                   <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">
-                    {t("politique-cookies.table.3.3.row3.purpose")}
+                    {t("politique-cookies.table.3.3.row2.purpose")}
                   </td>
-                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row3.duration")}</td>
+                  <td className="border border-gray-300 dark:border-gray-700 px-4 py-2">{t("politique-cookies.table.3.3.row2.duration")}</td>
                 </tr>
               </tbody>
             </table>
